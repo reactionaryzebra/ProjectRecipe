@@ -1,7 +1,6 @@
 const express = require("express");
 const router = express.Router();
 const User = require("../models/user");
-let message;
 
 router.get("/auth", (req, res) => {
   console.log("route hit");
@@ -12,7 +11,7 @@ router.post("/register", async (req, res) => {
   try {
     const foundUser = await User.find({ username: req.body.username });
     if (foundUser) {
-      message = "This username is taken, please try another";
+      req.flash("message", "This username is taken, please try another");
     } else {
       const newUser = await User.create(req.body);
       req.session.username = req.body.username;
@@ -30,14 +29,17 @@ router.post("/login", async (req, res) => {
   try {
     const foundUser = await User.find({ username: req.body.username });
     if (!foundUser) {
-      message = "Incorrect username or this username does not exist";
+      req.flash(
+        "message",
+        "Incorrect username or this username does not exist"
+      );
     } else {
       if (foundUser.validate) {
         res.render("/user/landing", {
           user: foundUser
         });
       } else {
-        message = "Incorrect password";
+        req.flash("message", "Incorrect password");
       }
     }
   } catch (err) {
