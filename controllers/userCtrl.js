@@ -12,9 +12,7 @@ router.post("/register", async (req, res) => {
       const newUser = await User.create(req.body);
       req.session.username = req.body.username;
       req.session.logged = true;
-      res.render("/user/landing", {
-        user: newUser
-      });
+      res.redirect(`user/${newUser.id}`);
     }
   } catch (err) {
     throw new Error(err);
@@ -31,9 +29,7 @@ router.post("/login", async (req, res) => {
       );
     } else {
       if (foundUser.validatePassword(req.body.password)) {
-        res.render("/user/landing", {
-          user: foundUser
-        });
+        res.redirect(`user/${foundUser.id}`);
       } else {
         req.flash("message", "Incorrect password");
       }
@@ -48,6 +44,17 @@ router.delete("/:id", async (req, res) => {
     const user = await User.findById(req.params.id);
     const recipesToDelete = await Recipe.deleteMany().in("_id", user.cookbook);
     res.redirect("/start");
+  } catch (err) {
+    throw new Error(err);
+  }
+});
+
+router.get("/:id", async (req, res) => {
+  try {
+    const user = User.findById(req.params.id);
+    res.render("/user/landing", {
+      user
+    });
   } catch (err) {
     throw new Error(err);
   }
