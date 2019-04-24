@@ -5,7 +5,7 @@ const Recipe = require("../models/recipe");
 
 router.post("/register", async (req, res) => {
   try {
-    const foundUser = await User.find({ username: req.body.username });
+    const foundUser = await User.findOne({ username: req.body.username });
     if (foundUser) {
       req.flash("message", "This username is taken, please try another");
     } else {
@@ -23,14 +23,14 @@ router.post("/register", async (req, res) => {
 
 router.post("/login", async (req, res) => {
   try {
-    const foundUser = await User.find({ username: req.body.username });
+    const foundUser = await User.findOne({ username: req.body.username });
     if (!foundUser) {
       req.flash(
         "message",
         "Incorrect username or this username does not exist"
       );
     } else {
-      if (foundUser.validatePassword) {
+      if (foundUser.validatePassword(req.body.password)) {
         res.render("/user/landing", {
           user: foundUser
         });
