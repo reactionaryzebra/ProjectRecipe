@@ -1,9 +1,9 @@
-const mongoose = require('mongoose');
+const mongoose = require("mongoose");
 
 const cookBook = new mongoose.Schema({
-    recipies:[{type: mongoose.Schema.Types.ObjectId, ref: 'Recipe'}]
-})
+  recipies: [{ type: mongoose.Schema.Types.ObjectId, ref: "Recipe" }]
+});
 
-const CookBook = mongoose.model('CookBook', CookbookSchema);
+const CookBook = mongoose.model("CookBook", CookbookSchema);
 
-module.exports = cookBook;
+module.exports = CookBook;
