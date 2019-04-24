@@ -7,7 +7,6 @@ const flash = require("express-flash");
 require("./db/db");
 
 ///controllers
-const cookbookController = require("./controllers/cookbookCtrl");
 const peopleController = require("./controllers/peopleCtrl");
 const potluckController = require("./controllers/potluckCtrl");
 const recipeController = require("./controllers/recipeCtrl");
