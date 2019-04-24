@@ -18,6 +18,7 @@ app.set("view engine", "ejs");
 ///////////middleware
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(methodOverride("_method"));
+app.use(express.static("public"));
 app.use(
   session({
     secret: "ofweupeujo;weju;823",
@@ -37,7 +38,7 @@ app.get("/start", (req, res) => {
 
 app.use("/users", userController);
 
-app.use(function(req, res) {
-  req.sessions.logged ? next() : res.redirect("/start");
-});
+// app.use(function(req, res) {
+//   req.sessions.logged ? next() : res.redirect("/start");
+// });
 ///Routes for all non-login pages
