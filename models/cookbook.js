@@ -4,6 +4,6 @@ const cookBook = new mongoose.Schema({
   recipies: [{ type: mongoose.Schema.Types.ObjectId, ref: "Recipe" }]
 });
 
-const CookBook = mongoose.model("CookBook", CookbookSchema);
+const Cookbook = mongoose.model("Cookbook", CookbookSchema);
 
-module.exports = CookBook;
+module.exports = Cookbook;
