@@ -3,6 +3,7 @@ const app = express();
 const bodyParser = require("body-parser");
 const methodOverride = require("method-override");
 const session = require("express-session");
+const flash = require("express-flash");
 require("./db/db");
 
 ///controllers
@@ -25,9 +26,14 @@ app.use(
     saveUninitialized: false
   })
 );
+app.use(flash());
 
 app.listen(3030, () => {
   console.log("listening", 3030);
 });
 
 app.use("/users", userController);
+
+app.get("/start", (req, res) => {
+  res.render("start");
+});
