@@ -33,3 +33,7 @@ app.listen(3030, () => {
 });
 
 app.use("/users", userController);
+
+app.get("/start", (req, res) => {
+  res.render("start");
+});
