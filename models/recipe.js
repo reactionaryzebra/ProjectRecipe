@@ -9,7 +9,9 @@ const recipeSchema = new mongoose.Schema({
     healthlabels:[],
     nutrientinfo:[],
     likes:Number,
-    hate:Number
+    hates:Number
 })
+
+const Recipe = mongoose.model('Recipe', recipeSchema)
 
 module.exports = Recipe
