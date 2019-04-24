@@ -7,21 +7,21 @@ const userSchema = new mongoose.Schema({
   cookbook: [{ type: mongoose.Schema.Types.ObjectId, ref: "Recipe" }],
   friends: [{ type: mongoose.Schema.Types.ObjectId, ref: "User" }],
   diets: [String],
-  potLuckOwned: [{ type: mongoose.Schema.Types.ObjectId, ref: "PotLuck" }],
-  potLuckPart: [{ type: mongoose.Schema.Types.ObjectId, ref: "PotLuck" }]
+  potLuckOwned: [{ type: mongoose.Schema.Types.ObjectId, ref: "Potluck" }],
+  potLuckPart: [{ type: mongoose.Schema.Types.ObjectId, ref: "Potluck" }]
 });
 
 userSchema.methods.hashPassword = function(password) {
   return bcrypt.hashSync(password, bcrypt.genSaltSync(10));
 };
 
-userSchema.methods.validate = function(password) {
+userSchema.methods.validatePassword = function(password) {
   return bcrypt.compareSync(password, this.password);
 };
 
 userSchema.pre("save", function(next) {
   if (this.isModified("password")) {
-    this.hashPassword(this.password);
+    this.password = this.hashPassword(this.password);
   }
   next();
 });

@@ -32,8 +32,13 @@ app.listen(3030, () => {
   console.log("listening", 3030);
 });
 
-app.use("/users", userController);
-
 app.get("/start", (req, res) => {
   res.render("start");
 });
+
+app.use("/users", userController);
+
+app.use(function(req, res) {
+  req.sessions.logged ? next() : res.redirect("/start");
+});
+///Routes for all non-login pages
