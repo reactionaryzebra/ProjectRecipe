@@ -29,7 +29,7 @@ router.post("/login", async (req, res) => {
         "Incorrect username or this username does not exist"
       );
     } else {
-      if (foundUser.validate) {
+      if (foundUser.validatePassword) {
         res.render("/user/landing", {
           user: foundUser
         });

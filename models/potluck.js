@@ -5,7 +5,11 @@ const potLuckSchema = new mongoose.Schema({
   dishes: [{ type: mongoose.Schema.Types.ObjectId, ref: "Recipe" }],
   date: Date,
   diet: [String],
-  Organizer: { type: mongoose.Schema.Types.ObjectId, ref: "User" }
+  organizer: {
+    required: true,
+    type: mongoose.Schema.Types.ObjectId,
+    ref: "User"
+  }
 });
 
 const Potluck = mongoose.model("Potluck", potLuckSchema);
