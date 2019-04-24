@@ -10,7 +10,7 @@ const cookbookController = require('./controllers/cookbookCtrl')
 const peopleController   = require('./controllers/peopleCtrl')
 const potluckController  = require('./controllers/potluckCtrl')
 const recipeController   = require('./controllers/recipeCtrl')
-const UserController     = require('./controllers/userCtrl')
+const userController     = require('./controllers/userCtrl')
 
 
 
