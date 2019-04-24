@@ -2,6 +2,7 @@ const express = require("express");
 const app = express();
 const bodyParser = require("body-parser");
 const methodOverride = require("method-override");
+const session = require("express-session");
 require("./db/db");
 
 ///controllers
@@ -17,6 +18,13 @@ app.set("view engine", "ejs");
 ///////////middleware
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(methodOverride("_method"));
+app.use(
+  session({
+    secret: "ofweupeujo;weju;823",
+    resave: false,
+    saveUninitialized: false
+  })
+);
 
 app.listen(3030, () => {
   console.log("listening", 3030);
