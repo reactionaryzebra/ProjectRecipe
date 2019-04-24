@@ -2,13 +2,13 @@ const mongoose = require('mongoose');
 
 
 const potLuckSchema = new mongoose.Schema({
-    guests:[users],
-    dishes:[recipies],
+    guests:[{type: mongoose.Schema.Types.ObjectId, ref:'User'}],
+    dishes:[{type: mongoose.Schema.Types.ObjectId, ref:'Recipe'}],
     date:Date,
     diet:[String],
-    Organizer: {User}
+    Organizer: {type: mongoose.Schema.Types.ObjectId, ref:'User'}
 })
 
-const potLuck = mongoose.model('PotLuck', potLuckSchema);
+const PotLuck = mongoose.model('PotLuck', potLuckSchema);
 
-module.exports = potLuck;
+module.exports = PotLuck;
