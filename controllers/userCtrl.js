@@ -12,7 +12,7 @@ router.post("/register", async (req, res) => {
       const newUser = await User.create(req.body);
       req.session.username = req.body.username;
       req.session.logged = true;
-      res.redirect(`user/${newUser.id}`);
+      res.redirect(`users/${newUser.id}`);
     }
   } catch (err) {
     throw new Error(err);
@@ -29,7 +29,7 @@ router.post("/login", async (req, res) => {
       );
     } else {
       if (foundUser.validatePassword(req.body.password)) {
-        res.redirect(`user/${foundUser.id}`);
+        res.redirect(`users/${foundUser.id}`);
       } else {
         req.flash("message", "Incorrect password");
       }
