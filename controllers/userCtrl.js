@@ -51,8 +51,8 @@ router.delete("/:id", async (req, res) => {
 
 router.get("/:id", async (req, res) => {
   try {
-    const user = User.findById(req.params.id);
-    res.render("/user/landing", {
+    const user = await User.findById(req.params.id);
+    res.render("user/landing", {
       user
     });
   } catch (err) {
