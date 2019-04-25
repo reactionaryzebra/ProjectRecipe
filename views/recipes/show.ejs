@@ -7,26 +7,82 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
     <title>Document</title>
 </head>
+<style>
+
+    .ingredients-recipe {
+        width: 30rem;
+        height: 30rem;
+        margin: 3rem;
+        border: 2px solid black;
+        display: inline-block;
+        border-radius: 10%;
+    }
+    .diet-recipe {
+        width: 20rem;
+        height: 30rem;
+        margin: 3rem;
+        border: 2px solid black;
+        display: inline-block;
+        border-radius: 10%;
+    }
+    .btn {
+        margin-top: 2rem;
+    }
+</style>
 <body>
     <header>
         <%- include('../partials/nav2') %>
     </header>
 
-            <%=recipe.label%>
-        <div class='ingredients'>
-        recipe.ingredient
-        </div>
-        <div class='middle'>
-           <%=recipe.calories%>
-           recipe.url
-           recipe.measurement
-           recipe.totalweight
-           recipe.yield
-           recipe.uri
+        <div class='recipe-container center'>
+            <div class="ingredients-recipe">
+                <h5>Ingredients</h5>
+                <ol>
+                  
+                          <% for(let i = 0; i < recipe.data[0].ingredientLines.length; i++){ %>
+                        
+                        <li>
+                            <%=recipe.data[0].ingredientLines[i]%>
+                        </li>
+                        
+                    <% } %>
+                   
+                </ol>
+                Time Duration:<%=recipe.data[0].totalTime%>
+            </div>
+           </div>
+
+            <div class='recipe-container center'>
+            <div class="diet-recipe">
+                <h5>Diets</h5>
+                  <h6 class="#ff5252 red accent-2">Calories</h6>
+                    <p><%=recipe.data[0].calories%></p>
+                <ul>
+                <h6 class="#ff5252 red accent-2">Diet Labels</h6>
+                   <% for(let i = 0; i < recipe.data[0].dietLabels.length; i++){ %>
+                        
+                        <li>
+                            <%=recipe.data[0].dietLabels[i]%>
+                        </li>
+                        
+                    <% } %>
+                </ul>
+
+                <ul>
+                <h6 class="#ff5252 red accent-2">Health Labels</h6>
+                   <% for(let i = 0; i < recipe.data[0].healthLabels.length; i++){ %>
+                        
+                        <li>
+                            <%=recipe.data[0].healthLabels[i]%>
+                        </li>
+                        
+                    <% } %>
+                </ul>
+            </div>  
+            <div class='cookbook-save center'>
+                    <a href="" class="waves-effect waves-light btn #ff5252 red accent-2">Save Recipe</a>
+            </div>
         </div>
 
-        <div>
-            Diet & Nutrient
-        </div>
 </body>
 </html>
