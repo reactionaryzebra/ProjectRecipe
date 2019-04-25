@@ -25,10 +25,16 @@
     }
 
     .potluck-create {
-        margin: 5rem 0 3rem 0;
-       
+        margin: 5rem 0 3rem 0;   
     }
     </style>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js" defer></script>
+    <script type="text/javascript" defer>
+        document.addEventListener('DOMContentLoaded', function() {
+        const elems = document.querySelectorAll('.modal');
+        const instances = M.Modal.init(elems);
+        });
+    </script>
 </head>
 <body>
     <header>
@@ -36,8 +42,20 @@
     </header>
 
                 <div class='potluck-create center'>
-                    <a href="" class="waves-effect waves-light btn #ff5252 red accent-2">Create New</a>
+                    <a href="#modal1" class="waves-effect waves-light btn #ff5252 red accent-2">Create New</a>
                 </div>
+
+        <div id='modal1' class="modal">
+            <div class="modal-content">
+            <h2>New Potluck</h2>
+            <form action="" method="post">
+                Organizer: <input type="text" name="organizer">
+                Date: <input type="number" name="date">
+              <button type="submit" class="btn waves-effect waves-light">Submit</button>
+            </form>
+            </div>
+        </div>
+
         <div class='potluck-container center'>
             <div class="your-potluck">
                 <h5>Your Potlucks</h5>
@@ -56,5 +74,6 @@
                 </ul>
             </div>  
         </div>
+
 </body>
 </html>

@@ -12,7 +12,7 @@ router.post("/register", async (req, res) => {
       const newUser = await User.create(req.body);
       req.session.username = req.body.username;
       req.session.logged = true;
-      res.redirect(`users/${newUser.id}`);
+      res.redirect(`${newUser.id}`);
     }
   } catch (err) {
     throw new Error(err);

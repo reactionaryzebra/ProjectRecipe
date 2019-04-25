@@ -47,7 +47,7 @@ router.post("/", async (req, res) => {
   try {
     const user = await User.findOne({ username: req.sessions.username });
     const createdPotluck = await Potluck.create({ organizer: user });
-    res.render(`/potluck/edit`);
+    res.render(`potluck/edit`);
   } catch {
     throw new Error(err);
   }
