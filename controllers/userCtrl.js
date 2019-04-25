@@ -14,10 +14,12 @@ router.post("/register", async (req, res) => {
       res.send(req.flash("registration-info"));
     } else {
       const newUser = await User.create(req.body);
-      console.log(newUser);
       req.session.username = req.body.username;
       req.session.logged = true;
-      res.send("hello");
+      res.send({
+        created: true,
+        id: newUser.id
+      });
     }
   } catch (err) {
     throw new Error(err);
@@ -35,7 +37,12 @@ router.post("/login", async (req, res) => {
       res.send(req.flash("login-info"));
     } else {
       if (foundUser.validatePassword(req.body.password)) {
-        res.redirect(`${foundUser.id}`);
+        req.session.username = req.body.username;
+        req.session.logged = true;
+        res.send({
+          created: true,
+          id: foundUser.id
+        });
       } else {
         req.flash("login-info", "Incorrect password");
         res.send(req.flash("login-info"));

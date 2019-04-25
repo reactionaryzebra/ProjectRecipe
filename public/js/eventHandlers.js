@@ -17,10 +17,13 @@ const checkValid = e => {
     redirect: "follow"
   })
     .then(res => res.json())
-    .then(
-      data => console.log(data)
-      // (document.querySelector(`.${typeOfButton}-message`).innerText = data)
-    )
+    .then(data => {
+      if (data.created) {
+        window.location.href = `/users/${data.id}`;
+      } else {
+        document.querySelector(`.${typeOfButton}-message`).innerText = data;
+      }
+    })
     .catch(err => console.log(err));
 };
 
