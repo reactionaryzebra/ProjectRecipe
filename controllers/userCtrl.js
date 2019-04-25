@@ -7,7 +7,11 @@ router.post("/register", async (req, res) => {
   try {
     const foundUser = await User.findOne({ username: req.body.username });
     if (foundUser) {
-      req.flash("message", "This username is taken, please try another");
+      req.flash(
+        "registration-info",
+        "This username is taken, please try another"
+      );
+      res.send(req.flash("registration-info"));
     } else {
       const newUser = await User.create(req.body);
       req.session.username = req.body.username;
@@ -24,14 +28,14 @@ router.post("/login", async (req, res) => {
     const foundUser = await User.findOne({ username: req.body.username });
     if (!foundUser) {
       req.flash(
-        "message",
+        "login-info",
         "Incorrect username or this username does not exist"
       );
     } else {
       if (foundUser.validatePassword(req.body.password)) {
         res.redirect(`${foundUser.id}`);
       } else {
-        req.flash("message", "Incorrect password");
+        req.flash("login-info", "Incorrect password");
       }
     }
   } catch (err) {
