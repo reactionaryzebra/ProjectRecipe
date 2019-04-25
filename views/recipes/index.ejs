@@ -16,32 +16,29 @@
     .search-icon {
         margin-left: 8rem;
     }
-    
+
 </style>
 <body>
     <header>
         <%- include('../partials/nav2') %>
     </header>
     <div class="wrapper">
-    <form action="/recipes" method="POST">
+    <form action="/recipes/search" method="POST">
     <div class='input-field'>
         <input  id='search-input' type='text' placeholder='Search for recipies'name="searchQuery" autocomplete='off'>
-        <label for="search-input"><i class="material-icons search-icon center">search</i></label> 
-        
+        <label for="search-input"><i class="material-icons search-icon center">search</i></label>
+
     </div>
     </form>
     </div>
     <div class='recipe-img center'>
     <%for(let i =0; i < recipes.data.hits.length ; i++){%>
         <% const encoded = encodeURIComponent(recipes.data.hits[i].recipe.uri)%>
-        <a href="/recipes/<%=encoded%>"> 
+        <a href="/recipes/<%=encoded%>">
         <img src="<%= recipes.data.hits[i].recipe.image %>" />
-        </a> 
-        
+        </a>
+
     <%}%>
     </div>
 </body>
 </html>
-
-
-      
