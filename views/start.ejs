@@ -73,8 +73,9 @@
         <div class="modal-content">
           <h2>Login</h2>
             <form action="/users/login" method="post">
-            Username: <input type="text" name="username">
-            Password: <input type="password" name="password">
+            Username: <input id='login-username' type="text" name="username">
+            Password: <input id='login-password' type="password" name="password">
+            <p class="login-message message"></p>
             <button type="submit" id="login-btn" class="btn waves-effect waves-light">Submit</button>
             </form>
         </div>

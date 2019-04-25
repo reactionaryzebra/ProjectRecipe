@@ -31,11 +31,13 @@ router.post("/login", async (req, res) => {
         "login-info",
         "Incorrect username or this username does not exist"
       );
+      res.send(req.flash("login-info"));
     } else {
       if (foundUser.validatePassword(req.body.password)) {
         res.redirect(`${foundUser.id}`);
       } else {
         req.flash("login-info", "Incorrect password");
+        res.send(req.flash("login-info"));
       }
     }
   } catch (err) {
