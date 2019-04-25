@@ -6,10 +6,74 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
     <title>Document</title>
+    <style>
+
+    .your-potluck {
+        width: 20rem;
+        height: 30rem;
+        margin: 0 3rem 0 0;
+        border: 2px solid black;
+        display: inline-block;
+        border-radius: 10%;
+    }
+    .friends-potluck {
+        width: 20rem;
+        height: 30rem;
+        border: 2px solid black;
+        display: inline-block;
+        border-radius: 10%;
+    }
+
+    .potluck-create {
+        margin: 5rem 0 3rem 0;   
+    }
+    </style>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js" defer></script>
+    <script type="text/javascript" defer>
+        document.addEventListener('DOMContentLoaded', function() {
+        const elems = document.querySelectorAll('.modal');
+        const instances = M.Modal.init(elems);
+        });
+    </script>
 </head>
 <body>
     <header>
-        <%- include('../partials/nav') %>
+        <%- include('../partials/nav2') %>
     </header>
+
+                <div class='potluck-create center'>
+                    <a href="#modal1" class="waves-effect waves-light btn #ff5252 red accent-2">Create New</a>
+                </div>
+
+        <div id='modal1' class="modal">
+            <div class="modal-content">
+            <h2>New Potluck</h2>
+            <form action="" method="post">
+                Organizer: <input type="text" name="organizer">
+                Date: <input type="number" name="date">
+              <button type="submit" class="btn waves-effect waves-light">Submit</button>
+            </form>
+            </div>
+        </div>
+
+        <div class='potluck-container center'>
+            <div class="your-potluck">
+                <h5>Your Potlucks</h5>
+                <ul>
+                    <li>organizer:</li>
+                    <li>organizer:</li>
+                    <li>organizer:</li>
+                </ul>
+            </div>
+            <div class="friends-potluck">
+                <h5>Friends Potlucks</h5>
+                <ul>
+                    <li>organizer:</li>
+                    <li>organizer:</li>
+                    <li>organizer:</li>
+                </ul>
+            </div>  
+        </div>
+
 </body>
 </html>
