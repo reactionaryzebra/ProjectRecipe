@@ -84,5 +84,17 @@ router.get("/:id/cookbook", async (req, res) => {
     throw new Error(err);
   }
 });
+router.delete('/recipes/:id', async (req,res)=>{
+  try{
+    const user= await User.find({username:req.session.username})
+    user.cookbook.remove(req.params.id)
+    user.save()
+    res.redirect(`users/${user.id}/cookbook`)
+  }catch(err){
+    throw new Error(err)
+  }
+})
+
+
 
 module.exports = router;
