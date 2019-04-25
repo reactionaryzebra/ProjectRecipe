@@ -12,17 +12,17 @@
         <%- include('../partials/nav2') %>
     </header>
 
-            <%=recipe.label%>
+    <img src="<%=recipe.data[0].image%>"/>
+
         <div class='ingredients'>
-        recipe.ingredient
+            <%=recipe.data[0].ingredientLines%>
+            <%=recipe.data[0].calories%>
+            <%=recipe.data[0].measurements%>
+            <%=recipe.data[0].dietLabels%>
         </div>
         <div class='middle'>
            <%=recipe.calories%>
-           recipe.url
-           recipe.measurement
-           recipe.totalweight
-           recipe.yield
-           recipe.uri
+          
         </div>
 
         <div>

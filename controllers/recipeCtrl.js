@@ -10,13 +10,13 @@ let searchQuery = "food";
 
 
 router.post("/", (req, res) => {
-  console.log(req.body);
+  //console.log(req.body);
   searchQuery = req.body.searchQuery;
   res.redirect("/recipes");
 });
 
 router.get("/", async (req, res) => {
-  console.log(searchQuery);
+  // console.log(searchQuery);
   recipes = await axios.get(
     `https://api.edamam.com/search?q=${searchQuery}&app_id=a4dfacb5&app_key=84af915767a2c0a3e247254b6550ec6f&`
   );
@@ -29,26 +29,27 @@ router.get("/", async (req, res) => {
     throw new Error(err);
   }
 });
+
 router.get("/:uri", async (req, res) => {
+  
   try {
     const encode = await encodeURIComponent(req.params.uri);
     recipe = await axios.get(
       `https://api.edamam.com/search?r=${encode}&app_id=a4dfacb5&app_key=84af915767a2c0a3e247254b6550ec6f&`
     );
     res.render("recipes/show", {
+     
       recipe
     });
+    
   } catch (err) {
     throw new Error(err);
   }
+  console.log(recipe)
 });
 
-router.get('/:_id',(req, res) => {
-  
-  recipes.findById(req.params._id,(err,foundRecipe)=>{
-  res.render("recipes/show")
-})
-})
+
+
 
 
 module.exports = router;
