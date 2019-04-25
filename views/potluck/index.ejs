@@ -7,35 +7,29 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
     <title>Document</title>
     <style>
-    .potluck {
+    .your-potluck {
         width: 20rem;
         height: 30rem;
-        margin: 0 auto;
-        margin-top: 4rem;
+        margin: 0 3rem 0 0;
         border: 2px solid black;
-        display: grid;
+        display: inline-block;
         border-radius: 10%;
     }
-    .your-potluck {
-        width: 10rem;
-        height: 5rem;
-        margin: 0 auto;
-        margin-top: 6rem;
+    .friends-potluck {
+        width: 20rem;
+        height: 30rem;
         border: 2px solid black;
-        display: grid;
+        display: inline-block;
         border-radius: 10%;
     }
-    .friend-potluck {
-        width: 10rem;
-        height: 5rem;
-        margin: 0 auto;
-        border: 2px solid black;
-        display: grid;
-        border-radius: 10%;
-    }
+
     .potluck-content {
         text-align:center;
         margin-top: 1.5rem;
+    }
+    .potluck-create {
+        margin: 5rem 0 3rem 0;
+       
     }
     </style>
 </head>
@@ -44,23 +38,16 @@
         <%- include('../partials/nav') %>
     </header>
 
-
-        <div class="potluck">
-            <div class='your-potluck'>
-                <a href="" class='potluck-content'>Recipe</a>
+                <div class='potluck-create center'>
+                    <a href="" class="waves-effect waves-light btn #ff5252 red accent-2">Create New</a>
+                </div>
+        <div class='potluck-container center'>
+            <div class="your-potluck">
+                <h5>Your Potlucks</h5>
             </div>
-            <div class='potluck'>
-                <a href="" class='potluck-content'>Potluck</a>
-            </div>
+            <div class="friends-potluck">
+                <h5>Friends Potlucks</h5>
+            </div>  
         </div>
-        <div class="potluck">
-            <div class='friend-potluck'>
-                <a href="" class='potluck-content'>Recipe</a>
-            </div>
-            <div class='potluck'>
-                <a href="" class='potluck-content'>Potluck</a>
-            </div>
-        </div>
-        
 </body>
 </html>

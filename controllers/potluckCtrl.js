@@ -8,7 +8,7 @@ router.get("/", async (req, res) => {
     const foundUser = await User.findOne({ username: req.session.username })
       .populate("potLuckOwned")
       .populate("potLuckPart");
-    res.render("/potluck/index");
+    res.render("potluck/index");
   } catch (err) {
     throw new Error(err);
   }
