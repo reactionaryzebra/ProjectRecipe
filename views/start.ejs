@@ -8,7 +8,7 @@
         <title>Document</title>
         <style>
         .row {
-            margin: 5rem auto; 
+            margin: 5rem auto;
         }
         .col-content {
             border-radius: 5%;
@@ -18,38 +18,66 @@
         .parallax-container .parallax img {
             opacity: 100;
         }
+        .start-register {
+          margin-bottom: 12rem; 
+        }
         </style>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js" defer></script>
+        <script type="text/javascript" defer>
+          document.addEventListener('DOMContentLoaded', function() {
+          const elems = document.querySelectorAll('.modal');
+          const instances = M.Modal.init(elems);
+          });
+        </script>
     </head>
     <body>
     <header>
     <%- include('partials/nav') %>
     </header>
-                <div class="parallax-container">
-                    <div class="parallax"><img src="/img/background-welcome-1.jpg"></div>
-                </div>
-                <div class="section white">
-                    <div class="container" >
-                        <div class="row">
-                            <div class="grid-example col s12 m6">
-                                <div class='col-content #ff5252 red accent-2'>
-                                    <span class="flow-text">This is left column</span>
-                                </div>
-                            </div>
-                        <div class='row'>
-                    <div class="grid-example col s12 m6">
-                            <div class='col-content #ff5252 red accent-2'>
-                                    <span class="flow-text">This is right column</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-        
+      <div class="parallax-container">
+          <div class="parallax"><img src="/img/background-welcome-1.jpg"></div>
+      </div>
+      <div class="section white">
+          <div class="container" >
+              <div class="row">
+                  <div class="grid-example col s12 m6">
+                      <div class='col-content #ff5252 red accent-2'>
+                          <span class="flow-text">This is left column</span>
+                      </div>
+                  </div>
+              <div class='row'>
+          <div class="grid-example col s12 m6">
+                  <div class='col-content #ff5252 red accent-2'>
+                          <span class="flow-text">This is right column</span>
+                  </div>
+              </div>
+          </div>
+      </div>
                     <div class='start-register center'>
-                        <a href="" class="waves-effect waves-light btn #ff5252 red accent-2">Get Started</a>
+                        <a href="#modal1" class="waves-effect waves-light btn #ff5252 red accent-2 modal-trigger">Get Started</a>
                     </div>
-                </div>
-
+                    
+                    
+      <div id="modal1" class="modal">
+        <div class="modal-content">
+          <h2>Registration</h2>
+            <form action="/users/register" method="post">
+              Username: <input type="text" name="username">
+              Password: <input type="password" name="password">
+              <button type="submit" class="btn waves-effect waves-light">Submit</button>
+            </form>
+        </div>
+      </div>
+      <div id="modal2" class="modal">
+        <div class="modal-content">
+          <h2>Login</h2>
+            <form action="/users/login" method="post">
+            Username: <input type="text" name="username">
+            Password: <input type="password" name="password">
+            <button type="submit" class="btn waves-effect waves-light">Submit</button>
+            </form>
+        </div>
+      </div>
 
     </body>
 </html>
-

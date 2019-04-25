@@ -8,7 +8,7 @@ router.get("/", async (req, res) => {
     const foundUser = await User.findOne({ username: req.session.username })
       .populate("potLuckOwned")
       .populate("potLuckPart");
-    res.render("/potluck/index");
+    res.render("potluck/index");
   } catch (err) {
     throw new Error(err);
   }
@@ -37,7 +37,7 @@ router.put("/:id", async (req, res) => {
 router.get("/:id", async (req, res) => {
   try {
     const foundPotluck = await Potluck.findById(req.params.id);
-    res.render("/potluck/show");
+    res.render("potluck/show");
   } catch (err) {
     throw new Error(err);
   }
@@ -47,7 +47,7 @@ router.post("/", async (req, res) => {
   try {
     const user = await User.findOne({ username: req.sessions.username });
     const createdPotluck = await Potluck.create({ organizer: user });
-    res.render(`/potluck/edit`);
+    res.render(`potluck/edit`);
   } catch {
     throw new Error(err);
   }

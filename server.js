@@ -38,6 +38,8 @@ app.get("/start", (req, res) => {
 });
 
 app.use("/users", userController);
+app.use("/potlucks", potluckController);
+app.use("/recipes", recipeController);
 
 // app.use(function(req, res) {
 //   req.sessions.logged ? next() : res.redirect("/start");
