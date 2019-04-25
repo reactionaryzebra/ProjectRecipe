@@ -10,8 +10,7 @@
 </head>
 <body>
     <header>
-       
-    </header>
+        <%- include('../partials/nav') %>
     </header>
 
     <form action="/recipes" method="POST">
@@ -19,7 +18,7 @@
         <button type='submit'></button>
     </form>
     <%for(let i =0; i < recipes.data.hits.length ; i++){%>
-        <img src="<%= recipes.data.hits[i].recipe.image %>" />
+        <a href="/recipes/<%=recipes.data.hits[i].uri%>"><img src="<%= recipes.data.hits[i].recipe.image %>"/></a>
     <%}%>
 </body>
 </html>

@@ -6,6 +6,9 @@ const axios = require('axios')
 
 let searchQuery='food'
 
+
+
+
 router.post("/", (req, res) => {
   console.log(req.body)
   searchQuery = req.body.searchQuery
@@ -24,5 +27,13 @@ recipes = await axios.get(`https://api.edamam.com/search?q=${searchQuery}&app_id
     throw new Error(err);
   }
 });
+
+router.get('/:_id',(req, res) => {
+  
+  recipes.findById(req.params._id,(err,foundRecipe)=>{
+  res.render("recipes/show")
+})
+})
+
 
 module.exports = router;
