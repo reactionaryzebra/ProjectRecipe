@@ -29,8 +29,8 @@ app.use(
 );
 app.use(flash());
 
-app.listen(3030, () => {
-  console.log("listening", 3030);
+app.listen(3000, () => {
+  console.log("listening", 3000);
 });
 
 app.get("/start", (req, res) => {
