@@ -22,8 +22,8 @@
         <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js" defer></script>
         <script type="text/javascript" defer>
           document.addEventListener('DOMContentLoaded', function() {
-          var elems = document.querySelectorAll('.modal');
-          var instances = M.Modal.init(elems);
+          const elems = document.querySelectorAll('.modal');
+          const instances = M.Modal.init(elems);
           });
         </script>
     </head>
@@ -57,6 +57,16 @@
    <div class="modal-content">
      <h2>Registration</h2>
      <form action="/users/register" method="post">
+       Username: <input type="text" name="username">
+       Password: <input type="password" name="password">
+       <button type="submit" class="modal-close">Submit</button>
+     </form>
+   </div>
+ </div>
+ <div id="modal2" class="modal">
+   <div class="modal-content">
+     <h2>Login</h2>
+     <form action="/users/login" method="post">
        Username: <input type="text" name="username">
        Password: <input type="password" name="password">
        <button type="submit" class="modal-close">Submit</button>
