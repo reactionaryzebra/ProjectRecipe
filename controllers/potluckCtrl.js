@@ -37,7 +37,7 @@ router.put("/:id", async (req, res) => {
 router.get("/:id", async (req, res) => {
   try {
     const foundPotluck = await Potluck.findById(req.params.id);
-    res.render("/potluck/show");
+    res.render("potluck/show");
   } catch (err) {
     throw new Error(err);
   }

@@ -18,6 +18,9 @@
         .parallax-container .parallax img {
             opacity: 100;
         }
+        .start-register {
+          margin-bottom: 12rem; 
+        }
         </style>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js" defer></script>
         <script type="text/javascript" defer>
@@ -53,26 +56,28 @@
                     <div class='start-register center'>
                         <a href="#modal1" class="waves-effect waves-light btn #ff5252 red accent-2 modal-trigger">Get Started</a>
                     </div>
- <div id="modal1" class="modal">
-   <div class="modal-content">
-     <h2>Registration</h2>
-     <form action="/users/register" method="post">
-       Username: <input type="text" name="username">
-       Password: <input type="password" name="password">
-       <button type="submit" class="modal-close">Submit</button>
-     </form>
-   </div>
- </div>
- <div id="modal2" class="modal">
-   <div class="modal-content">
-     <h2>Login</h2>
-     <form action="/users/login" method="post">
-       Username: <input type="text" name="username">
-       Password: <input type="password" name="password">
-       <button type="submit" class="modal-close">Submit</button>
-     </form>
-   </div>
- </div>
-                </div>
+                    
+                    
+      <div id="modal1" class="modal">
+        <div class="modal-content">
+          <h2>Registration</h2>
+            <form action="/users/register" method="post">
+              Username: <input type="text" name="username">
+              Password: <input type="password" name="password">
+              <button type="submit" class="btn waves-effect waves-light">Submit</button>
+            </form>
+        </div>
+      </div>
+      <div id="modal2" class="modal">
+        <div class="modal-content">
+          <h2>Login</h2>
+            <form action="/users/login" method="post">
+            Username: <input type="text" name="username">
+            Password: <input type="password" name="password">
+            <button type="submit" class="btn waves-effect waves-light">Submit</button>
+            </form>
+        </div>
+      </div>
+
     </body>
 </html>
