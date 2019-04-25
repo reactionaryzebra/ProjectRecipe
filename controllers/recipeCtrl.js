@@ -26,9 +26,9 @@ router.post("/", async (req, res) => {
       likes: 0,
       hates: 0
     });
-    user.cookbook.push(newRecipe);
+    user.cookbook.push(newRecipe.id);
     user.save();
-    res.redirect(`users/${user.id}/cookbook`);
+    res.redirect(`/users/${user.id}/cookbook`);
     console.log(user);
   } catch (err) {
     throw new Error(err);
