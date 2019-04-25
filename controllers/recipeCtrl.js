@@ -69,11 +69,7 @@ router.get("/:uri", async (req, res) => {
   } catch (err) {
     throw new Error(err);
   }
-  console.log(recipe)
+  // console.log(recipe)
 });
-
-
-
-
 
 module.exports = router;
