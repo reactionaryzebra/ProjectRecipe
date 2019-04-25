@@ -38,15 +38,15 @@
             <div class="ingredients-recipe">
                 <h5>Ingredients</h5>
                 <ol>
-                  
+
                           <% for(let i = 0; i < recipe.data[0].ingredientLines.length; i++){ %>
-                        
+
                         <li>
                             <%=recipe.data[0].ingredientLines[i]%>
                         </li>
-                        
+
                     <% } %>
-                   
+
                 </ol>
                 Time Duration:<%=recipe.data[0].totalTime%>
             </div>
@@ -60,27 +60,29 @@
                 <ul>
                 <h6 class="#ff5252 red accent-2">Diet Labels</h6>
                    <% for(let i = 0; i < recipe.data[0].dietLabels.length; i++){ %>
-                        
+
                         <li>
                             <%=recipe.data[0].dietLabels[i]%>
                         </li>
-                        
+
                     <% } %>
                 </ul>
 
                 <ul>
                 <h6 class="#ff5252 red accent-2">Health Labels</h6>
                    <% for(let i = 0; i < recipe.data[0].healthLabels.length; i++){ %>
-                        
+
                         <li>
                             <%=recipe.data[0].healthLabels[i]%>
                         </li>
-                        
+
                     <% } %>
                 </ul>
-            </div>  
+            </div>
             <div class='cookbook-save center'>
-                    <a href="" class="waves-effect waves-light btn #ff5252 red accent-2">Save Recipe</a>
+              <form action="/recipes/" method="post">
+                <button type="submit" class="waves-effect waves-light btn #ff5252 red accent-2">Save Recipe</button>
+              </form>
             </div>
         </div>
 
