@@ -46,17 +46,17 @@
         </header>
         <div class='potluck-container center'>
             <div class='potluck-info'>
-                <h6>Organizer: <span> name here </span></h6>
-                <h6>Date: <span> date here </span></h6>
+                <h6>Organizer: <span><%=potluck.organizer.username%></span></h6>
+                <h6>Date: <span><%=potluck.date%></span></h6>
             </div>
         </div>
         <div class='potluck-container center'>
             <div class="dishes">
                 <h5>Dishes</h5>
                 <ul>
-                    <li>label: chicken url: link</li>
-                    <li>label: chicken url: link</li>
-                    <li>label: chicken url: link</li>
+                  <% for(let i =0; i < potluck.dishes.length; i++) { %>
+                    <li><%=potluck.dishes[i]%></li>
+                  <% } %>
                 </ul>
                 <div class='dishes-create center'>
                     <a href="" class="waves-effect waves-light btn #ff5252 red accent-2">Add Dishes</a>
@@ -65,14 +65,14 @@
             <div class="guests">
                 <h5>Guests</h5>
                 <ul>
-                    <li>guest name: </li>
-                    <li>guest name: </li>
-                    <li>guest name: </li>
+                  <% for(let i =0; i < potluck.guests.length; i++) { %>
+                    <li><%=potluck.guests[i]%></li>
+                  <% } %>
                 </ul>
                 <div class='guests-invite center'>
                     <a href="" class="waves-effect waves-light btn #ff5252 red accent-2">Invite Guests</a>
                 </div>
-            </div>  
+            </div>
         </div>
     </body>
 </html>
