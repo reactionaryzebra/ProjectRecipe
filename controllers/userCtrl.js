@@ -29,7 +29,7 @@ router.post("/login", async (req, res) => {
       );
     } else {
       if (foundUser.validatePassword(req.body.password)) {
-        res.redirect(`users/${foundUser.id}`);
+        res.redirect(`${foundUser.id}`);
       } else {
         req.flash("message", "Incorrect password");
       }
