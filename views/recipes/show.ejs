@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
-    <title>Document</title>
+    <title>Show</title>
 </head>
 <style>
 
@@ -33,6 +33,13 @@
     <header>
         <%- include('../partials/nav2') %>
     </header>
+    <form action="/recipes" method="POST">
+        <div class='input-field'>
+            <input  id='search-input' type='text' name="searchQuery" autocomplete='off'>
+            <label for="search-input"><i class="material-icons search-icon center">search</i></label> 
+            
+        </div>
+    <img src="<%=recipe.data[0].image%>"/>
 
         <div class='recipe-container center'>
             <div class="ingredients-recipe">

@@ -19,7 +19,9 @@
 
 </style>
 <body>
-    <header>
+   
+    </header>
+
         <%- include('../partials/nav2') %>
     </header>
     <div class="wrapper">
@@ -33,6 +35,7 @@
     </div>
     <div class='recipe-img center'>
     <%for(let i =0; i < recipes.data.hits.length ; i++){%>
+       
         <% const encoded = encodeURIComponent(recipes.data.hits[i].recipe.uri)%>
         <a href="/recipes/<%=encoded%>">
         <img src="<%= recipes.data.hits[i].recipe.image %>" />
