@@ -10,6 +10,7 @@ const recipeSchema = new mongoose.Schema({
   ingredients: [String],
   dietlabels: [String],
   healthlabels: [String],
+  users: [{ type: mongoose.Schema.Types.ObjectId, ref: "User" }],
   likes: Number,
   hates: Number
 });

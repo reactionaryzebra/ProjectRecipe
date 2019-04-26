@@ -7,20 +7,21 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
     <title>Document</title>
     <style>
-
+    
     .your-potluck {
         width: 20rem;
         height: 30rem;
-        margin: 0 3rem 0 0;
+        margin: 0 auto;
         border: 2px solid black;
-        display: inline-block;
+        display: grid;
         border-radius: 10%;
     }
     .friends-potluck {
         width: 20rem;
         height: 30rem;
+        margin: 0 auto;
         border: 2px solid black;
-        display: inline-block;
+        display: grid;
         border-radius: 10%;
     }
 
@@ -42,7 +43,7 @@
     </header>
 
                 <div class='potluck-create center'>
-                    <a href="#modal1" class="waves-effect waves-light btn #ff5252 red accent-2 modal-trigger">Create New</a>
+                    <a href="#modal1" class="waves-effect waves-light btn #ff5252 red accent-2 modal-trigger">Create New Potluck</a>
                 </div>
 
         <div id='modal1' class="modal">
@@ -55,24 +56,28 @@
             </form>
             </div>
         </div>
-
-        <div class='potluck-container center'>
-            <div class="your-potluck">
-                <h5>Your Potlucks</h5>
+        <div class="row">
+        <div class='col s12 m12 l6'>
+            <div class="your-potluck center">
+                <h5>Your potlucks</h5>
                 <ul>
                   <% for(let i =0; i < user.potLuckOwned.length; i++) { %>
                     <li><%=user.potLuckOwned[i].name%></li>
                   <% } %>
                 </ul>
+                </div>
             </div>
-            <div class="friends-potluck">
+            <div class="col s12 m12 l6">
+             <div class="friends-potluck center">
                 <h5>Friends Potlucks</h5>
                 <ul>
                   <% for(let i =0; i < user.potLuckPart.length; i++) { %>
                     <li><%=user.potLuckPart[i].name%></li>
                   <% } %>
                 </ul>
+                </div>
             </div>
+        </div>
         </div>
 
 </body>
