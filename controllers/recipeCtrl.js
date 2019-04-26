@@ -58,17 +58,16 @@ router.get("/", async (req, res) => {
 });
 
 router.get("/:uri", async (req, res) => {
-  
   try {
     const encode = await encodeURIComponent(req.params.uri);
     recipe = await axios.get(
-      `https://api.edamam.com/search?r=${encode}&app_id=a4dfacb5&app_key=84af915767a2c0a3e247254b6550ec6f&`
+      `https://api.edamam.com/search?r=${encode}&app_id=${
+        process.env.APP_ID
+      }&app_key=${process.env.APP_KEY}&`
     );
     res.render("recipes/show", {
-     
       recipe
     });
-    
   } catch (err) {
     throw new Error(err);
   }
