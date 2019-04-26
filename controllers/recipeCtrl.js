@@ -68,11 +68,14 @@ router.get("/:uri", async (req, res) => {
       uri: decodeURIComponent(encode)
     });
     const user = await User.findOne({ username: req.session.username });
-    const foundUser = await User.findOne().in("_id", recipeFound.users);
-    if (foundUser) {
-      showButton = false;
+    if (recipeFound) {
+      const foundUser = await User.findOne().in("_id", recipeFound.users);
+      if (foundUser) {
+        showButton = false;
+      }
     }
     res.render("recipes/show", {
+      user,
       showButton,
       recipe
     });
