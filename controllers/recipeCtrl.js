@@ -41,8 +41,11 @@ router.post("/search", (req, res) => {
 });
 
 router.get("/", async (req, res) => {
+  console.log(process.env);
   recipes = await axios.get(
-    `https://api.edamam.com/search?q=${searchQuery}&app_id=a4dfacb5&app_key=&`
+    `https://api.edamam.com/search?q=${searchQuery}&app_id=${
+      process.env.APP_ID
+    }&app_key=${process.env.APP_KEY}&`
   );
   //console.log(recipes.data.hits[0].recipe.image)
 
