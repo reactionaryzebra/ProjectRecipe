@@ -63,14 +63,14 @@
                     <img src="<%=recipe.data[0].image%>"/>
 
                         <form action="/recipes/" method="post">
-                        <button type="submit" class="btn-floating halfway-fab waves-effect waves-light red">
+                        <button type="submit" class="btn-floating halfway-fab waves-effect waves-light red pulse">
                         <i class="material-icons">favorite</i>
                         </button>
 
                         </form>
-                 </div>
+                </div>
                     <div class="card-content">
-                        <p><%=recipe.data[0].label%></p>
+                        <a href='<%=recipe.data[0].url%>' target="_blank"><%=recipe.data[0].label%></a>
                     </div>
             </div>
         </div>
