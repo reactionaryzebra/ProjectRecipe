@@ -14,9 +14,9 @@
             width: 20rem;
             height: 30rem;
             margin: 1rem;
-            
+
             display: inline-block;
-            
+
         }
         </style>
     </head>
@@ -24,9 +24,9 @@
         <header>
         <%- include('../partials/nav2') %>
         </header>
-        
+
         <div class='cookbook-container center'>
-            
+
                 <ul>
 
                    <% for(let i = 0; i < cookbook.length; i++){ %>
@@ -36,7 +36,7 @@
                             <a href='/recipes/<%=encoded%>'><%=cookbook[i].label%>
                             <img class='center' src="<%= cookbook[i].image %>" />
                             </a>
-                            <form action= "/users/recipes/<%=cookbook[i]._id%>?_method=DELETE" method="POST">
+                            <form action= "/recipes/<%=cookbook[i]._id%>?_method=DELETE" method="POST">
                                 <button type="submit" class="waves-effect waves-light btn #ff5252 red accent-2">Delete</button>
                             </form>
                         </li>
