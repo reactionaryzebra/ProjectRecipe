@@ -57,7 +57,7 @@
     </form>
     </div>
      <div class="row">
-        <div class="col s12 m6 l3">
+        <div class="col s12 m8 l3">
             <div class="card">
                 <div class="card-image">
                     <img src="<%=recipe.data[0].image%>"/>
@@ -74,7 +74,7 @@
                     </div>
             </div>
         </div>
-            <div class="ingredients-recipe col s12 m8 l8">
+            <div class="ingredients-recipe col s12 m12 l8">
                 <h5>Ingredients</h5>
                 <ul>
 
@@ -85,7 +85,7 @@
                         </li>
 
                     <% } %>
-                        Time Duration: <%=recipe.data[0].totalTime%>m
+                       
                 </ul>
 
             </div>
@@ -94,10 +94,10 @@
 
         <div class='row'>
 
-            <div class="diet-recipe col s12 m4 l12">
+            <div class="diet-recipe col s12 m12 l12">
                 <h5>Diets</h5> <br/>
                   <h6>Calories</h6>
-                    <p><%=recipe.data[0].calories%></p>
+                    <p><%=Math.round(recipe.data[0].calories)%> kcal</p>
                 <ul>
                 <h6>Diet Labels</h6>
                    <% for(let i = 0; i < recipe.data[0].dietLabels.length; i++){ %>
