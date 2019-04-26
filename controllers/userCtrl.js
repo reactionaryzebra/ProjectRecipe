@@ -81,7 +81,6 @@ router.delete("/:id", async (req, res) => {
 router.get("/:id/cookbook", async (req, res) => {
   try {
     const user = await User.findById(req.params.id).populate("cookbook");
-
     res.render("user/cookbook", {
       user,
       cookbook: user.cookbook
