@@ -63,11 +63,10 @@ router.delete("/:id", async (req, res) => {
   }
 });
 
-
 // router.get("/:id/landing", async (req, res) => {
 //   // console.log('routehit1')
 //   // try {
-    
+
 //     const user=  User.findById(req.params.id)
 //     console.log(user.username)
 //     console.log('routehit1')
@@ -82,10 +81,7 @@ router.delete("/:id", async (req, res) => {
 router.get("/:id/cookbook", async (req, res) => {
   try {
     const user = await User.findById(req.params.id).populate("cookbook");
-<<<<<<< HEAD
-=======
-    
->>>>>>> master
+
     res.render("user/cookbook", {
       user,
       cookbook: user.cookbook
@@ -107,7 +103,6 @@ router.delete("/recipes/:id", async (req, res) => {
 });
 
 router.get("/:id", async (req, res) => {
-  
   try {
     const user = await User.findById(req.params.id);
     res.render("user/landing", {
