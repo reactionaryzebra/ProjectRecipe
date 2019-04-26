@@ -77,24 +77,24 @@ router.get("/:id", async (req, res) => {
 router.get("/:id/cookbook", async (req, res) => {
   try {
     const user = await User.findById(req.params.id).populate("cookbook");
-    res.render("/user/cookbook", {
+    console.log(user.cookbook);
+    res.render("user/cookbook", {
       cookbook: user.cookbook
     });
   } catch (err) {
     throw new Error(err);
   }
 });
-router.delete('/recipes/:id', async (req,res)=>{
-  try{
-    const user= await User.find({username:req.session.username})
-    user.cookbook.remove(req.params.id)
-    user.save()
-    res.redirect(`users/${user.id}/cookbook`)
-  }catch(err){
-    throw new Error(err)
+router.delete("/recipes/:id", async (req, res) => {
+  try {
+    const user = await User.findOne({ username: req.session.username });
+    console.log(user);
+    user.cookbook.remove(req.params.id);
+    user.save();
+    res.redirect(`/users/${user.id}/cookbook`);
+  } catch (err) {
+    throw new Error(err);
   }
-})
-
-
+});
 
 module.exports = router;
