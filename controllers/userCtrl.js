@@ -77,7 +77,6 @@ router.get("/:id", async (req, res) => {
 router.get("/:id/cookbook", async (req, res) => {
   try {
     const user = await User.findById(req.params.id).populate("cookbook");
-    console.log(user.cookbook);
     res.render("user/cookbook", {
       cookbook: user.cookbook
     });
