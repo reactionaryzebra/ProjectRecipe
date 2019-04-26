@@ -5,7 +5,7 @@ const methodOverride = require("method-override");
 const session = require("express-session");
 const flash = require("express-flash");
 require("./db/db");
-
+require("dotenv").config();
 ///controllers
 const peopleController = require("./controllers/peopleCtrl");
 const potluckController = require("./controllers/potluckCtrl");
