@@ -84,4 +84,18 @@ router.get("/:uri", async (req, res) => {
   }
 });
 
+router.delete("/:id", async (req, res) => {
+  try {
+    const user = await User.findOne({ username: req.session.username });
+    const recipe = await Recipe.findById({ _id: req.params.id });
+    recipe.users.remove(user.id);
+    recipe.save();
+    user.cookbook.remove(req.params.id);
+    user.save();
+    res.redirect(`/users/${user.id}/cookbook`);
+  } catch (err) {
+    throw new Error(err);
+  }
+});
+
 module.exports = router;
