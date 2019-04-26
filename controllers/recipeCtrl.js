@@ -48,7 +48,7 @@ router.get("/", async (req, res) => {
         process.env.APP_ID
       }&app_key=${process.env.APP_KEY}&`
     );
-    const user = User.findOne({ username: req.session.username });
+    const user = await User.findOne({ username: req.session.username });
     res.render("recipes/index", { user, recipes });
   } catch (err) {
     throw new Error(err);
