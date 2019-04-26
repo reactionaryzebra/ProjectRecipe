@@ -42,6 +42,7 @@ router.post("/search", (req, res) => {
 });
 
 router.get("/", async (req, res) => {
+<<<<<<< HEAD
   const user = User.findById(req.params.id);
   console.log(user)
   recipes = await axios.get(
@@ -54,6 +55,16 @@ router.get("/", async (req, res) => {
     
     res.render("recipes/index", { user,recipes });
     // res.send("got recipes")
+=======
+  try {
+    recipes = await axios.get(
+      `https://api.edamam.com/search?q=${searchQuery}&app_id=${
+        process.env.APP_ID
+      }&app_key=${process.env.APP_KEY}&`
+    );
+    const user = User.findOne({ username: req.session.username });
+    res.render("recipes/index", { user, recipes });
+>>>>>>> master
   } catch (err) {
     throw new Error(err);
   }
