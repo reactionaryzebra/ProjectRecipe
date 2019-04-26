@@ -73,6 +73,7 @@ router.get("/:uri", async (req, res) => {
       showButton = false;
     }
     res.render("recipes/show", {
+      user,
       showButton,
       recipe
     });
