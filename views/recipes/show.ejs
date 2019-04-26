@@ -40,7 +40,7 @@
     .search-icon {
        margin-left: 5rem;
     }
-    
+
 
 </style>
 <body>
@@ -55,18 +55,18 @@
 
     </div>
     </form>
-    </div>  
+    </div>
      <div class="row">
         <div class="col s12 m6 l3">
             <div class="card">
                 <div class="card-image">
                     <img src="<%=recipe.data[0].image%>"/>
-                        
+
                         <form action="/recipes/" method="post">
                         <button type="submit" class="btn-floating halfway-fab waves-effect waves-light red">
                         <i class="material-icons">favorite</i>
                         </button>
-                        
+
                         </form>
                  </div>
                     <div class="card-content">
@@ -87,13 +87,13 @@
                     <% } %>
                         Time Duration: <%=recipe.data[0].totalTime%>m
                 </ul>
-                
+
             </div>
-        
+
     </div>
-            
+
         <div class='row'>
-            
+
             <div class="diet-recipe col s12 m4 l12">
                 <h5>Diets</h5> <br/>
                   <h6>Calories</h6>
@@ -112,22 +112,26 @@
                 <ul>
                 <h6>Health Labels</h6>
                    <% for(let i = 0; i < recipe.data[0].healthLabels.length; i++){ %>
-                        
+
                         <li>
                             <%=recipe.data[0].healthLabels[i]%>
                         </li>
-                        
+
                     <% } %>
-                
+
                 </ul>
             </div>
         </div>
             <div class='cookbook-save center'>
               <form action="/recipes/" method="post">
-                <button type="submit" class="waves-effect waves-light btn #ff5252 red accent-2">Save Recipe</button>
+                <button type="submit" class="waves-effect waves-light btn #ff5252 red accent-2"
+                <% if(!showButton) { %>
+                  disabled
+                <% } %>
+                >Save Recipe</button>
               </form>
             </div>
-        
+
 
 </body>
 </html>

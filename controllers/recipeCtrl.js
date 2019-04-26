@@ -26,10 +26,11 @@ router.post("/", async (req, res) => {
       likes: 0,
       hates: 0
     });
+    newRecipe.users.push(user.id);
+    newRecipe.save();
     user.cookbook.push(newRecipe.id);
     user.save();
     res.redirect(`/users/${user.id}/cookbook`);
-    console.log(user);
   } catch (err) {
     throw new Error(err);
   }
@@ -41,17 +42,14 @@ router.post("/search", (req, res) => {
 });
 
 router.get("/", async (req, res) => {
-  console.log(process.env);
   recipes = await axios.get(
     `https://api.edamam.com/search?q=${searchQuery}&app_id=${
       process.env.APP_ID
     }&app_key=${process.env.APP_KEY}&`
   );
-  //console.log(recipes.data.hits[0].recipe.image)
 
   try {
     res.render("recipes/index", { recipes });
-    // res.send("got recipes")
   } catch (err) {
     throw new Error(err);
   }
@@ -59,19 +57,28 @@ router.get("/", async (req, res) => {
 
 router.get("/:uri", async (req, res) => {
   try {
+    let showButton = true;
     const encode = await encodeURIComponent(req.params.uri);
     recipe = await axios.get(
       `https://api.edamam.com/search?r=${encode}&app_id=${
         process.env.APP_ID
       }&app_key=${process.env.APP_KEY}&`
     );
+    const recipeFound = await Recipe.findOne({
+      uri: decodeURIComponent(encode)
+    });
+    const user = await User.findOne({ username: req.session.username });
+    const foundUser = await User.findOne().in("_id", recipeFound.users);
+    if (foundUser) {
+      showButton = false;
+    }
     res.render("recipes/show", {
+      showButton,
       recipe
     });
   } catch (err) {
     throw new Error(err);
   }
-  // console.log(recipe)
 });
 
 module.exports = router;
