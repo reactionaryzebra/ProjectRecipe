@@ -48,7 +48,7 @@ router.get("/", async (req, res) => {
     recipes = await axios.get(
       `https://api.edamam.com/search?q=${searchQuery}&app_id=${
         process.env.APP_ID
-      }&app_key=${process.env.APP_KEY}&to=100`//placeholder for button ${form}
+      }&app_key=${process.env.APP_KEY}&to=100`
     );
     const user = await User.findOne({ username: req.session.username });
     res.render("recipes/index", { user, recipes });
