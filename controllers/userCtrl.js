@@ -3,6 +3,28 @@ const router = express.Router();
 const User = require("../models/user");
 const Recipe = require("../models/recipe");
 
+router.get("/", async (req, res) => {
+  try {
+    const allUsers = await User.find({});
+    res.render("user/index", {
+      users: allUsers
+    });
+  } catch (err) {
+    throw new Error(err);
+  }
+});
+
+router.post("/:id/addfriend", async (req, res) => {
+  try {
+    const user = await User.find({ username: req.session.username });
+    user.friends.push(req.params.id);
+    user.save();
+    res.redirect("/users");
+  } catch (err) {
+    throw new Error(err);
+  }
+});
+
 router.post("/register", async (req, res) => {
   try {
     const foundUser = await User.findOne({ username: req.body.username });
