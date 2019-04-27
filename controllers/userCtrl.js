@@ -40,13 +40,18 @@ router.post("/register", async (req, res) => {
       );
       res.send(req.flash("registration-info"));
     } else {
-      const newUser = await User.create(req.body);
-      req.session.username = req.body.username;
-      req.session.logged = true;
-      res.send({
-        created: true,
-        id: newUser.id
-      });
+      if (req.body.password === req.body.passwordConfirm) {
+        const newUser = await User.create(req.body);
+        req.session.username = req.body.username;
+        req.session.logged = true;
+        res.send({
+          created: true,
+          id: newUser.id
+        });
+      } else {
+        req.flash("registration-info", "Passwords do not match");
+        res.send(req.flash("registration-info"));
+      }
     }
   } catch (err) {
     throw new Error(err);

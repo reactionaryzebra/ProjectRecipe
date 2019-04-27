@@ -3,10 +3,22 @@ const login = document.querySelector("#login-btn");
 
 const checkValid = e => {
   const typeOfButton = e.target.id.slice(0, -4);
-  const formData = JSON.stringify({
-    username: document.querySelector(`#${typeOfButton}-username`).value,
-    password: document.querySelector(`#${typeOfButton}-password`).value
-  });
+  let formData;
+  if (typeOfButton === "register") {
+    formData = JSON.stringify({
+      username: document.querySelector(`#${typeOfButton}-username`).value,
+      password: document.querySelector(`#${typeOfButton}-password`).value,
+      passwordConfirm: document.querySelector(
+        `#${typeOfButton}-password-confirm`
+      ).value
+    });
+  } else {
+    formData = JSON.stringify({
+      username: document.querySelector(`#${typeOfButton}-username`).value,
+      password: document.querySelector(`#${typeOfButton}-password`).value
+    });
+  }
+
   e.preventDefault();
   fetch(`/users/${typeOfButton}`, {
     method: "POST",
