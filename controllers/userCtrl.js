@@ -119,10 +119,14 @@ router.delete("/:id", async (req, res) => {
 
 router.get("/:id/cookbook", async (req, res) => {
   try {
-    const user = await User.findById(req.params.id).populate("cookbook");
+    const cookbookOwner = await User.findById(req.params.id).populate(
+      "cookbook"
+    );
+    const user = await User.findOne({ username: req.session.username });
     res.render("user/cookbook", {
+      cookbookOwner,
       user,
-      cookbook: user.cookbook
+      cookbook: cookbookOwner.cookbook
     });
   } catch (err) {
     throw new Error(err);
