@@ -80,6 +80,15 @@ router.post("/login", async (req, res) => {
   }
 });
 
+router.post("/logout", async (req, res) => {
+  try {
+    req.session.destroy();
+    res.redirect("/start");
+  } catch (err) {
+    throw new Error(err);
+  }
+});
+
 router.delete("/:id", async (req, res) => {
   try {
     const user = await User.findById(req.params.id);
