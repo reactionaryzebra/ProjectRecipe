@@ -6,6 +6,8 @@ const axios = require("axios");
 let recipes;
 let recipe;
 let searchQuery = "food";
+let searchParams
+let stringed =""
 
 router.post("/", async (req, res) => {
   try {
@@ -37,22 +39,34 @@ router.post("/", async (req, res) => {
 });
 
 router.post("/search", (req, res) => {
+ 
   searchQuery = req.body.searchQuery;
+  searchParams.push(req.body.search)
+  console.log(searchParams,'===starttest')
+  console.log(searchParams.flat().join(""),"test one=======")
+
+  stringed=searchParams.flat().join("")
+  console.log(stringed,"test two=======")
   res.redirect("/recipes");
 });
 
+
 router.get("/", async (req, res) => {
+  console.log(stringed,"hit here1?")
   try {
     recipes = await axios.get(
       `https://api.edamam.com/search?q=${searchQuery}&app_id=${
         process.env.APP_ID
-      }&app_key=${process.env.APP_KEY}&to=100`
+      }&app_key=${process.env.APP_KEY}&to=100${stringed}`
     );
+    
+    console.log(stringed,"hit here2?")
     const user = await User.findOne({ username: req.session.username });
     res.render("recipes/index", { user, recipes });
   } catch (err) {
     throw new Error(err);
   }
+  searchParams=[]
 });
 
 router.get("/:uri", async (req, res) => {
