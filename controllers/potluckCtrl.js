@@ -39,12 +39,14 @@ router.put("/:id", async (req, res) => {
 
 router.get("/:id", async (req, res) => {
   try {
+    const user = await User.findOne({ username: req.session.username });
     const foundPotluck = await Potluck.findById(req.params.id)
       .populate("organizer")
       .populate("guests")
       .populate("dishes");
     console.log(foundPotluck);
     res.render("potluck/show", {
+      user,
       potluck: foundPotluck
     });
   } catch (err) {
