@@ -5,7 +5,11 @@
             <ul id="nav-mobile" class="right hide-on-med-and-down">
                 <li><a class="modal-trigger"  href="/recipes">Recipe</a></li>
                 <li><a class="modal-trigger"  href="/users/<%=user.id%>/cookbook">Cookbooks</a></li>
-                <li><a class="modal-trigger" id="" href="/start">Logout</a></li>
+                <li>
+                  <form action="/users/logout" method="post">
+                    <button type="submit">Logout</button>
+                  </form>
+                </li>
             </ul>
         </div>
     </nav>
