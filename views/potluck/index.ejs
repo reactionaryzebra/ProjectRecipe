@@ -1,101 +1,100 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="/style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
-    <link href="https://fonts.googleapis.com/css?family=Roboto|Roboto+Slab" rel="stylesheet">
-    <title>Document</title>
-    <style>
-    
+  <%- include('../partials/head') %>
+  <style>
     .your-potluck {
-        width: 20rem;
-        height: 30rem;
-        margin: 0 auto;
-        display: grid;
-        border-radius: 10%;
+      width: 20rem;
+      height: 30rem;
+      margin: 0 auto;
+      display: grid;
+      border-radius: 10%;
     }
+
     .friends-potluck {
-        width: 20rem;
-        height: 30rem;
-        margin: 0 auto;
-        display: grid;
-        border-radius: 10%;
+      width: 20rem;
+      height: 30rem;
+      margin: 0 auto;
+      display: grid;
+      border-radius: 10%;
     }
 
     .potluck-create {
-        margin: 5rem 0 3rem 0;
+      margin: 5rem 0 3rem 0;
     }
+
     .modal {
-        overflow-y: visible !important;
-        margin-top: 4rem;
+      overflow-y: visible !important;
+      margin-top: 4rem;
     }
+
     .modal-overlay {
-        top: 0% !important;
-        height: 100% !important;
+      top: 0% !important;
+      height: 100% !important;
     }
+
     .datepicker {
-        
-        width: 40%;
-        height: 40%;
+
+      width: 40%;
+      height: 40%;
     }
-    </style>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js" defer></script>
-    <script type="text/javascript" defer>
-        document.addEventListener('DOMContentLoaded', function() {
-        const elems = document.querySelectorAll('.modal');
-        const instances = M.Modal.init(elems); 
-        });
-        document.addEventListener('DOMContentLoaded', function() {
-        const elems = document.querySelectorAll('.datepicker');
-        const instances = M.Datepicker.init(elems);
-  });
-    </script>
+  </style>
+  <script type="text/javascript" defer>
+    document.addEventListener('DOMContentLoaded', function() {
+      const elems = document.querySelectorAll('.modal');
+      const instances = M.Modal.init(elems);
+    });
+    document.addEventListener('DOMContentLoaded', function() {
+      const elems = document.querySelectorAll('.datepicker');
+      const instances = M.Datepicker.init(elems);
+    });
+  </script>
 </head>
+
 <body>
-    <header>
-        <%- include('../partials/nav2') %>
-    </header>
+  <header>
+    <%- include('../partials/nav2') %>
+  </header>
 
-                <div class='potluck-create center'>
-                    <a href="#modal1" class="waves-effect waves-light btn #ff5252 red accent-2 modal-trigger">Create New Potluck</a>
-                </div>
+  <div class='potluck-create center'>
+    <a href="#modal1" class="waves-effect waves-light btn #ff5252 red accent-2 modal-trigger">Create New Potluck</a>
+  </div>
 
-        <div id='modal1' class="modal">
-            <div class="modal-content">
-            <h3 class='center'>New Potluck</h3>
-            <form action="/potlucks" method="post">
-                Name: <input type="text" name="name">
-                Date: <input type="text" name='date' class="datepicker"> 
-              <button type="submit" class="btn waves-effect waves-light">Submit</button>
-            </form>
-            </div>
-        </div>
-        <div class="row">
-        <div class='col s12 m6 l6'>
-            <div class="your-potluck center">
-                <h5>Your potlucks</h5>
-                <ul>
-                  <% for(let i =0; i < user.potLuckOwned.length; i++) { %>
-                    <li><a href=""><%=user.potLuckOwned[i].name%></a></li>
-                  <% } %>
-                </ul>
-                </div>
-            </div>
-            <div class="col s12 m6 l6">
-             <div class="friends-potluck center">
-                <h5>Friends Potlucks</h5>
-                <ul>
-                  <% for(let i =0; i < user.potLuckPart.length; i++) { %>
-                    <li><%=user.potLuckPart[i].name%></li>
-                  <% } %>
-                </ul>
-                </div>
-            </div>
-        </div>
-        </div>
+  <div id='modal1' class="modal">
+    <div class="modal-content">
+      <h3 class='center'>New Potluck</h3>
+      <form action="/potlucks" method="post">
+        Name: <input type="text" name="name">
+        Date: <input type="text" name='date' class="datepicker">
+        <button type="submit" class="btn waves-effect waves-light">Submit</button>
+      </form>
+    </div>
+  </div>
+  <div class="row">
+    <div class='col s12 m6 l6'>
+      <div class="your-potluck center">
+        <h5>Your potlucks</h5>
+        <ul>
+          <% for(let i =0; i < user.potLuckOwned.length; i++) { %>
+          <li><a href=""><%=user.potLuckOwned[i].name%></a></li>
+          <% } %>
+        </ul>
+      </div>
+    </div>
+    <div class="col s12 m6 l6">
+      <div class="friends-potluck center">
+        <h5>Friends Potlucks</h5>
+        <ul>
+          <% for(let i =0; i < user.potLuckPart.length; i++) { %>
+          <li><%=user.potLuckPart[i].name%></li>
+          <% } %>
+        </ul>
+      </div>
+    </div>
+  </div>
+  </div>
 
 </body>
+
 </html>
