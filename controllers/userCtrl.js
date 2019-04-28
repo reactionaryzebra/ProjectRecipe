@@ -133,6 +133,19 @@ router.get("/:id/cookbook", async (req, res) => {
   }
 });
 
+router.get("/:id/friends", async (req, res) => {
+  try {
+    const user = await User.findOne({
+      username: req.session.username
+    }).populate("friends");
+    res.render("user/friends", {
+      user
+    });
+  } catch (err) {
+    throw new Error(err);
+  }
+});
+
 router.get("/:id", async (req, res) => {
   try {
     const user = await User.findById(req.params.id);

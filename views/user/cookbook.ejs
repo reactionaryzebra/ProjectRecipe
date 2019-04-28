@@ -2,13 +2,8 @@
 <html lang="en">
 
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
-  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <%- include('../partials/head') %>
   <script src="https://unpkg.com/axios/dist/axios.min.js" defer></script>
-  <title>Document</title>
 
   <style>
     .diet-cookbook {
@@ -26,7 +21,7 @@
   <header>
     <%- include('../partials/nav2') %>
   </header>
-
+  <h5>Saved Recipes</h5>
   <div class='cookbook-container center'>
 
     <ul>
@@ -38,11 +33,9 @@
           <a href='/recipes/<%=encoded%>'><%=cookbook[i].label%>
             <img class='center' src="<%= cookbook[i].image %>" />
           </a>
-          <% if(cookbookOwner.id.toString() === user.id.toString()) { %>
-            <form action="/recipes/<%=cookbook[i]._id%>?_method=DELETE" method="POST">
-              <button type="submit" class="waves-effect waves-light btn #ff5252 red accent-2">Delete</button>
-            </form>
-          <% } %>
+          <form action="/recipes/<%=cookbook[i]._id%>?_method=DELETE" method="POST">
+            <button type="submit" class="waves-effect waves-light btn #ff5252 red accent-2">Delete</button>
+          </form>
         </li>
       </div>
       <% } %>
@@ -50,7 +43,7 @@
   </div>
 
 
-
+<%- include('../partials/footer') %>
 </body>
 
 </html>

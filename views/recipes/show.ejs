@@ -1,137 +1,136 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <title>Show</title>
+  <%- include('../partials/head') %>
 </head>
 <style>
-    h6 {
-        color: #ff5252;
-    }
-    .ingredients-recipe {
-        border-bottom: 2px dotted #ff5252;
-        text-align: center;
-        padding: 4rem;
-    }
-    .ingredients-recipe ul li {
-        line-height: 3rem;
-    }
-    .diet-recipe {
-        margin: 1rem;
-        text-align: center;
-        padding: 4rem;
-    }
-    .diet-recipe ul li {
-        line-height: 3rem;
-    }
+  h6 {
+    color: #ff5252;
+  }
 
-    .btn {
-        margin-top: 2rem;
-        margin-bottom: 4rem;
-        height: 3rem;
-    }
-    #search-input {
-        text-align: center;
-    }
-    .search-icon {
-       margin-left: 5rem;
-    }
+  .ingredients-recipe {
+    border-bottom: 2px dotted #ff5252;
+    text-align: center;
+    padding: 4rem;
+  }
 
+  .ingredients-recipe ul li {
+    line-height: 3rem;
+  }
 
+  .diet-recipe {
+    margin: 1rem;
+    text-align: center;
+    padding: 4rem;
+  }
+
+  .diet-recipe ul li {
+    line-height: 3rem;
+  }
+
+  .btn {
+    margin-top: 2rem;
+    margin-bottom: 4rem;
+    height: 3rem;
+  }
+
+  #search-input {
+    text-align: center;
+  }
+
+  .search-icon {
+    margin-left: 5rem;
+  }
 </style>
+
 <body>
-    <header>
-        <%- include('../partials/nav2') %>
-    </header>
-    <div class="wrapper">
+  <header>
+    <%- include('../partials/nav2') %>
+  </header>
+  <div class="wrapper">
     <form action="/recipes/search" method="POST">
-    <div class='input-field'>
-        <input  id='search-input' type='text' placeholder='Search for recipies'name="searchQuery" autocomplete='off'>
+      <div class='input-field'>
+        <input id='search-input' type='text' placeholder='Search for recipies' name="searchQuery" autocomplete='off'>
         <label for="search-input"><i class="material-icons search-icon">search</i></label>
 
-    </div>
+      </div>
     </form>
-    </div>
-     <div class="row">
-        <div class="col s12 m8 l3">
-            <div class="card">
-                <div class="card-image">
-                    <img src="<%=recipe.data[0].image%>"/>
+  </div>
+  <div class="row">
 
-                        <form action="/recipes/" method="post">
-                        <button type="submit" class="btn-floating halfway-fab waves-effect waves-light red pulse">
-                        <i class="material-icons">favorite</i>
-                        </button>
+    <div class="ingredients-recipe col s12 m12 l8">
+      <h3>Ingredients</h3>
+      <ul>
 
-                        </form>
-                </div>
-                    <div class="card-content">
-                        <a href='<%=recipe.data[0].url%>' target="_blank"><%=recipe.data[0].label%></a>
-                    </div>
-            </div>
-        </div>
-            <div class="ingredients-recipe col s12 m12 l8">
-                <h5>Ingredients</h5>
-                <ul>
+        <% for(let i = 0; i < recipe.data[0].ingredientLines.length; i++){ %>
 
-                          <% for(let i = 0; i < recipe.data[0].ingredientLines.length; i++){ %>
+        <li>
+          <%=recipe.data[0].ingredientLines[i]%> <br />
+        </li>
 
-                        <li>
-                            <%=recipe.data[0].ingredientLines[i]%> <br/>
-                        </li>
-
-                    <% } %>
-                       
-                </ul>
-
-            </div>
+        <% } %>
+      </ul>
 
     </div>
 
-        <div class='row'>
+    <div class="col s12 m8 l3">
+      <div class="card">
+        <div class="card-image">
+          <img src="<%=recipe.data[0].image%>" />
 
-            <div class="diet-recipe col s12 m12 l12">
-                <h5>Diets</h5> <br/>
-                  <h6>Calories</h6>
-                    <p><%=Math.round(recipe.data[0].calories)%> kcal</p>
-                <ul>
-                <h6>Diet Labels</h6>
-                   <% for(let i = 0; i < recipe.data[0].dietLabels.length; i++){ %>
+          <form action="/recipes/" method="post">
+            <button type="submit" class="btn-floating halfway-fab waves-effect waves-light red pulse">
+              <i class="material-icons">favorite</i>
+            </button>
 
-                        <li>
-                            <%=recipe.data[0].dietLabels[i]%>
-                        </li>
-
-                    <% } %>
-                </ul>
-
-                <ul>
-                <h6>Health Labels</h6>
-                   <% for(let i = 0; i < recipe.data[0].healthLabels.length; i++){ %>
-
-                        <li>
-                            <%=recipe.data[0].healthLabels[i]%>
-                        </li>
-
-                    <% } %>
-
-                </ul>
-            </div>
+          </form>
         </div>
-            <div class='cookbook-save center'>
-              <form action="/recipes/" method="post">
-                <button type="submit" class="waves-effect waves-light btn #ff5252 red accent-2"
-                <% if(!showButton) { %>
-                  disabled
-                <% } %>
-                >Save Recipe</button>
-              </form>
-            </div>
+        <div class="card-content">
+          <a href='<%=recipe.data[0].url%>' target="_blank"><%=recipe.data[0].label%></a>
+        </div>
+      </div>
+    </div>
 
+  </div>
 
+  <div class='row'>
+
+    <div class="diet-recipe col s12 m12 l12">
+      <h3>Diets</h3> <br />
+      <h6>Calories</h6>
+      <p><%=Math.round(recipe.data[0].calories)%> kcal</p>
+      <ul>
+        <h6>Diet Labels</h6>
+        <% for(let i = 0; i < recipe.data[0].dietLabels.length; i++){ %>
+
+        <li>
+          <%=recipe.data[0].dietLabels[i]%>
+        </li>
+
+        <% } %>
+      </ul>
+
+      <ul>
+        <h6>Health Labels</h6>
+        <% for(let i = 0; i < recipe.data[0].healthLabels.length; i++){ %>
+
+        <li>
+          <%=recipe.data[0].healthLabels[i]%>
+        </li>
+
+        <% } %>
+
+      </ul>
+    </div>
+  </div>
+  <div class='cookbook-save center'>
+    <form action="/recipes/" method="post">
+      <button type="submit" class="waves-effect waves-light btn #ff5252 red accent-2" <% if(!showButton) { %> disabled <% } %>>Save Recipe</button>
+    </form>
+  </div>
+
+<%- include('../partials/footer') %>
 </body>
+
 </html>
