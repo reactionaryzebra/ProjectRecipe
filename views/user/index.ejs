@@ -6,6 +6,7 @@
 </head>
 
 <body>
+  <%- include('../partials/nav2') %>
   <ul>
     <% for(let i =0; i < users.length; i++) { %>
     <% if (currentUser !== users[i].id.toString()) { %>

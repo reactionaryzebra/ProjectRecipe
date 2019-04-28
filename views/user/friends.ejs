@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <%- include('../partials/head') %>
+  </head>
+  <body>
+    <%- include('../partials/nav2') %>
+    <ul>
+      <% user.friends.forEach(friend => { %>
+        <% if (friend.id.toString() !== user.id.toString()) { %>
+          <li><a href="/users/<%=friend.id%>/cookbook"><%=friend.username%></a></li>
+        <% } %>
+      <% }) %>
+    </ul>
+  </body>
+</html>
