@@ -5,7 +5,9 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="/style.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+  <link href="https://fonts.googleapis.com/css?family=Roboto|Roboto+Slab" rel="stylesheet">
   <title>Document</title>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js" defer></script>
   <script type="text/javascript" defer>
@@ -16,41 +18,30 @@
   </script>
 </head>
 <style>
-  .potluck-container {
-    margin-top: 2em;
+  .row {
+    margin-top: 4rem;    
   }
 
   .potluck-info {
-    width: 42rem;
-    height: 5rem;
-    border: 2px solid black;
-    display: inline-block;
+    height: 7rem;
+    display: grid;
     border-radius: 5%;
   }
 
   .dishes {
-    width: 20rem;
-    height: 30rem;
-    margin-right: 3rem;
-    border: 2px solid #ff5252;
-    display: inline-block;
+    margin: 3rem;
+    height: 20rem;
     border-radius: 10%;
   }
 
   .guests {
-    width: 20rem;
-    height: 30rem;
-    border: 2px solid #ff5252;
-    display: inline-block;
+    margin: 3rem;
+    height: 20rem;
     border-radius: 10%;
   }
 
-  .dishes-create {
-    margin-top: 12rem;
-  }
-
-  .guests-invite {
-    margin-top: 12rem;
+  .btn {
+    margin-bottom: 12rem;
   }
 </style>
 
@@ -58,37 +49,46 @@
   <header>
     <%- include('../partials/nav2') %>
   </header>
-  <div class='potluck-container center'>
-    <div class='potluck-info'>
+  <div class='row'>
+    <div class='potluck-info col s12 m12 l12 center'>
       <h6>Organizer: <span><%=potluck.organizer.username%></span></h6>
       <h6>Date: <span><%=potluck.date%></span></h6>
     </div>
   </div>
-  <div class='potluck-container center'>
-    <div class="dishes">
+  <div class='row'>
+    <div class='col s12 m6 l6 center'>
+      <div class="dishes">
       <h5>Dishes</h5>
       <ul>
         <% for(let i =0; i < potluck.dishes.length; i++) { %>
         <li><%=potluck.dishes[i]%></li>
         <% } %>
       </ul>
-      <div class='dishes-create center'>
+      
         <a href="" class="waves-effect waves-light btn #ff5252 red accent-2">Add Dishes</a>
+      
       </div>
     </div>
-    <div class="guests">
+    
+    <div class='col s12 m6 l6 center'>
+      <div class="guests">
       <h5>Guests</h5>
       <ul>
         <% for(let i =0; i < potluck.guests.length; i++) { %>
         <li><%=potluck.guests[i].username%></li>
         <% } %>
       </ul>
-      <div class='guests-invite center'>
+      
         <a href="#modal3" class="waves-effect waves-light btn #ff5252 red accent-2 modal-trigger">Invite Guests</a>
+      
       </div>
-      <div id="modal3" class="modal">
-        <div class="modal-content">
-          <h2>Invite Friends</h2>
+    </div>
+  </div>
+
+
+  <div id="modal3" class="modal">
+        <div class="modal-content center">
+          <h5>Invite Friends</h5>
           <form action="/potlucks/<%=potluck.id.toString()%>/inviteFriends" method="post">
             <% for(let i=0; i < user.friends.length; i++) { %>
               <p>
@@ -102,8 +102,6 @@
           </form>
         </div>
       </div>
-    </div>
-  </div>
 </body>
 
 </html>
