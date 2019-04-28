@@ -21,7 +21,7 @@ router.post("/", async (req, res) => {
       image: recipeData.image,
       url: recipeData.url,
       yield: recipeData.yield,
-      caolories: recipeData.calories,
+      calories: recipeData.calories,
       ingredients: recipeData.ingredientLines,
       dietlabels: recipeData.dietLabels,
       healthlabels: recipeData.healthLabels,
