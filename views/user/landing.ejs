@@ -36,14 +36,20 @@
       margin-top: 1.5rem;
     }
   </style>
-
+    <script type='text/javascript' defer>
+    document.addEventListener('DOMContentLoaded', function() {
+    const elems = document.querySelectorAll('.sidenav');
+    const instances = M.Sidenav.init(elems, options);
+  });
+  </script>
 </head>
 
 <body>
   <header>
     <%- include('../partials/nav2') %>
   </header>
-  <h5><%=user.username.toUpperCase()%></h5>
+  <main>
+  
   <div class="row">
     <div class='col s12 m12 l4'>
       <div class="recipe">
@@ -61,6 +67,8 @@
       </div>
     </div>
   </div>
+  </main>
+  
   <%- include('../partials/footer') %>
 </body>
 
