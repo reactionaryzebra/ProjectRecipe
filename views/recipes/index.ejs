@@ -4,8 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
-     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Roboto|Roboto+Slab" rel="stylesheet">
     <script src="https://unpkg.com/axios/dist/axios.min.js" defer></script>
     <title>Document</title>
 </head>
@@ -16,7 +18,9 @@
     .search-icon {
         margin-left: 5rem;
     }
-
+    img {
+        margin: 0.75rem;
+    }
 </style>
 <body>
    
@@ -25,13 +29,6 @@
         <%- include('../partials/nav2') %>
     </header>
 
-    <div class="wrapper">
-    <form action="/recipes/search" method="POST">
-    <div class='input-field'>
-        <input  id='search-input' type='text' placeholder='Search for recipies'name="searchQuery" autocomplete='off'>
-        <label for="search-input"><i class="material-icons search-icon">search</i></label>
-
-    </div>
     
     <div class='row center'>
         <p class='col l2'>
@@ -103,15 +100,22 @@
               </p>
     </div>
   </form>
+    
 
-
+    <div class="wrapper">
+      <form action="/recipes/search" method="POST">
+        <div class='input-field'>
+            <input  id='search-input' type='text' placeholder='Search for recipies'name="searchQuery" autocomplete='off'>
+            <label for="search-input"><i class="material-icons search-icon">search</i></label>
+        </div>
     </div>
+
     <div class='recipe-img center'>
     <%for(let i =0; i < recipes.data.hits.length ; i++){%>
        
         <% const encoded = encodeURIComponent(recipes.data.hits[i].recipe.uri)%>
         <a href="/recipes/<%=encoded%>">
-        <img src="<%= recipes.data.hits[i].recipe.image %>" />
+        <img src="<%= recipes.data.hits[i].recipe.image %>" class='hoverable'/>
         </a>
 
     <%}%>
