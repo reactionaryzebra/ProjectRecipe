@@ -59,7 +59,23 @@
     </form>
     </div>
         <div class="row">
-        <div class="col s12 m8 l3">
+
+            <div class="ingredients-recipe col s12 m12 l8">
+                <h3>Ingredients</h3>
+                <ul>
+
+                    <% for(let i = 0; i < recipe.data[0].ingredientLines.length; i++){ %>
+
+                        <li>
+                            <%=recipe.data[0].ingredientLines[i]%> <br/>
+                        </li>
+
+                    <% } %>  
+                </ul>
+
+            </div>
+
+                    <div class="col s12 m8 l3">
             <div class="card">
                 <div class="card-image">
                     <img src="<%=recipe.data[0].image%>"/>
@@ -76,27 +92,13 @@
                     </div>
             </div>
         </div>
-            <div class="ingredients-recipe col s12 m12 l8">
-                <h5>Ingredients</h5>
-                <ul>
-
-                    <% for(let i = 0; i < recipe.data[0].ingredientLines.length; i++){ %>
-
-                        <li>
-                            <%=recipe.data[0].ingredientLines[i]%> <br/>
-                        </li>
-
-                    <% } %>  
-                </ul>
-
-            </div>
 
     </div>
 
         <div class='row'>
 
             <div class="diet-recipe col s12 m12 l12">
-                <h5>Diets</h5> <br/>
+                <h3>Diets</h3> <br/>
                     <h6>Calories</h6>
                     <p><%=Math.round(recipe.data[0].calories)%> kcal</p>
                 <ul>

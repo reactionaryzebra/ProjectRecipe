@@ -8,3 +8,10 @@ h5,
 h6 {
   font-family: Roboto, Helvetica, sans-serif;
 }
+h5 {
+  text-align: center;
+}
+
+.row {
+  margin-top: 4rem;
+}

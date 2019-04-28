@@ -14,7 +14,6 @@
         width: 20rem;
         height: 30rem;
         margin: 0 auto;
-        border: 2px solid black;
         display: grid;
         border-radius: 10%;
     }
@@ -22,7 +21,6 @@
         width: 20rem;
         height: 30rem;
         margin: 0 auto;
-        border: 2px solid black;
         display: grid;
         border-radius: 10%;
     }
@@ -35,11 +33,9 @@
         margin-top: 4rem;
     }
     .modal-overlay {
-        height: 0% !important;
+        top: 0% !important;
+        height: 100% !important;
     }
-    .modal h2 {
-        text-align: center;
-        }
     .datepicker {
         
         width: 40%;
@@ -69,7 +65,7 @@
 
         <div id='modal1' class="modal">
             <div class="modal-content">
-            <h2>New Potluck</h2>
+            <h3 class='center'>New Potluck</h3>
             <form action="/potlucks" method="post">
                 Name: <input type="text" name="name">
                 Date: <input type="text" name='date' class="datepicker"> 
@@ -83,7 +79,7 @@
                 <h5>Your potlucks</h5>
                 <ul>
                   <% for(let i =0; i < user.potLuckOwned.length; i++) { %>
-                    <li><%=user.potLuckOwned[i].name%></li>
+                    <li><a href=""><%=user.potLuckOwned[i].name%></a></li>
                   <% } %>
                 </ul>
                 </div>

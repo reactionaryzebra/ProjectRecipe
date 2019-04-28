@@ -4,8 +4,12 @@
             <a href="/users/<%=user.id%>" class="brand-logo center"> Savory</a>
             <ul id="nav-mobile" class="right hide-on-med-and-down">
                 <li><a class="modal-trigger"  href="/recipes">Recipe</a></li>
-                <li><a class="modal-trigger"  href="/users/<%=user.id%>/cookbook">Cookbooks</a></li>
-                <li><a class="modal-trigger" id="" href="/start">Logout</a></li>
+                <li><a class="modal-trigger"  href="/users/<%=user.id%>/cookbook">My Cookbooks</a></li>
+                <li>
+                  <form action="/users/logout" method="post" id='logout'>
+                    <a class="modal-trigger" onclick="document.getElementById('logout').submit()">Logout</a>
+                  </form>
+                </li>
             </ul>
         </div>
     </nav>

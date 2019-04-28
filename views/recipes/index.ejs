@@ -18,7 +18,9 @@
     .search-icon {
         margin-left: 5rem;
     }
-
+    img {
+        margin: 0.75rem;
+    }
 </style>
 <body>
    
@@ -27,65 +29,93 @@
         <%- include('../partials/nav2') %>
     </header>
 
-    <div class="wrapper">
-    <form action="/recipes/search" method="POST">
-    <div class='input-field'>
-        <input  id='search-input' type='text' placeholder='Search for recipies'name="searchQuery" autocomplete='off'>
-        <label for="search-input"><i class="material-icons search-icon">search</i></label>
-
-    </div>
-    </form>
-
-
-    <form action="#">
+    
     <div class='row center'>
+        <p class='col l2'>
+            <label>
+              <input type="checkbox" name="search" value="&diet=high-protein"/>
+              <span>High Protien</span>
+            </label>
+          </p>
+          
     <p class='col l2'>
         <label>
-        <input type="checkbox" />
-        <span>Red</span>
+        <input type="checkbox" name="search" value="&diet=balanced"/>  
+              <span>Balanced</span>
       </label>
     </p>
     <p class='col l2'>
       <label>
-        <input type="checkbox"/>
-        <span>Yellow</span>
+        <input type="checkbox" name="search" value="&diet=low-fat"/>
+        <span>Low-Fat</span>
       </label>
     </p>
     <p class='col l2'>
       <label>
-        <input type="checkbox"/>
-        <span>Filled in</span>
+        <input type="checkbox" name="search" value="&diet=low-carb"/>
+        <span>Low-Carb</span>
       </label>
     </p>
     <p class='col l2'>
       <label>
-        <input type="checkbox" />
-        <span>Indeterminate Style</span>
-      </label>
+        <input type="checkbox" name="search" value="&health=sugar-conscious"/>
+        <span>Sugar Conscious</span>
+      </label>  
     </p>
-    <p class='col l2'>
-      <label>
-        <input type="checkbox" />
-        <span>Green</span>
-      </label>
-    </p>
-    <p class='col l2'>
-      <label>
-        <input type="checkbox" />
-        <span>Brown</span>
-      </label>
-    </p>
+
     <div>
-  </form>
+        <div class= 'row center'>
+    <p class='col l2'>
+        <label>
+          <input type="checkbox"  name="search" value="&health=vegan"/>
+          <span>Vegan</span>
+        </label>
+      </p>
 
-
+    
+        <p class='col l2'>
+            <label>
+              <input type="checkbox"  name="search" value="&health=vegetarian"/>
+              <span>Vegetarian</span>
+            </label>
+          </p>
+          
+        <p class='col l2'>
+            <label>
+              <input type="checkbox"  name="search" value="&health=peanut-free"/>
+              <span>Peanut</span>
+            </label>
+          </p>
+          <p class='col l2'>
+              <label>
+                <input type="checkbox"  name="search" value="&health=tree-nut-free"/>
+                <span>Tree Nut Free</span>
+              </label>
+            </p>
+            <p class='col l2'>
+                <label>
+                  <input type="checkbox"  name="search" value="&health=alcohol-free"/>
+                  <span>Alcohol Free</span>
+                </label>
+              </p>
     </div>
+  </form>
+    
+
+    <div class="wrapper">
+      <form action="/recipes/search" method="POST">
+        <div class='input-field'>
+            <input  id='search-input' type='text' placeholder='Search for recipies'name="searchQuery" autocomplete='off'>
+            <label for="search-input"><i class="material-icons search-icon">search</i></label>
+        </div>
+    </div>
+
     <div class='recipe-img center'>
     <%for(let i =0; i < recipes.data.hits.length ; i++){%>
        
         <% const encoded = encodeURIComponent(recipes.data.hits[i].recipe.uri)%>
         <a href="/recipes/<%=encoded%>">
-        <img src="<%= recipes.data.hits[i].recipe.image %>" />
+        <img src="<%= recipes.data.hits[i].recipe.image %>" class='hoverable'/>
         </a>
 
     <%}%>

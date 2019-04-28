@@ -8,6 +8,7 @@ router.get("/", async (req, res) => {
     const allUsers = await User.find({});
     const currentUser = await User.findOne({ username: req.session.username });
     res.render("user/index", {
+      currentUser: currentUser.id.toString(),
       friends: currentUser.friends,
       users: allUsers
     });
@@ -19,11 +20,8 @@ router.get("/", async (req, res) => {
 router.post("/:id/addfriend", async (req, res) => {
   try {
     const user = await User.findOne({ username: req.session.username });
-    console.log(user, "<======pre");
-    console.log(req.params.id);
     user.friends.push(req.params.id);
     user.save();
-    console.log(user, "<=====post");
     res.redirect("/users");
   } catch (err) {
     throw new Error(err);
@@ -40,13 +38,18 @@ router.post("/register", async (req, res) => {
       );
       res.send(req.flash("registration-info"));
     } else {
-      const newUser = await User.create(req.body);
-      req.session.username = req.body.username;
-      req.session.logged = true;
-      res.send({
-        created: true,
-        id: newUser.id
-      });
+      if (req.body.password === req.body.passwordConfirm) {
+        const newUser = await User.create(req.body);
+        req.session.username = req.body.username;
+        req.session.logged = true;
+        res.send({
+          created: true,
+          id: newUser.id
+        });
+      } else {
+        req.flash("registration-info", "Passwords do not match");
+        res.send(req.flash("registration-info"));
+      }
     }
   } catch (err) {
     throw new Error(err);
@@ -80,6 +83,15 @@ router.post("/login", async (req, res) => {
   }
 });
 
+router.post("/logout", async (req, res) => {
+  try {
+    req.session.destroy();
+    res.redirect("/start");
+  } catch (err) {
+    throw new Error(err);
+  }
+});
+
 router.delete("/:id", async (req, res) => {
   try {
     const user = await User.findById(req.params.id);
@@ -107,10 +119,14 @@ router.delete("/:id", async (req, res) => {
 
 router.get("/:id/cookbook", async (req, res) => {
   try {
-    const user = await User.findById(req.params.id).populate("cookbook");
+    const cookbookOwner = await User.findById(req.params.id).populate(
+      "cookbook"
+    );
+    const user = await User.findOne({ username: req.session.username });
     res.render("user/cookbook", {
+      cookbookOwner,
       user,
-      cookbook: user.cookbook
+      cookbook: cookbookOwner.cookbook
     });
   } catch (err) {
     throw new Error(err);
