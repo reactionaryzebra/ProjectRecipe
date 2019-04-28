@@ -1,67 +1,66 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="/style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
-    <link href="https://fonts.googleapis.com/css?family=Roboto|Roboto+Slab" rel="stylesheet">
-    <title>Document</title>
-    <style>
 
+<head>
+  <%- include('../partials/head') %>
+  <style>
     .recipe {
-        width: 10rem;
-        height: 5rem;
-        margin: 0 auto;
-        margin-top: 4rem;
-        display: grid;
-        border-radius: 10%;
+      width: 10rem;
+      height: 5rem;
+      margin: 0 auto;
+      margin-top: 4rem;
+      display: grid;
+      border-radius: 10%;
     }
+
     .potluck {
-        width: 10rem;
-        height: 5rem;
-        margin: 0 auto;
-        margin-top: 4rem;
-        display: grid;
-        border-radius: 10%;
+      width: 10rem;
+      height: 5rem;
+      margin: 0 auto;
+      margin-top: 4rem;
+      display: grid;
+      border-radius: 10%;
     }
+
     .cookbook {
-        width: 10rem;
-        height: 5rem;
-        margin: 0 auto;
-        margin-top: 4rem;
-        display: grid;
-        border-radius: 10%;
+      width: 10rem;
+      height: 5rem;
+      margin: 0 auto;
+      margin-top: 4rem;
+      display: grid;
+      border-radius: 10%;
     }
+
     .landing-content {
-        text-align:center;
-        margin-top: 1.5rem;
+      text-align: center;
+      margin-top: 1.5rem;
     }
-    </style>
+  </style>
 
 </head>
+
 <body>
-    <header>
-        <%- include('../partials/nav2') %>
-    </header>
-    <h5><%=user.username.toUpperCase()%></h5>
-        <div class="row">
-            <div class='col s12 m12 l4'>
-                <div class="recipe">
-                    <a href="/recipes" class='landing-content'>Find Recipes</a>
-                </div>
-            </div>
-            <div class='col s12 m12 l4'>    
-                <div class="potluck">
-                    <a href="/potlucks" class='landing-content'>Create Potlucks</a>
-                </div>
-            </div>
-            <div class='col s12 m12 l4'>
-                <div class="cookbook">
-                    <a href="" class='landing-content'>Explore Cookbooks</a>
-                </div>
-            </div>
-        </div>
+  <header>
+    <%- include('../partials/nav2') %>
+  </header>
+  <h5><%=user.username.toUpperCase()%></h5>
+  <div class="row">
+    <div class='col s12 m12 l4'>
+      <div class="recipe">
+        <a href="/recipes" class='landing-content'>Find Recipes</a>
+      </div>
+    </div>
+    <div class='col s12 m12 l4'>
+      <div class="potluck">
+        <a href="/potlucks" class='landing-content'>Create Potlucks</a>
+      </div>
+    </div>
+    <div class='col s12 m12 l4'>
+      <div class="cookbook">
+        <a href="" class='landing-content'>Explore Cookbooks</a>
+      </div>
+    </div>
+  </div>
 </body>
+
 </html>
