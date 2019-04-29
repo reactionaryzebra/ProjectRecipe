@@ -26,7 +26,7 @@
   <%- include('../partials/nav2') %>
   </header>
 
-
+  <form action="/recipes/search" method="POST">
   <div class='row center'>
     <p class='col l2'>
       <label>
@@ -96,17 +96,17 @@
           </label>
         </p>
       </div>
-      </form>
+    
 
 
       <div class="wrapper">
-        <form action="/recipes/search" method="POST">
+  
           <div class='input-field'>
             <input id='search-input' type='text' placeholder='Search for recipies' name="searchQuery" autocomplete='off'>
             <label for="search-input"><i class="material-icons search-icon">search</i></label>
           </div>
       </div>
-
+    </form>
       <div class='recipe-img center'>
         <%for(let i =0; i < recipes.data.hits.length ; i++){%>
 
