@@ -4,45 +4,6 @@
 <head>
   <%- include('../partials/head') %>
 </head>
-<style>
-  h6 {
-    color: #ff5252;
-  }
-
-  .ingredients-recipe {
-    border-bottom: 2px dotted #ff5252;
-    text-align: center;
-    padding: 4rem;
-  }
-
-  .ingredients-recipe ul li {
-    line-height: 3rem;
-  }
-
-  .diet-recipe {
-    margin: 1rem;
-    text-align: center;
-    padding: 4rem;
-  }
-
-  .diet-recipe ul li {
-    line-height: 3rem;
-  }
-
-  .btn {
-    margin-top: 2rem;
-    margin-bottom: 4rem;
-    height: 3rem;
-  }
-
-  #search-input {
-    text-align: center;
-  }
-
-  .search-icon {
-    margin-left: 5rem;
-  }
-</style>
 
 <body>
   <header>
@@ -57,9 +18,10 @@
       </div>
     </form>
   </div>
-  <div class="row">
+  <div class="row res-show">
 
-    <div class="ingredients-recipe col s12 m12 l8">
+    <div  class='col s12 m12 l7'>
+      <div class="ingredients-recipe"> 
       <h3>Ingredients</h3>
       <ul>
 
@@ -71,21 +33,21 @@
 
         <% } %>
       </ul>
-
+      </div>
     </div>
-
-    <div class="col s12 m8 l3">
+    <div class="col s12 m12 l5">
       <div class="card">
         <div class="card-image">
           <img src="<%=recipe.data[0].image%>" />
 
-          <form action="/recipes/" method="post">
-            <button type="submit" class="btn-floating halfway-fab waves-effect waves-light red pulse">
+            <form action="/recipes/" method="post">
+              <button type="submit" class="btn-floating halfway-fab waves-effect waves-light red pulse">
               <i class="material-icons">favorite</i>
             </button>
 
           </form>
         </div>
+        
         <div class="card-content">
           <a href='<%=recipe.data[0].url%>' target="_blank"><%=recipe.data[0].label%></a>
         </div>
@@ -94,7 +56,7 @@
 
   </div>
 
-  <div class='row'>
+  <div class='row res-show'>
 
     <div class="diet-recipe col s12 m12 l12">
       <h3>Diets</h3> <br />
@@ -126,7 +88,7 @@
   </div>
   <div class='cookbook-save center'>
     <form action="/recipes/" method="post">
-      <button type="submit" class="waves-effect waves-light btn #ff5252 red accent-2" <% if(!showButton) { %> disabled <% } %>>Save Recipe</button>
+      <button type="submit" class="waves-effect waves-light res-save #ff5252 red accent-2" <% if(!showButton) { %> disabled <% } %>>Save Recipe</button>
     </form>
   </div>
 

@@ -22,7 +22,69 @@ h5,
 h6 {
   text-align: center;
 }
+h6 {
+  color: #ff5252;
+}
+/* Start Page*/
+.start-page {
+  margin: 5rem auto;
+}
+.start {
+  width: 35% !important;
+  margin-top: 4rem !important;
+}
+.start-register {
+  margin-bottom: 12rem;
+}
 
-.row {
+.parallax img {
+  width: 100%;
+}
+.start-info {
+  border-radius: 5%;
+  margin: 2rem;
+  padding: 4rem;
+}
+/* Recipe Page*/
+.res-index,
+.res-show {
   margin-top: 4rem;
+}
+.card {
+  margin: 1rem;
+}
+.ingredients-recipe {
+  border-bottom: 2px dotted #ff5252;
+  text-align: center;
+  padding: 4rem;
+}
+
+.ingredients-recipe ul li {
+  line-height: 3rem;
+}
+
+.diet-recipe {
+  margin: 1rem;
+  text-align: center;
+  padding: 4rem;
+}
+
+.diet-recipe ul li {
+  line-height: 3rem;
+}
+.res-save {
+  margin-top: 2rem;
+  margin-bottom: 4rem;
+  height: 3rem;
+}
+#search-input {
+  text-align: center;
+}
+
+.search-icon {
+  margin-left: 5rem;
+  margin-top: 2rem;
+}
+.hoverable {
+  margin: 0.75rem;
 }
