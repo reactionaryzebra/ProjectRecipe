@@ -90,7 +90,7 @@
         <h5>Friends Potlucks</h5>
         <ul>
           <% for(let i =0; i < user.potLuckPart.length; i++) { %>
-          <li><%=user.potLuckPart[i].name%></li>
+            <li><a href="/potlucks/<%=user.potLuckPart[i].id%>"><%=user.potLuckPart[i].name%></a></li>
           <% } %>
         </ul>
       </div>
