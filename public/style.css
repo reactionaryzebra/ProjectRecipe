@@ -25,6 +25,10 @@ h6 {
 h6 {
   color: #ff5252;
 }
+/* Nav */
+#dropdown a {
+  color: #039be5;
+}
 /* Start Page*/
 .start-page {
   margin: 5rem auto;
