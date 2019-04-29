@@ -16,22 +16,6 @@ router.get("/", async (req, res) => {
   }
 });
 
-router.get("/:id/edit", async (req, res) => {
-  try {
-    const foundPotluck = await Potluck.findById(req.params.id)
-    .populate("organizer")
-    .populate("guests")
-    .populate("dishes");
-    console.log(foundPotluck)
-    res.render("potluck/edit", {
-      user   :foundUser,
-      potluck: foundUser
-    });
-  } catch (err) {
-    throw new Error(err);
-  }
-});
-
 router.put("/:id", async (req, res) => {
   try {
     const potluck = await Potluck.findByIdAndUpdate(req.params.id, req.body);
@@ -50,6 +34,7 @@ router.get("/:id", async (req, res) => {
       .populate("organizer")
       .populate("guests")
       .populate("dishes");
+      console.log('thisis the route thats his')
     res.render("potluck/show", {
       user,
       potluck: foundPotluck
