@@ -10,45 +10,18 @@
     });
   </script>
 </head>
-<style>
-  .row {
-    margin-top: 4rem;
-  }
-
-  .potluck-info {
-    height: 7rem;
-    display: grid;
-    border-radius: 5%;
-  }
-
-  .dishes {
-    margin: 3rem;
-    height: 20rem;
-    border-radius: 10%;
-  }
-
-  .guests {
-    margin: 3rem;
-    height: 20rem;
-    border-radius: 10%;
-  }
-
-  .btn {
-    margin-bottom: 12rem;
-  }
-</style>
 
 <body>
   <header>
     <%- include('../partials/nav2') %>
   </header>
-  <div class='row'>
+  <div class='row pot-row'>
     <div class='potluck-info col s12 m12 l12 center'>
       <h6>Organizer: <span><%=potluck.organizer.username%></span></h6>
       <h6>Date: <span><%=potluck.date%></span></h6>
     </div>
   </div>
-  <div class='row'>
+  <div class='row pot-row'>
     <div class='col s12 m6 l6 center'>
       <div class="dishes">
         <h5>Dishes</h5>
@@ -72,7 +45,7 @@
           <% } %>
         </ul>
 
-        <a href="#modal3" class="waves-effect waves-light btn #ff5252 red accent-2 modal-trigger">Invite Guests</a>
+        <a href="#modal3" class="waves-effect waves-light pot-btn #ff5252 red accent-2 modal-trigger">Invite Guests</a>
 
       </div>
     </div>
@@ -91,7 +64,7 @@
           </label>
         </p>
         <% } %>
-        <button type="submit" id="login-btn" class="btn waves-effect waves-light">Submit</button>
+        <button type="submit" id="login-btn" class="pot-btn waves-effect waves-light">Submit</button>
       </form>
     </div>
   </div>

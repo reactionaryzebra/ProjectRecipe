@@ -45,6 +45,39 @@ h6 {
   margin: 2rem;
   padding: 4rem;
 }
+/* Landing Page */
+.recipe {
+  width: 10rem;
+  height: 5rem;
+  margin: 0 auto;
+  margin-top: 4rem;
+  display: grid;
+  border-radius: 10%;
+}
+
+.potluck {
+  width: 10rem;
+  height: 5rem;
+  margin: 0 auto;
+  margin-top: 4rem;
+  display: grid;
+  border-radius: 10%;
+}
+
+.cookbook {
+  width: 10rem;
+  height: 5rem;
+  margin: 0 auto;
+  margin-top: 4rem;
+  display: grid;
+  border-radius: 10%;
+}
+
+.landing-content {
+  text-align: center;
+  margin-top: 1.5rem;
+}
+
 /* Recipe Page*/
 .res-index,
 .res-show {
@@ -75,7 +108,6 @@ h6 {
 .res-save {
   margin-top: 2rem;
   margin-bottom: 4rem;
-  height: 3rem;
 }
 #search-input {
   text-align: center;
@@ -87,4 +119,72 @@ h6 {
 }
 .hoverable {
   margin: 0.75rem;
+}
+/* Cookbook */
+.diet-cookbook {
+  width: 20rem;
+  height: 30rem;
+  margin: 1rem;
+
+  display: inline-block;
+}
+
+/* Potluck */
+.your-potluck {
+  width: 20rem;
+  height: 30rem;
+  margin: 0 auto;
+  display: grid;
+  border-radius: 10%;
+}
+
+.friends-potluck {
+  width: 20rem;
+  height: 30rem;
+  margin: 0 auto;
+  display: grid;
+  border-radius: 10%;
+}
+
+.potluck-create {
+  margin: 5rem 0 3rem 0;
+}
+.pot-modal {
+  overflow-y: visible !important;
+  margin-top: 4rem;
+}
+
+.datepicker {
+  width: 40%;
+  height: 40%;
+}
+.modal-overlay {
+  top: 0% !important;
+  height: 100% !important;
+}
+
+.pot-row {
+  margin-top: 4rem;
+}
+
+.potluck-info {
+  height: 7rem;
+  display: grid;
+  border-radius: 5%;
+}
+
+.dishes {
+  margin: 3rem;
+  height: 20rem;
+  border-radius: 10%;
+}
+
+.guests {
+  margin: 3rem;
+  height: 20rem;
+  border-radius: 10%;
+}
+
+.pot-btn {
+  margin-bottom: 12rem;
 }
