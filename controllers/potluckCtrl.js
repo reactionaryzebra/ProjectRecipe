@@ -18,8 +18,11 @@ router.get("/", async (req, res) => {
 
 router.put("/:id", async (req, res) => {
   try {
-    const potluck = await Potluck.findByIdAndUpdate(req.params.id, req.body);
-    res.redirect(`/potluck/${req.params.id}`);
+    const potluck = await Potluck.findByIdAndUpdate(req.params.id, {
+      name: req.body.name,
+      date: req.body.date
+    });
+    res.redirect(`/potlucks/${req.params.id}`);
   } catch (err) {
     throw new Error(err);
   }
