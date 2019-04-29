@@ -12,6 +12,8 @@
     document.addEventListener('DOMContentLoaded', function() {
       const elems = document.querySelectorAll('.datepicker');
       const instances = M.Datepicker.init(elems);
+      instances.options.minDate(new Date());
+        
     });
   </script>
 </head>
@@ -30,7 +32,7 @@
       <h3 class='center'>New Potluck</h3>
       <form action="/potlucks" method="post">
         Name: <input type="text" name="name">
-        Date: <input type="text" name='date' class="datepicker">
+        Date: <input type="text" name='date' class="datepicker" autocomplete='off'>
         <button type="submit" class="btn waves-effect waves-light">Submit</button>
       </form>
     </div>
