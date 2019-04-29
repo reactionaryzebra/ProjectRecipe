@@ -38,7 +38,7 @@ app.get("/start", (req, res) => {
 });
 app.use("/auth", authController);
 
-app.use(function(req, res) {
+app.use(function(req, res, next) {
   req.session.logged ? next() : res.redirect("/start");
 });
 
