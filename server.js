@@ -6,6 +6,7 @@ const session = require("express-session");
 const flash = require("express-flash");
 require("./db/db");
 require("dotenv").config();
+
 ///controllers
 const authController = require("./controllers/authCtrl");
 const potluckController = require("./controllers/potluckCtrl");
@@ -29,6 +30,7 @@ app.use(
 );
 app.use(flash());
 
+//Set up routes
 app.listen(3000, () => {
   console.log("listening", 3000);
 });
@@ -38,6 +40,7 @@ app.get("/start", (req, res) => {
 });
 app.use("/auth", authController);
 
+//Check authentication
 app.use(function(req, res, next) {
   req.session.logged ? next() : res.redirect("/start");
 });
