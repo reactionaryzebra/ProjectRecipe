@@ -4,25 +4,7 @@
 <head>
   <%- include('../partials/head') %>
   <style>
-    .recipe {
-      width: 10rem;
-      height: 5rem;
-      margin: 0 auto;
-      margin-top: 4rem;
-      display: grid;
-      border-radius: 10%;
-    }
-
-    .potluck {
-      width: 10rem;
-      height: 5rem;
-      margin: 0 auto;
-      margin-top: 4rem;
-      display: grid;
-      border-radius: 10%;
-    }
-
-    .cookbook {
+    .landing-item {
       width: 10rem;
       height: 5rem;
       margin: 0 auto;
@@ -49,26 +31,39 @@
     <%- include('../partials/nav2') %>
   </header>
   <main>
-  
+
   <div class="row">
     <div class='col s12 m12 l4'>
-      <div class="recipe">
-        <a href="/recipes" class='landing-content'>Find Recipes</a>
+      <div class="landing-item">
+        <a href="/recipes" class='landing-content'>Recipes</a>
       </div>
     </div>
     <div class='col s12 m12 l4'>
-      <div class="potluck">
-        <a href="/potlucks" class='landing-content'>Create Potlucks</a>
+      <div class="landing-item">
+        <a href="/potlucks" class='landing-content'>Potlucks</a>
       </div>
     </div>
     <div class='col s12 m12 l4'>
-      <div class="cookbook">
-        <a href="<%=userId%>/cookbook" class='landing-content'>Explore Cookbooks</a>
+      <div class="landing-item">
+        <a href="<%=userId%>/cookbook" class='landing-content'>My Cookbook</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class='col s12 m12 l6'>
+      <div class="landing-item">
+        <a href="/users" class='landing-content'>Explore</a>
+      </div>
+    </div>
+    <div class='col s12 m12 l6'>
+      <div class="landing-item">
+        <a href="/users/<%=userId%>/friends" class='landing-content'>Friends</a>
       </div>
     </div>
   </div>
   </main>
-  
+
   <%- include('../partials/footer') %>
 </body>
 
