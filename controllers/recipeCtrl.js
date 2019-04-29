@@ -44,7 +44,7 @@ router.post("/search", (req, res) => {
   searchParams.push(req.body.search)
 
   stringed=searchParams.flat().join("")
- 
+ console.log(stringed)
   res.redirect("/recipes");
 });
 

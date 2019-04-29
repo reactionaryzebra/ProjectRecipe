@@ -9,16 +9,97 @@
   <header>
     <%- include('../partials/nav2') %>
   </header>
-  <div class="wrapper">
-    <form action="/recipes/search" method="POST">
-      <div class='input-field'>
-        <input id='search-input' type='text' placeholder='Search for recipies' name="searchQuery" autocomplete='off'>
-        <label for="search-input"><i class="material-icons search-icon">search</i></label>
+  <form action="/recipes/search" method="POST">
+    <div class='row center'>
+      <p class='col l2'>
+        <label>
+          <input type="checkbox" name="search" value="&diet=high-protein" />
+          <span>High Protien</span>
+        </label>
+      </p>
+  
+      <p class='col l2'>
+        <label>
+          <input type="checkbox" name="search" value="&diet=balanced" />
+          <span>Balanced</span>
+        </label>
+      </p>
+      <p class='col l2'>
+        <label>
+          <input type="checkbox" name="search" value="&diet=low-fat" />
+          <span>Low-Fat</span>
+        </label>
+      </p>
+      <p class='col l2'>
+        <label>
+          <input type="checkbox" name="search" value="&diet=low-carb" />
+          <span>Low-Carb</span>
+        </label>
+      </p>
+      <p class='col l2'>
+        <label>
+          <input type="checkbox" name="search" value="&health=sugar-conscious" />
+          <span>Sugar Conscious</span>
+        </label>
+      </p>
+  
+      <div>
+        <div class='row center'>
+          <p class='col l2'>
+            <label>
+              <input type="checkbox" name="search" value="&health=vegan" />
+              <span>Vegan</span>
+            </label>
+          </p>
+  
+  
+          <p class='col l2'>
+            <label>
+              <input type="checkbox" name="search" value="&health=vegetarian" />
+              <span>Vegetarian</span>
+            </label>
+          </p>
+  
+          <p class='col l2'>
+            <label>
+              <input type="checkbox" name="search" value="&health=peanut-free" />
+              <span>Peanut</span>
+            </label>
+          </p>
+          <p class='col l2'>
+            <label>
+              <input type="checkbox" name="search" value="&health=tree-nut-free" />
+              <span>Tree Nut Free</span>
+            </label>
+          </p>
+          <p class='col l2'>
+            <label>
+              <input type="checkbox" name="search" value="&health=alcohol-free" />
+              <span>Alcohol Free</span>
+            </label>
+          </p>
+        </div>
+      
+  
+  
+        <div class="wrapper">
+    
+            <div class='input-field'>
+              <input id='search-input' type='text' placeholder='Search for recipies' name="searchQuery" autocomplete='off'>
+              <label for="search-input"><i class="material-icons search-icon">search</i></label>
+            </div>
+        </div>
+      </form>
 
+
+<<<<<<< HEAD
       </div>
     </form>
   </div>
   <div class="row res-show">
+=======
+  <div class="row">
+>>>>>>> master
 
     <div  class='col s12 m12 l7'>
       <div class="ingredients-recipe"> 

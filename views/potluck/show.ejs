@@ -17,8 +17,22 @@
   </header>
   <div class='row pot-row'>
     <div class='potluck-info col s12 m12 l12 center'>
-      <h6>Organizer: <span><%=potluck.organizer.username%></span></h6>
-      <h6>Date: <span><%=potluck.date%></span></h6>
+      <h5><%=potluck.name%></h5>
+      <h6>Organized By: <span><%=potluck.organizer.username%></span></h6>
+      <h6>Date: <span><%=potluck.date.toDateString()%></span></h6>
+      <% if(user.id.toString() === potluck.organizer.id.toString()) { %>
+        <a href="#modal-edit-info" class="modal-trigger">Edit Info</a>
+      <% } %>
+    </div>
+    <div id="modal-edit-info" class="modal">
+      <div class="modal-content center">
+        <h5>Edit Potluck info</h5>
+        <form action="/potlucks/<%=potluck.id.toString()%>?_method=PUT" method="post">
+          <input type="text" name="name" value="<%=potluck.name%>">
+          <input type="date" name="date">
+          <button type="submit" id="login-btn" class="btn waves-effect waves-light">Submit</button>
+        </form>
+      </div>
     </div>
   </div>
   <div class='row pot-row'>
@@ -30,10 +44,11 @@
             <li><a href='/recipes/<%=encodeURIComponent(potluck.dishes[i].uri)%>'><%=potluck.dishes[i].label%></a></li>
           <% } %>
         </ul>
-
-        <a href="#modal-add-dishes" class="waves-effect waves-light btn #ff5252 red accent-2 modal-trigger">Add Dishes</a>
-
+        <% if(user.id.toString() === potluck.organizer.id.toString()) { %>
+          <a href="#modal-add-dishes" class="waves-effect waves-light btn #ff5252 red accent-2 modal-trigger">Add Dishes</a>
+        <% } %>
       </div>
+
     </div>
 
     <div class='col s12 m6 l6 center'>
@@ -44,9 +59,9 @@
             <li><a href="/users/<%=potluck.guests[i].id%>/cookbook"><%=potluck.guests[i].username%></a></li>
           <% } %>
         </ul>
-
-        <a href="#modal-invite-friends" class="waves-effect waves-light btn #ff5252 red accent-2 modal-trigger">Invite Guests</a>
-
+        <% if(user.id.toString() === potluck.organizer.id.toString()) { %>
+          <a href="#modal-invite-friends" class="waves-effect waves-light btn #ff5252 red accent-2 modal-trigger">Invite Guests</a>
+        <% } %>
       </div>
     </div>
   </div>
