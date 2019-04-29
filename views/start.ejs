@@ -77,7 +77,7 @@
         <div id="modal1" class="modal">
           <div class="modal-content">
             <h5>Registration</h5>
-            <form action="/users/register" method="post">
+            <form action="/auth/register" method="post">
               Username: <input id='register-username' type="text" name="username">
               Password: <input id='register-password' type="password" name="password">
               Confirm Password: <input id='register-password-confirm' type="password" name="passwordConfirm">
@@ -90,7 +90,7 @@
           <div class="modal-content">
             <h5>Login</h5>
             <p class='center'>Welcome back.</p>
-            <form action="/users/login" method="post">
+            <form action="/auth/login" method="post">
               Username: <input id='login-username' type="text" name="username">
               Password: <input id='login-password' type="password" name="password">
               <p class="login-message message"></p>
@@ -99,7 +99,7 @@
           </div>
         </div>
   </main>
-  
+
   <%- include('./partials/footer') %>
 </body>
 
