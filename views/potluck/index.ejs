@@ -46,8 +46,11 @@
       const instances = M.Modal.init(elems);
     });
     document.addEventListener('DOMContentLoaded', function() {
+      let options = {
+        minDate: new Date()
+      }
       const elems = document.querySelectorAll('.datepicker');
-      const instances = M.Datepicker.init(elems);
+      const instances = M.Datepicker.init(elems,options);
     });
   </script>
 </head>
