@@ -152,13 +152,13 @@
       <div class="card">
         <div class="card-image">
           <img src="<%=recipe.data[0].image%>" />
-
-          <form action="/recipes/" method="post">
-            <button type="submit" class="btn-floating halfway-fab waves-effect waves-light red pulse">
-              <i class="material-icons">favorite</i>
-            </button>
-
-          </form>
+          <% if(showButton) { %>
+            <form action="/recipes/" method="post">
+              <button type="submit" class="btn-floating halfway-fab waves-effect waves-light red pulse">
+                  <i class="material-icons">favorite</i>
+              </button>
+            </form>
+          <% } %>
         </div>
         <div class="card-content">
           <a href='<%=recipe.data[0].url%>' target="_blank"><%=recipe.data[0].label%></a>
