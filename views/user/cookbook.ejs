@@ -33,9 +33,11 @@
           <a href='/recipes/<%=encoded%>'><%=cookbook[i].label%>
             <img class='center' src="<%= cookbook[i].image %>" />
           </a>
-          <form action="/recipes/<%=cookbook[i]._id%>?_method=DELETE" method="POST">
-            <button type="submit" class="waves-effect waves-light btn #ff5252 red accent-2">Delete</button>
-          </form>
+          <% if(cookbookOwner.id.toString() === user.id.toString()) { %>
+            <form action="/recipes/<%=cookbook[i]._id%>?_method=DELETE" method="POST">
+              <button type="submit" class="waves-effect waves-light btn #ff5252 red accent-2">Delete</button>
+            </form>
+          <% } %>
         </li>
       </div>
       <% } %>
