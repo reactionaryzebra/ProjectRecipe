@@ -57,9 +57,9 @@
             <li><a href='/recipes/<%=encodeURIComponent(potluck.dishes[i].uri)%>'><%=potluck.dishes[i].label%></a></li>
           <% } %>
         </ul>
-
-        <a href="#modal-add-dishes" class="waves-effect waves-light btn #ff5252 red accent-2 modal-trigger">Add Dishes</a>
-
+        <% if(user.id.toString() === potluck.organizer.id.toString()) { %>
+          <a href="#modal-add-dishes" class="waves-effect waves-light btn #ff5252 red accent-2 modal-trigger">Add Dishes</a>
+        <% } %>
       </div>
     </div>
 
@@ -71,9 +71,9 @@
             <li><a href="/users/<%=potluck.guests[i].id%>/cookbook"><%=potluck.guests[i].username%></a></li>
           <% } %>
         </ul>
-
-        <a href="#modal-invite-friends" class="waves-effect waves-light btn #ff5252 red accent-2 modal-trigger">Invite Guests</a>
-
+        <% if(user.id.toString() === potluck.organizer.id.toString()) { %>
+          <a href="#modal-invite-friends" class="waves-effect waves-light btn #ff5252 red accent-2 modal-trigger">Invite Guests</a>
+        <% } %>
       </div>
     </div>
   </div>
