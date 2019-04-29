@@ -18,8 +18,11 @@ router.get("/", async (req, res) => {
 
 router.put("/:id", async (req, res) => {
   try {
-    const potluck = await Potluck.findByIdAndUpdate(req.params.id, req.body);
-    res.redirect(`/potluck/${req.params.id}`);
+    const potluck = await Potluck.findByIdAndUpdate(req.params.id, {
+      name: req.body.name,
+      date: req.body.date
+    });
+    res.redirect(`/potlucks/${req.params.id}`);
   } catch (err) {
     throw new Error(err);
   }
@@ -64,10 +67,20 @@ router.post("/", async (req, res) => {
 
 router.post("/:id/inviteFriends", async (req, res) => {
   try {
+    let user;
     const potluck = await Potluck.findById(req.params.id);
     if (typeof req.body.friends != "object") {
       potluck.guests.addToSet(req.body.friends);
+      user = await User.findById(req.body.friends);
+      user.potLuckPart.push(potluck);
+      user.save();
     } else {
+      for (let i = 0; i < req.body.friends.length; i++) {
+        potluck.guests.addToSet(req.body.friends[i]);
+        user = await User.findById(req.body.friends[i]);
+        user.potLuckPart.push(potluck);
+        user.save();
+      }
       req.body.friends.forEach(friend => {
         potluck.guests.addToSet(friend);
       });
