@@ -18,9 +18,14 @@ router.get("/", async (req, res) => {
 
 router.get("/:id/edit", async (req, res) => {
   try {
-    const foundPotluck = await Potluck.findById(req.params.id);
-    res.render("/potluck/edit", {
-      potluck: foundPotluck
+    const foundPotluck = await Potluck.findById(req.params.id)
+    .populate("organizer")
+    .populate("guests")
+    .populate("dishes");
+    console.log(foundPotluck)
+    res.render("potluck/edit", {
+      user   :foundUser,
+      potluck: foundUser
     });
   } catch (err) {
     throw new Error(err);

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <%- include('../partials/head') %>
+  <script type="text/javascript" defer>
+    document.addEventListener('DOMContentLoaded', function() {
+      const elems = document.querySelectorAll('.modal');
+      const instances = M.Modal.init(elems);
+    });
+  </script>
+</head>
+<style>
+  .row {
+    margin-top: 4rem;
+  }
+
+  .potluck-info {
+    height: 7rem;
+    display: grid;
+    border-radius: 5%;
+  }
+
+  .dishes {
+    margin: 3rem;
+    height: 20rem;
+    border-radius: 10%;
+  }
+
+  .guests {
+    margin: 3rem;
+    height: 20rem;
+    border-radius: 10%;
+  }
+
+  .btn {
+    margin-bottom: 12rem;
+  }
+</style>
+
+<body>
+  <header>
+    <%- include('../partials/nav2') %>
+  </header>
+  <div class='row'>
+    <div class='potluck-info col s12 m12 l12 center'>
+      <h6>Organizer: <span><%=potluck.potLuckOwned[0].name%></span></h6>
+      <h6>Date: <span><%=potluck.date%></span></h6>
+    </div>
+  </div>
+
+</body>
+
+</html>
