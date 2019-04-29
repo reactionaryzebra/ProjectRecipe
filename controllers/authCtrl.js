@@ -16,6 +16,8 @@ router.post("/register", async (req, res) => {
         const newUser = await User.create(req.body);
         req.session.username = req.body.username;
         req.session.logged = true;
+        req.app.locals.username = newUser.username;
+        req.app.locals.userId = newUser.id.toString();
         res.send({
           created: true,
           id: newUser.id
@@ -43,6 +45,8 @@ router.post("/login", async (req, res) => {
       if (foundUser.validatePassword(req.body.password)) {
         req.session.username = req.body.username;
         req.session.logged = true;
+        req.app.locals.username = newUser.username;
+        req.app.locals.userId = newUser.id.toString();
         res.send({
           created: true,
           id: foundUser.id
@@ -59,6 +63,8 @@ router.post("/login", async (req, res) => {
 
 router.post("/logout", async (req, res) => {
   try {
+    req.app.locals.username = "";
+    req.app.locals.userId = "";
     req.session.destroy();
     res.redirect("/start");
   } catch (err) {

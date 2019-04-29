@@ -10,9 +10,9 @@
             <a href="#!" class="brand-logo center"> Savory</a>
             <a href="#" data-target="mobile-nav" class="sidenav-trigger"><i class="material-icons">menu</i></a>
             <ul id="nav-mobile" class="right hide-on-med-and-down">
-                <li><a href="/users/<%=user.id%>"><i class="material-icons center">account_box</i><%=user.username.toUpperCase()%></a></li>
+                <li><a href="/users/<%=userId%>"><i class="material-icons center">account_box</i><%=username.toUpperCase()%></a></li>
                 <li><a class="modal-trigger"  href="/recipes">Recipe</a></li>
-                <li><a class="modal-trigger"  href="/users/<%=user.id%>/cookbook">My Cookbooks</a></li>
+                <li><a class="modal-trigger"  href="/users/<%=userId%>/cookbook">My Cookbooks</a></li>
                 <li>
                   <form action="/auth/logout" method="post" id='logout'>
                     <a class="modal-trigger" onclick="document.getElementById('logout').submit()">Logout</a>
@@ -24,9 +24,9 @@
     </nav>
 
             <ul class="sidenav" id="mobile-nav">
-                <li><a href="/users/<%=user.id%>"><i class="material-icons center">account_box</i><%=user.username.toUpperCase()%></a></li>
+                <li><a href="/users/<%=userId%>"><i class="material-icons center">account_box</i><%=username.toUpperCase()%></a></li>
                 <li><a class="modal-trigger"  href="/recipes">Recipe</a></li>
-                <li><a class="modal-trigger"  href="/users/<%=user.id%>/cookbook">My Cookbooks</a></li>
+                <li><a class="modal-trigger"  href="/users/<%=userId%>/cookbook">My Cookbooks</a></li>
                 <li class='center'>
                   <form action="/auth/logout" method="post" id='logout'>
                     <a class="modal-trigger" onclick="document.getElementById('logout').submit()">Logout</a>
