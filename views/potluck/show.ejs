@@ -27,11 +27,11 @@
         <h5>Dishes</h5>
         <ul>
           <% for(let i =0; i < potluck.dishes.length; i++) { %>
-          <li><%=potluck.dishes[i]%></li>
+            <li><a href='/recipes/<%=encodeURIComponent(potluck.dishes[i].uri)%>'><%=potluck.dishes[i].label%></a></li>
           <% } %>
         </ul>
 
-        <a href="" class="waves-effect waves-light btn #ff5252 red accent-2">Add Dishes</a>
+        <a href="#modal-add-dishes" class="waves-effect waves-light btn #ff5252 red accent-2 modal-trigger">Add Dishes</a>
 
       </div>
     </div>
@@ -41,18 +41,37 @@
         <h5>Guests</h5>
         <ul>
           <% for(let i =0; i < potluck.guests.length; i++) { %>
-          <li><%=potluck.guests[i].username%></li>
+            <li><a href="/users/<%=potluck.guests[i].id%>/cookbook"><%=potluck.guests[i].username%></a></li>
           <% } %>
         </ul>
 
+<<<<<<< HEAD
         <a href="#modal3" class="waves-effect waves-light pot-btn #ff5252 red accent-2 modal-trigger">Invite Guests</a>
+=======
+        <a href="#modal-invite-friends" class="waves-effect waves-light btn #ff5252 red accent-2 modal-trigger">Invite Guests</a>
+>>>>>>> master
 
       </div>
     </div>
   </div>
 
-
-  <div id="modal3" class="modal">
+  <div id="modal-add-dishes" class="modal">
+    <div class="modal-content center">
+      <h5>Add Dishes</h5>
+      <form action="/potlucks/<%=potluck.id.toString()%>/addDishes" method="post">
+        <% for(let i=0; i < user.cookbook.length; i++) { %>
+        <p>
+          <label>
+            <input type="checkbox" name="dishes" value="<%=user.cookbook[i].id%>" />
+            <span><%=user.cookbook[i].label%></span>
+          </label>
+        </p>
+        <% } %>
+        <button type="submit" id="login-btn" class="btn waves-effect waves-light">Submit</button>
+      </form>
+    </div>
+  </div>
+  <div id="modal-invite-friends" class="modal">
     <div class="modal-content center">
       <h5>Invite Friends</h5>
       <form action="/potlucks/<%=potluck.id.toString()%>/inviteFriends" method="post">

@@ -29,12 +29,14 @@ router.get("/:id", async (req, res) => {
   try {
     const user = await User.findOne({
       username: req.session.username
-    }).populate("friends");
+    })
+      .populate("friends")
+      .populate("cookbook");
     const foundPotluck = await Potluck.findById(req.params.id)
       .populate("organizer")
       .populate("guests")
       .populate("dishes");
-      console.log('thisis the route thats his')
+    console.log("thisis the route thats his");
     res.render("potluck/show", {
       user,
       potluck: foundPotluck
@@ -71,6 +73,24 @@ router.post("/:id/inviteFriends", async (req, res) => {
       });
     }
     potluck.save();
+    res.redirect(`/potlucks/${req.params.id}`);
+  } catch (err) {
+    throw new Error(err);
+  }
+});
+
+router.post("/:id/addDishes", async (req, res) => {
+  try {
+    const potluck = await Potluck.findById(req.params.id);
+    if (typeof req.body.dishes != "object") {
+      potluck.dishes.addToSet(req.body.dishes);
+    } else {
+      req.body.dishes.forEach(dish => {
+        potluck.dishes.addToSet(dish);
+      });
+    }
+    potluck.save();
+    res.redirect(`/potlucks/${req.params.id}`);
   } catch (err) {
     throw new Error(err);
   }
