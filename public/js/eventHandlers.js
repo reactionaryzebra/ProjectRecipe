@@ -20,7 +20,7 @@ const checkValid = e => {
   }
 
   e.preventDefault();
-  fetch(`/users/${typeOfButton}`, {
+  fetch(`/auth/${typeOfButton}`, {
     method: "POST",
     headers: {
       "Content-Type": "application/json"
