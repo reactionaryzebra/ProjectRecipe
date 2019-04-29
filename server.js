@@ -7,7 +7,7 @@ const flash = require("express-flash");
 require("./db/db");
 require("dotenv").config();
 ///controllers
-const peopleController = require("./controllers/peopleCtrl");
+const authController = require("./controllers/authCtrl");
 const potluckController = require("./controllers/potluckCtrl");
 const recipeController = require("./controllers/recipeCtrl");
 const userController = require("./controllers/userCtrl");
@@ -36,12 +36,12 @@ app.listen(3000, () => {
 app.get("/start", (req, res) => {
   res.render("start");
 });
+app.use("/auth", authController);
+
+app.use(function(req, res) {
+  req.session.logged ? next() : res.redirect("/start");
+});
 
 app.use("/users", userController);
 app.use("/potlucks", potluckController);
 app.use("/recipes", recipeController);
-
-// app.use(function(req, res) {
-//   req.sessions.logged ? next() : res.redirect("/start");
-// });
-///Routes for all non-login pages
