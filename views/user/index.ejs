@@ -6,17 +6,23 @@
 </head>
 
 <body>
-  <%- include('../partials/nav2') %>
+  <header>
+    <%- include('../partials/nav2') %>
+    </header>
+  <main>
   <ul>
     <% for(let i =0; i < users.length; i++) { %>
     <% if (currentUser !== users[i].id.toString()) { %>
     <li><a href="/users/<%=users[i].id%>/cookbook"><%=users[i].username%></a></li>
     <form action="/users/<%=users[i].id%>/addfriend" method="post">
-      <button type="submit" <% if (friends.some( f => f.toString() === users[i]._id.toString())) { %> disabled <% } %>>Add friend</button>
+      <button type="submit" class="waves-effect waves-light btn #ff5252 red accent-2"
+      <% if (friends.some( f => f.toString() === users[i]._id.toString())) { %> disabled <% } %>>Add friend</button>
     </form>
     <% } %>
     <% } %>
   </ul>
+  </main>
+  
   <%- include('../partials/footer') %>
 </body>
 
