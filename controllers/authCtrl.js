@@ -45,8 +45,8 @@ router.post("/login", async (req, res) => {
       if (foundUser.validatePassword(req.body.password)) {
         req.session.username = req.body.username;
         req.session.logged = true;
-        req.app.locals.username = newUser.username;
-        req.app.locals.userId = newUser.id.toString();
+        req.app.locals.username = foundUser.username;
+        req.app.locals.userId = foundUser.id.toString();
         res.send({
           created: true,
           id: foundUser.id
