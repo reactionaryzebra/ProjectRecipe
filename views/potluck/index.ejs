@@ -3,43 +3,7 @@
 
 <head>
   <%- include('../partials/head') %>
-  <style>
-    .your-potluck {
-      width: 20rem;
-      height: 30rem;
-      margin: 0 auto;
-      display: grid;
-      border-radius: 10%;
-    }
 
-    .friends-potluck {
-      width: 20rem;
-      height: 30rem;
-      margin: 0 auto;
-      display: grid;
-      border-radius: 10%;
-    }
-
-    .potluck-create {
-      margin: 5rem 0 3rem 0;
-    }
-
-    .modal {
-      overflow-y: visible !important;
-      margin-top: 4rem;
-    }
-
-    .modal-overlay {
-      top: 0% !important;
-      height: 100% !important;
-    }
-
-    .datepicker {
-
-      width: 40%;
-      height: 40%;
-    }
-  </style>
   <script type="text/javascript" defer>
     document.addEventListener('DOMContentLoaded', function() {
       const elems = document.querySelectorAll('.modal');
@@ -50,7 +14,13 @@
         minDate: new Date()
       }
       const elems = document.querySelectorAll('.datepicker');
+<<<<<<< HEAD
+      const instances = M.Datepicker.init(elems);
+      instances.options.minDate(new Date());
+        
+=======
       const instances = M.Datepicker.init(elems,options);
+>>>>>>> master
     });
   </script>
 </head>
@@ -64,12 +34,12 @@
     <a href="#modal1" class="waves-effect waves-light btn #ff5252 red accent-2 modal-trigger">Create New Potluck</a>
   </div>
 
-  <div id='modal1' class="modal">
+  <div id='modal1' class="modal pot-modal">
     <div class="modal-content">
       <h3 class='center'>New Potluck</h3>
       <form action="/potlucks" method="post">
         Name: <input type="text" name="name">
-        Date: <input type="text" name='date' class="datepicker">
+        Date: <input type="text" name='date' class="datepicker" autocomplete='off'>
         <button type="submit" class="btn waves-effect waves-light">Submit</button>
       </form>
     </div>
