@@ -50,25 +50,7 @@ h6 {
   padding: 4rem;
 }
 /* Landing Page */
-.recipe {
-  width: 10rem;
-  height: 5rem;
-  margin: 0 auto;
-  margin-top: 4rem;
-  display: grid;
-  border-radius: 10%;
-}
-
-.potluck {
-  width: 10rem;
-  height: 5rem;
-  margin: 0 auto;
-  margin-top: 4rem;
-  display: grid;
-  border-radius: 10%;
-}
-
-.cookbook {
+.landing-item {
   width: 10rem;
   height: 5rem;
   margin: 0 auto;
