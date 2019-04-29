@@ -3,12 +3,23 @@ body {
   padding: 0;
   box-sizing: border-box;
   font-family: "Roboto Slab", Helvetica, serif;
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
 }
+nav {
+  padding: 0 0.5rem;
+}
+main {
+  flex: 1 0 auto;
+}
+
 h5,
 h6 {
   font-family: Roboto, Helvetica, sans-serif;
 }
-h5 {
+h5,
+h6 {
   text-align: center;
 }
 
