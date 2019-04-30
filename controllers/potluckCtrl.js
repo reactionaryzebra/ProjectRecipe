@@ -44,7 +44,7 @@ router.get("/:id", async (req, res) => {
       .populate("organizer")
       .populate("guests")
       .populate("dishes");
-    console.log("thisis the route thats his");
+    
     res.render("potluck/show", {
       user,
       potluck: foundPotluck
