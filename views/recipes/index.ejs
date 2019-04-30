@@ -4,6 +4,14 @@
 <head>
   <%- include('../partials/head') %>
   <script src="https://unpkg.com/axios/dist/axios.min.js" defer></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+    const elems = document.querySelectorAll('.collapsible');
+    const instances = M.Collapsible.init(elems);
+  });
+
+  </script>
+  
 </head>
 
 <body>
@@ -12,47 +20,45 @@
 
   <%- include('../partials/nav2') %>
   </header>
+  <ul class="collapsible">
+    <li>
+    <div class="collapsible-header">Choose Diet Options</div>
+      <div class="collapsible-body">
+        <form action="/recipes/search" method="POST">
+            <div class='row center'>
+              <p class='col l2'>
+                <label>
+                  <input type="checkbox" name="search" value="&diet=high-protein" />
+                    <span>High Protein</span>
+                </label>
+              </p>
 
-<<<<<<< HEAD
+          <p class='col l2'>
+            <label>
+              <input type="checkbox" name="search" value="&diet=balanced" />
+              <span>Balanced</span>
+            </label>
+          </p>
+          <p class='col l2'>
+            <label>
+                <input type="checkbox" name="search" value="&diet=low-fat" />
+                <span>Low-Fat</span>
+            </label>
+          </p>
+          <p class='col l2'>
+            <label>
+                <input type="checkbox" name="search" value="&diet=low-carb" />
+                <span>Low-Carb</span>
+            </label>
+          </p>
+          <p class='col l2'>
+            <label>
+                <input type="checkbox" name="search" value="&health=sugar-conscious" />
+                <span>Sugar Conscious</span>
+            </label>
+          </p>
 
-  <div class='row res-index center'>
-=======
-  <form action="/recipes/search" method="POST">
-  <div class='row center'>
->>>>>>> master
-    <p class='col l2'>
-      <label>
-        <input type="checkbox" name="search" value="&diet=high-protein" />
-        <span>High Protien</span>
-      </label>
-    </p>
-
-    <p class='col l2'>
-      <label>
-        <input type="checkbox" name="search" value="&diet=balanced" />
-        <span>Balanced</span>
-      </label>
-    </p>
-    <p class='col l2'>
-      <label>
-        <input type="checkbox" name="search" value="&diet=low-fat" />
-        <span>Low-Fat</span>
-      </label>
-    </p>
-    <p class='col l2'>
-      <label>
-        <input type="checkbox" name="search" value="&diet=low-carb" />
-        <span>Low-Carb</span>
-      </label>
-    </p>
-    <p class='col l2'>
-      <label>
-        <input type="checkbox" name="search" value="&health=sugar-conscious" />
-        <span>Sugar Conscious</span>
-      </label>
-    </p>
-
-    <div>
+      <div>
       <div class='row res-index center'>
         <p class='col l2'>
           <label>
@@ -72,7 +78,7 @@
         <p class='col l2'>
           <label>
             <input type="checkbox" name="search" value="&health=peanut-free" />
-            <span>Peanut</span>
+            <span>Peanut Free</span>
           </label>
         </p>
         <p class='col l2'>
@@ -88,7 +94,8 @@
           </label>
         </p>
       </div>
-    
+    </div>
+    </li>
 
 
       <div class="wrapper">
