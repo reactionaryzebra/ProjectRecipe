@@ -1,20 +1,21 @@
 <script type="text/javascript" src="/js/materializeDropdown.js" defer></script>
 <script type="text/javascript" src="/js/materializeSidenav.js" defer></script>
+
 <nav class="#37474f blue-grey darken-3">
   <div class="nav-wrapper">
     <a href="/users/<%=userId%>" class="brand-logo center"> Savory</a>
     <a href="#" data-target="mobile-nav" class="sidenav-trigger"><i class="material-icons">menu</i></a>
     <ul id="nav-mobile" class="right hide-on-med-and-down">
-      <li><a class="modal-trigger" href="/recipes">Recipe</a></li>
-      <li><a class="modal-trigger" href="/users/<%=userId%>/cookbook">My Cookbooks</a></li>
-      <li><a class="modal-trigger" href="/potlucks">Potlucks</a></li>
+      <li><a class="modal-trigger" href="/recipes">Search Recipes</a></li>
+      <li><a class="modal-trigger" href="/users">Explore Users</a></li>
     </ul>
     <ul id="nav-mobile" class="left hide-on-med-and-down">
       <li><a class='dropdown-trigger btn #039be5 light-blue darken-1' href='#' data-target='dropdown'><i class="material-icons center">account_circle</i></a>
         <ul id='dropdown' class='dropdown-content'>
           <li><a class="modal-trigger" href="/users/<%=userId%>">Home</a></li>
-          <li><a class="modal-trigger" href="/users/<%=userId%>/cookbook">Cookbook</a></li>
-          <li><a class="modal-trigger" href="/users/<%=userId%>/friends">Friends</a></li>
+          <li><a class="modal-trigger" href="/potlucks">My Potlucks</a></li>
+          <li><a class="modal-trigger" href="/users/<%=userId%>/cookbook">My Cookbook</a></li>
+          <li><a class="modal-trigger" href="/users/<%=userId%>/friends">My Friends</a></li>
           <form action="/auth/logout" method="post" id='logout'>
             <a class="modal-trigger drop-logout" onclick="document.getElementById('logout').submit()">Logout</a>
           </form>
