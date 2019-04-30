@@ -5,11 +5,16 @@ const User = require("../models/user");
 
 router.get("/", async (req, res) => {
   try {
-    const foundUser = await User.findOne({ username: req.session.username })
-      .populate("potLuckOwned")
-      .populate("potLuckPart");
+    const user = await User.findOne({ username: req.session.username });
+    const potlucksOrganized = await Potluck.find({ organizer: user }).populate(
+      "organizer"
+    );
+    const potlucksAttending = await Potluck.find({ guests: user }).populate(
+      "guests"
+    );
     res.render("potluck/index", {
-      user: foundUser
+      potlucksOrganized,
+      potlucksAttending
     });
   } catch (err) {
     throw new Error(err);
@@ -57,8 +62,6 @@ router.post("/", async (req, res) => {
       organizer: user,
       date: req.body.date
     });
-    user.potLuckOwned.push(createdPotluck);
-    user.save();
     res.redirect(`potlucks/${createdPotluck.id}`);
   } catch (err) {
     throw new Error(err);
@@ -67,25 +70,13 @@ router.post("/", async (req, res) => {
 
 router.post("/:id/inviteFriends", async (req, res) => {
   try {
-    let user;
-    const potluck = await Potluck.findById(req.params.id);
-    if (typeof req.body.friends != "object") {
-      potluck.guests.addToSet(req.body.friends);
-      user = await User.findById(req.body.friends);
-      user.potLuckPart.push(potluck);
-      user.save();
-    } else {
-      for (let i = 0; i < req.body.friends.length; i++) {
-        potluck.guests.addToSet(req.body.friends[i]);
-        user = await User.findById(req.body.friends[i]);
-        user.potLuckPart.push(potluck);
-        user.save();
-      }
-      req.body.friends.forEach(friend => {
-        potluck.guests.addToSet(friend);
-      });
-    }
-    potluck.save();
+    const potluck = await Potluck.findByIdAndUpdate(
+      req.params.id,
+      {
+        guests: req.body.friends
+      },
+      { new: true }
+    );
     res.redirect(`/potlucks/${req.params.id}`);
   } catch (err) {
     throw new Error(err);
@@ -94,15 +85,13 @@ router.post("/:id/inviteFriends", async (req, res) => {
 
 router.post("/:id/addDishes", async (req, res) => {
   try {
-    const potluck = await Potluck.findById(req.params.id);
-    if (typeof req.body.dishes != "object") {
-      potluck.dishes.addToSet(req.body.dishes);
-    } else {
-      req.body.dishes.forEach(dish => {
-        potluck.dishes.addToSet(dish);
-      });
-    }
-    potluck.save();
+    const potluck = await Potluck.findByIdAndUpdate(
+      req.params.id,
+      {
+        dishes: req.body.dishes
+      },
+      { new: true }
+    );
     res.redirect(`/potlucks/${req.params.id}`);
   } catch (err) {
     throw new Error(err);
