@@ -4,7 +4,7 @@
 <head>
   <%- include('../partials/head') %>
   <script type="text/javascript" defer>
-      document.addEventListener('DOMContentLoaded', function() {
+    document.addEventListener('DOMContentLoaded', function() {
       const elems = document.querySelectorAll('.modal');
       const instances = M.Modal.init(elems);
     });
@@ -13,7 +13,7 @@
         minDate: new Date()
       }
       const elems = document.querySelectorAll('.datepicker');
-      const instances = M.Datepicker.init(elems,options);
+      const instances = M.Datepicker.init(elems, options);
     });
   </script>
 </head>
@@ -28,7 +28,7 @@
       <h6>Organized By: <span><%=potluck.organizer.username%></span></h6>
       <h6>Date: <span><%=potluck.date.toDateString()%></span></h6>
       <% if(user.id.toString() === potluck.organizer.id.toString()) { %>
-        <a href="#modal-edit-info" class="modal-trigger">Edit Info</a>
+      <a href="#modal-edit-info" class="modal-trigger">Edit Info</a>
       <% } %>
     </div>
     <div id="modal-edit-info" class="modal">
@@ -48,11 +48,11 @@
         <h5>Dishes</h5>
         <ul>
           <% for(let i =0; i < potluck.dishes.length; i++) { %>
-            <li><a href='/recipes/<%=encodeURIComponent(potluck.dishes[i].uri)%>'><%=potluck.dishes[i].label%></a></li>
+          <li><a href='/recipes/<%=encodeURIComponent(potluck.dishes[i].uri)%>'><%=potluck.dishes[i].label%></a></li>
           <% } %>
         </ul>
         <% if(user.id.toString() === potluck.organizer.id.toString()) { %>
-          <a href="#modal-add-dishes" class="waves-effect waves-light btn #ff5252 red accent-2 modal-trigger">Add Dishes</a>
+        <a href="#modal-add-dishes" class="waves-effect waves-light btn #ff5252 red accent-2 modal-trigger">Add Dishes</a>
         <% } %>
       </div>
 
@@ -63,11 +63,11 @@
         <h5>Guests</h5>
         <ul>
           <% for(let i =0; i < potluck.guests.length; i++) { %>
-            <li><a href="/users/<%=potluck.guests[i].id%>/cookbook"><%=potluck.guests[i].username%></a></li>
+          <li><a href="/users/<%=potluck.guests[i].id%>/cookbook"><%=potluck.guests[i].username%></a></li>
           <% } %>
         </ul>
         <% if(user.id.toString() === potluck.organizer.id.toString()) { %>
-          <a href="#modal-invite-friends" class="waves-effect waves-light btn #ff5252 red accent-2 modal-trigger">Invite Guests</a>
+        <a href="#modal-invite-friends" class="waves-effect waves-light btn #ff5252 red accent-2 modal-trigger">Invite Guests</a>
         <% } %>
       </div>
     </div>
@@ -80,11 +80,7 @@
         <% for(let i=0; i < user.cookbook.length; i++) { %>
         <p>
           <label>
-            <input type="checkbox" name="dishes" value="<%=user.cookbook[i].id%>"
-            <% if(potluck.dishes.some(dish => dish.id.toString() === user.cookbook[i].id.toString())) { %>
-              checked
-            <% } %>
-            />
+            <input type="checkbox" name="dishes" value="<%=user.cookbook[i].id%>" <% if(potluck.dishes.some(dish => dish.id.toString() === user.cookbook[i].id.toString())) { %> checked <% } %> />
             <span><%=user.cookbook[i].label%></span>
           </label>
         </p>
@@ -100,11 +96,7 @@
         <% for(let i=0; i < user.friends.length; i++) { %>
         <p>
           <label>
-            <input type="checkbox" name="friends" value="<%=user.friends[i].id%>"
-              <% if(potluck.guests.some(guest => guest.id.toString() === user.friends[i].id.toString())) { %>
-                checked
-              <% } %>
-            />
+            <input type="checkbox" name="friends" value="<%=user.friends[i].id%>" <% if(potluck.guests.some(guest => guest.id.toString() === user.friends[i].id.toString())) { %> checked <% } %> />
             <span><%=user.friends[i].username%></span>
           </label>
         </p>

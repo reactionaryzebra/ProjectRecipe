@@ -1,54 +1,42 @@
-  <script>
-    document.addEventListener('DOMContentLoaded', function() {
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
     const elems = document.querySelectorAll('.sidenav');
     const instances = M.Sidenav.init(elems);
     const elem = document.querySelectorAll('.dropdown-trigger');
     const instance = M.Dropdown.init(elem);
   });
-  
+</script>
+<nav class="#37474f blue-grey darken-3">
+  <div class="nav-wrapper">
+    <a href="/users/<%=userId%>" class="brand-logo center"> Savory</a>
+    <a href="#" data-target="mobile-nav" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+    <ul id="nav-mobile" class="right hide-on-med-and-down">
+      <li><a class="modal-trigger" href="/recipes">Recipe</a></li>
+      <li><a class="modal-trigger" href="/users/<%=userId%>/cookbook">My Cookbooks</a></li>
+      <li><a class="modal-trigger" href="/potlucks">Potlucks</a></li>
+    </ul>
+    <ul id="nav-mobile" class="left hide-on-med-and-down">
+      <li><a class='dropdown-trigger btn #039be5 light-blue darken-1' href='#' data-target='dropdown'><i class="material-icons center">account_circle</i></a>
+        <ul id='dropdown' class='dropdown-content'>
+          <li><a class="modal-trigger" href="/users/<%=userId%>">Home</a></li>
+          <li><a class="modal-trigger" href="/users/<%=userId%>/cookbook">Cookbook</a></li>
+          <li><a class="modal-trigger" href="/users/<%=userId%>/friends">Friends</a></li>
+          <form action="/auth/logout" method="post" id='logout'>
+            <a class="modal-trigger drop-logout" onclick="document.getElementById('logout').submit()">Logout</a>
+          </form>
+        </ul>
+      </li>
+    </ul>
+  </div>
+</nav>
 
-  </script>
-
-    <nav class="#37474f blue-grey darken-3">
-        <div class="nav-wrapper">
-            <a href="/users/<%=userId%>" class="brand-logo center"> Savory</a>
-            <a href="#" data-target="mobile-nav" class="sidenav-trigger"><i class="material-icons">menu</i></a>
-            <ul id="nav-mobile" class="right hide-on-med-and-down">
-                
-                <li><a class="modal-trigger"  href="/recipes">Recipe</a></li>
-                <li><a class="modal-trigger"  href="/users/<%=userId%>/cookbook">My Cookbooks</a></li>
-                <li><a class="modal-trigger" href="/potlucks">Potlucks</a></li>
-            </ul>
-            <ul id="nav-mobile" class="left hide-on-med-and-down">
-              <li><a class='dropdown-trigger btn #039be5 light-blue darken-1' href='#' data-target='dropdown'><i class="material-icons center">account_circle</i></a>
-              
-                <ul id='dropdown' class='dropdown-content'>
-                  <li><a class="modal-trigger" href="/users/<%=userId%>">Home</a></li>
-                  <li><a class="modal-trigger" href="/users/<%=userId%>/cookbook">Cookbook</a></li>
-                  <li><a class="modal-trigger" href="/users/<%=userId%>/friends">Friends</a></li>
-                  
-                  <form action="/auth/logout" method="post" id='logout'>
-                    <a class="modal-trigger drop-logout" onclick="document.getElementById('logout').submit()">Logout</a>
-                  </form>
-                  
-                </ul>
-              
-              </li>
-            </ul>
-
-
-
-
-        </div>
-    </nav>
-
-            <ul class="sidenav" id="mobile-nav">
-                <li><a href="/users/<%=userId%>"><i class="material-icons center">account_box</i><%=username.toUpperCase()%></a></li>
-                <li><a class="modal-trigger"  href="/recipes">Recipe</a></li>
-                <li><a class="modal-trigger"  href="/users/<%=userId%>/cookbook">My Cookbooks</a></li>
-                <li class='center'>
-                  <form action="/auth/logout" method="post" id='logout'>
-                    <a class="modal-trigger" onclick="document.getElementById('logout').submit()">Logout</a>
-                  </form>
-                </li>
-            </ul>
+<ul class="sidenav" id="mobile-nav">
+  <li><a href="/users/<%=userId%>"><i class="material-icons center">account_box</i><%=username.toUpperCase()%></a></li>
+  <li><a class="modal-trigger" href="/recipes">Recipe</a></li>
+  <li><a class="modal-trigger" href="/users/<%=userId%>/cookbook">My Cookbooks</a></li>
+  <li class='center'>
+    <form action="/auth/logout" method="post" id='logout'>
+      <a class="modal-trigger" onclick="document.getElementById('logout').submit()">Logout</a>
+    </form>
+  </li>
+</ul>
