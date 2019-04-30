@@ -43,9 +43,7 @@ router.post("/search", (req, res) => {
  
   searchQuery = req.body.searchQuery;
   searchParams.push(req.body.search)
-  searchAmount=parseInt(req.body.amount) 
-  console.log(searchAmount,'=====searchamount')
-  console.log(req.body.amount,'======search amount')
+  searchAmount=req.body.amount
  
   stringed=searchParams.flat().join("")
  

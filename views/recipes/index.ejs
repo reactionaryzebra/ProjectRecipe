@@ -13,6 +13,7 @@
     const elems = document.querySelectorAll('select');
     const instances = M.FormSelect.init(elems);
   });
+  document.getElementById('hideButton').style.visibility = 'hidden'
   </script>
   
 </head>
@@ -23,101 +24,98 @@
 
   <%- include('../partials/nav2') %>
   </header>
+  <form action="/recipes/search" method="POST">
+  
   <ul class="collapsible">
     <li>
-    <div class="collapsible-header">Choose Diet Options</div>
+      <div class="collapsible-header">Choose Diet Options</div>
       <div class="collapsible-body">
-        <form action="/recipes/search" method="POST">
-            <div class='row center'>
-              <p class='col l2'>
-                <label>
-                  <input type="checkbox" name="search" value="&diet=high-protein" />
-                    <span>High Protein</span>
-                </label>
-              </p>
-
-          <p class='col l2'>
-            <label>
-              <input type="checkbox" name="search" value="&diet=balanced" />
-              <span>Balanced</span>
-            </label>
-          </p>
-          <p class='col l2'>
-            <label>
-                <input type="checkbox" name="search" value="&diet=low-fat" />
-                <span>Low-Fat</span>
-            </label>
-          </p>
-          <p class='col l2'>
-            <label>
-                <input type="checkbox" name="search" value="&diet=low-carb" />
-                <span>Low-Carb</span>
-            </label>
-          </p>
-          <p class='col l2'>
-            <label>
-                <input type="checkbox" name="search" value="&health=sugar-conscious" />
-                <span>Sugar Conscious</span>
-            </label>
-          </p>
-
-      <div>
-      <div class='row res-index center'>
-        <p class='col l2'>
-          <label>
-            <input type="checkbox" name="search" value="&health=vegan" />
-            <span>Vegan</span>
-          </label>
-        </p>
-
-
-        <p class='col l2'>
-          <label>
-            <input type="checkbox" name="search" value="&health=vegetarian" />
-            <span>Vegetarian</span>
-          </label>
-        </p>
-
-        <p class='col l2'>
-          <label>
-            <input type="checkbox" name="search" value="&health=peanut-free" />
-            <span>Peanut Free</span>
-          </label>
-        </p>
-        <p class='col l2'>
-          <label>
-            <input type="checkbox" name="search" value="&health=tree-nut-free" />
-            <span>Tree Nut Free</span>
-          </label>
-        </p>
-        <p class='col l2'>
-          <label>
-            <input type="checkbox" name="search" value="&health=alcohol-free" />
-            <span>Alcohol Free</span>
-          </label>
-        </p>
+        <div class='row center'>
+                        <p class='col l2'>
+                          <label>
+                            <input type="checkbox" name="search" value="&diet=high-protein" />
+                              <span>High Protein</span>
+                          </label>
+                        </p>
+                        <p class='col l2'>
+                          <label>
+                            <input type="checkbox" name="search" value="&diet=balanced" />
+                            <span>Balanced</span>
+                          </label>
+                        </p>
+                        <p class='col l2'>
+                          <label>
+                              <input type="checkbox" name="search" value="&diet=low-fat" />
+                              <span>Low-Fat</span>
+                          </label>
+                        </p>
+                        <p class='col l2'>
+                          <label>
+                              <input type="checkbox" name="search" value="&diet=low-carb" />
+                              <span>Low-Carb</span>
+                          </label>
+                        </p>
+                        <p class='col l2'>
+                          <label>
+                              <input type="checkbox" name="search" value="&health=sugar-conscious" />
+                              <span>Sugar Conscious</span>
+                          </label>
+                        </p>              
+                    <div class='row res-index center'>
+                        <p class='col l2'>
+                          <label>
+                            <input type="checkbox" name="search" value="&health=vegan" />
+                            <span>Vegan</span>
+                          </label>
+                        </p>
+                        <p class='col l2'>
+                          <label>
+                            <input type="checkbox" name="search" value="&health=vegetarian" />
+                            <span>Vegetarian</span>
+                          </label>
+                        </p>
+                        <p class='col l2'>
+                          <label>
+                            <input type="checkbox" name="search" value="&health=peanut-free" />
+                            <span>Peanut Free</span>
+                          </label>
+                        </p>
+                        <p class='col l2'>
+                          <label>
+                            <input type="checkbox" name="search" value="&health=tree-nut-free" />
+                            <span>Tree Nut Free</span>
+                          </label>
+                        </p>
+                        <p class='col l2'>
+                          <label>
+                            <input type="checkbox" name="search" value="&health=alcohol-free" />
+                            <span>Alcohol Free</span>
+                          </label>
+                        </p>
+                    </div>
+                  </div>
+              </div>
+            </li>
+      </ul>
+      <div class="input-field col s12">
+          <select name='amount'>
+            <option disabled selected>Search Limit</option>
+            <option  value="25">25</option>
+            <option  value="50">50</option>
+            <option  value="100">100</option>
+          </select>
+          <label>Materialize Select</label>
       </div>
-    </div>
-    </li>
-</ul>
-
       <div class="wrapper">
           <div class='input-field'>
             <input id='search-input' type='text' placeholder='Search for recipies' name="searchQuery" autocomplete='off'>
             <label for="search-input"><i class="material-icons search-icon">search</i></label>
+            <button id='hideButton' type="submit">search</button>
           </div>
       </div>
 
-      <div class="input-field col s12">
-          <select>
-            <option disabled selected>Search Limit</option>
-            <option name ='amount' value="25">25</option>
-            <option name ='amount' value="50">50</option>
-            <option name ='amount' value="100">100</option>
-          </select>
-          <label>Materialize Select</label>
-        </div>
-    </form>
+     
+  </form>
     
       <div class='recipe-img center'>
         <%for(let i =0; i < recipes.data.hits.length ; i++){%>
