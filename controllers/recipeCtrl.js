@@ -8,6 +8,7 @@ let recipe;
 let searchQuery = "food";
 let searchParams
 let stringed =""
+let searchAmount=25;
 
 router.post("/", async (req, res) => {
   try {
@@ -42,7 +43,8 @@ router.post("/search", (req, res) => {
  
   searchQuery = req.body.searchQuery;
   searchParams.push(req.body.search)
-
+  searchAmount=req.body.amount
+ 
   stringed=searchParams.flat().join("")
  
   res.redirect("/recipes");
@@ -54,7 +56,7 @@ router.get("/", async (req, res) => {
     recipes = await axios.get(
       `https://api.edamam.com/search?q=${searchQuery}&app_id=${
         process.env.APP_ID
-      }&app_key=${process.env.APP_KEY}&to=100${stringed}`
+      }&app_key=${process.env.APP_KEY}&to=${searchAmount}${stringed}`
     );
     const user = await User.findOne({ username: req.session.username });
     res.render("recipes/index", { user, recipes });

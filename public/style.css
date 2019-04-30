@@ -90,6 +90,9 @@ h6 {
 .collapsible-header {
   border-bottom: 2px solid #039be5 !important;
 }
+#hideButton {
+  display: none;
+}
 .res-index,
 .res-show {
   margin-top: 4rem;
