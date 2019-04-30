@@ -30,6 +30,10 @@ h6 {
 #dropdown a {
   color: #039be5;
 }
+.dropdown-content {
+  min-height: 265px !important;
+  min-width: 137px !important;
+}
 /* Start Page*/
 .start-page {
   margin: 5rem auto;
