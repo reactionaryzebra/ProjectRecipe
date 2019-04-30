@@ -17,7 +17,9 @@ const userController = require("./controllers/userCtrl");
 app.set("view engine", "ejs");
 
 ///////////middleware
-app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.urlencoded({
+  extended: false
+}));
 app.use(express.json());
 app.use(methodOverride("_method"));
 app.use(express.static("public"));

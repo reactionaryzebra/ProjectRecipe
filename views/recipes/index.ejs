@@ -6,12 +6,11 @@
   <script src="https://unpkg.com/axios/dist/axios.min.js" defer></script>
   <script>
     document.addEventListener('DOMContentLoaded', function() {
-    const elems = document.querySelectorAll('.collapsible');
-    const instances = M.Collapsible.init(elems);
-  });
-
+      const elems = document.querySelectorAll('.collapsible');
+      const instances = M.Collapsible.init(elems);
+    });
   </script>
-  
+
 </head>
 
 <body>
@@ -22,100 +21,101 @@
   </header>
   <ul class="collapsible">
     <li>
-    <div class="collapsible-header">Choose Diet Options</div>
+      <div class="collapsible-header">Choose Diet Options</div>
       <div class="collapsible-body">
         <form action="/recipes/search" method="POST">
-            <div class='row center'>
-              <p class='col l2'>
-                <label>
-                  <input type="checkbox" name="search" value="&diet=high-protein" />
-                    <span>High Protein</span>
-                </label>
-              </p>
+          <div class='row center'>
+            <p class='col l2'>
+              <label>
+                <input type="checkbox" name="search" value="&diet=high-protein" />
+                <span>High Protein</span>
+              </label>
+            </p>
 
-          <p class='col l2'>
-            <label>
-              <input type="checkbox" name="search" value="&diet=balanced" />
-              <span>Balanced</span>
-            </label>
-          </p>
-          <p class='col l2'>
-            <label>
+            <p class='col l2'>
+              <label>
+                <input type="checkbox" name="search" value="&diet=balanced" />
+                <span>Balanced</span>
+              </label>
+            </p>
+            <p class='col l2'>
+              <label>
                 <input type="checkbox" name="search" value="&diet=low-fat" />
                 <span>Low-Fat</span>
-            </label>
-          </p>
-          <p class='col l2'>
-            <label>
+              </label>
+            </p>
+            <p class='col l2'>
+              <label>
                 <input type="checkbox" name="search" value="&diet=low-carb" />
                 <span>Low-Carb</span>
-            </label>
-          </p>
-          <p class='col l2'>
-            <label>
+              </label>
+            </p>
+            <p class='col l2'>
+              <label>
                 <input type="checkbox" name="search" value="&health=sugar-conscious" />
                 <span>Sugar Conscious</span>
-            </label>
-          </p>
+              </label>
+            </p>
 
-      <div>
-      <div class='row res-index center'>
-        <p class='col l2'>
-          <label>
-            <input type="checkbox" name="search" value="&health=vegan" />
-            <span>Vegan</span>
-          </label>
-        </p>
+            <div>
+              <div class='row res-index center'>
+                <p class='col l2'>
+                  <label>
+                    <input type="checkbox" name="search" value="&health=vegan" />
+                    <span>Vegan</span>
+                  </label>
+                </p>
 
 
-        <p class='col l2'>
-          <label>
-            <input type="checkbox" name="search" value="&health=vegetarian" />
-            <span>Vegetarian</span>
-          </label>
-        </p>
+                <p class='col l2'>
+                  <label>
+                    <input type="checkbox" name="search" value="&health=vegetarian" />
+                    <span>Vegetarian</span>
+                  </label>
+                </p>
 
-        <p class='col l2'>
-          <label>
-            <input type="checkbox" name="search" value="&health=peanut-free" />
-            <span>Peanut Free</span>
-          </label>
-        </p>
-        <p class='col l2'>
-          <label>
-            <input type="checkbox" name="search" value="&health=tree-nut-free" />
-            <span>Tree Nut Free</span>
-          </label>
-        </p>
-        <p class='col l2'>
-          <label>
-            <input type="checkbox" name="search" value="&health=alcohol-free" />
-            <span>Alcohol Free</span>
-          </label>
-        </p>
-      </div>
-    </div>
+                <p class='col l2'>
+                  <label>
+                    <input type="checkbox" name="search" value="&health=peanut-free" />
+                    <span>Peanut Free</span>
+                  </label>
+                </p>
+                <p class='col l2'>
+                  <label>
+                    <input type="checkbox" name="search" value="&health=tree-nut-free" />
+                    <span>Tree Nut Free</span>
+                  </label>
+                </p>
+                <p class='col l2'>
+                  <label>
+                    <input type="checkbox" name="search" value="&health=alcohol-free" />
+                    <span>Alcohol Free</span>
+                  </label>
+                </p>
+              </div>
+            </div>
     </li>
 
 
-      <div class="wrapper">
-  
-          <div class='input-field'>
-            <input id='search-input' type='text' placeholder='Search for recipies' name="searchQuery" autocomplete='off'>
-            <label for="search-input"><i class="material-icons search-icon">search</i></label>
-          </div>
+    <div class="wrapper">
+
+      <div class='input-field'>
+        <input id='search-input' type='text' placeholder='Search for recipies' name="searchQuery" autocomplete='off'>
+        <label for="search-input"><i class="material-icons search-icon">search</i></label>
       </div>
+    </div>
     </form>
-      <div class='recipe-img center'>
-        <%for(let i =0; i < recipes.data.hits.length ; i++){%>
+    <div class='recipe-img center'>
+      <%for(let i =0; i < recipes.data.hits.length ; i++){%>
 
-        <% const encoded = encodeURIComponent(recipes.data.hits[i].recipe.uri)%>
-        <a href="/recipes/<%=encoded%>">
-          <img src="<%= recipes.data.hits[i].recipe.image %>" class='hoverable' />
-        </a>
+      <% const encoded = encodeURIComponent(recipes.data.hits[i].recipe.uri)%>
+      <a href="/recipes/<%=encoded%>">
+        <img src="<%= recipes.data.hits[i].recipe.image %>" class='hoverable' />
+      </a>
 
-        <%}%>
+      <%}%>
     </div>
     <%- include('../partials/footer') %>
 </body>
+
 </html>

@@ -12,31 +12,31 @@
     <%- include('../partials/nav2') %>
   </header>
   <main>
-  <h6 class='cookbook-h6'>Saved Recipes</h6>
-  <div class='cookbook-container center'>
+    <h6 class='cookbook-h6'>Saved Recipes</h6>
+    <div class='cookbook-container center'>
 
-    <ul>
+      <ul>
 
-      <% for(let i = 0; i < cookbook.length; i++){ %>
-      <div class="diet-cookbook">
-        <li>
-          <% const encoded = encodeURIComponent(cookbook[i].uri)%>
-          <a href='/recipes/<%=encoded%>'><%=cookbook[i].label%>
-            <img class='center' src="<%= cookbook[i].image %>" />
-          </a>
-          <% if(cookbookOwner.id.toString() === user.id.toString()) { %>
+        <% for(let i = 0; i < cookbook.length; i++){ %>
+        <div class="diet-cookbook">
+          <li>
+            <% const encoded = encodeURIComponent(cookbook[i].uri)%>
+            <a href='/recipes/<%=encoded%>'><%=cookbook[i].label%>
+              <img class='center' src="<%= cookbook[i].image %>" />
+            </a>
+            <% if(cookbookOwner.id.toString() === user.id.toString()) { %>
             <form action="/recipes/<%=cookbook[i]._id%>?_method=DELETE" method="POST">
               <button type="submit" class="waves-effect waves-light btn #ff5252 red accent-2">Delete</button>
             </form>
-          <% } %>
-        </li>
-      </div>
-      <% } %>
-    </ul>
-  </div>
+            <% } %>
+          </li>
+        </div>
+        <% } %>
+      </ul>
+    </div>
   </main>
 
-<%- include('../partials/footer') %>
+  <%- include('../partials/footer') %>
 </body>
 
 </html>
