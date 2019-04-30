@@ -3,16 +3,8 @@
 
 <head>
   <%- include('./partials/head') %>
-  <script type="text/javascript" defer>
-    document.addEventListener('DOMContentLoaded', function() {
-      const elems = document.querySelectorAll('.modal');
-      const instances = M.Modal.init(elems);
-    });
-    document.addEventListener('DOMContentLoaded', function() {
-      var elem = document.querySelectorAll('.parallax');
-      var instances = M.Parallax.init(elem);
-    });
-  </script>
+  <script type="text/javascript" src="/js/materializeModal.js" defer> </script>
+  <script type="text/javascript" src="/js/materializeParallax.js" defer> </script>
   <script src="js/authEventHandlers.js" type="text/javascript" defer></script>
 </head>
 

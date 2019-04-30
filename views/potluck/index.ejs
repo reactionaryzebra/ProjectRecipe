@@ -3,20 +3,8 @@
 
 <head>
   <%- include('../partials/head') %>
-
-  <script type="text/javascript" defer>
-    document.addEventListener('DOMContentLoaded', function() {
-      const elems = document.querySelectorAll('.modal');
-      const instances = M.Modal.init(elems);
-    });
-    document.addEventListener('DOMContentLoaded', function() {
-      let options = {
-        minDate: new Date()
-      }
-      const elems = document.querySelectorAll('.datepicker');
-      const instances = M.Datepicker.init(elems, options);
-    });
-  </script>
+  <script type="text/javascript" src="/js/materializeModal.js" defer></script>
+  <script type="text/javascript" src="/js/materializeDatepicker.js" defer></script>
 </head>
 
 <body>
