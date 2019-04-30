@@ -20,7 +20,7 @@
       <a href="#modal-edit-info" class="modal-trigger">Edit Info</a>
       <% } %>
     </div>
-    <div id="modal-edit-info" class="modal">
+    <div id="modal-edit-info" class="modal potedit-modal">
       <div class="modal-content center">
         <h5>Edit Potluck info</h5>
         <form action="/potlucks/<%=potluck.id.toString()%>?_method=PUT" method="post">
