@@ -23,7 +23,8 @@ h6 {
   text-align: center;
 }
 h6 {
-  color: #ff5252;
+  color: black;
+  text-decoration: underline;
 }
 /* Nav */
 #dropdown a {
@@ -40,9 +41,7 @@ h6 {
 .start-register {
   margin-bottom: 12rem;
 }
-span {
-  color: #b71c1c;
-}
+
 .parallax img {
   width: 100%;
 }
@@ -51,6 +50,10 @@ span {
   padding: 2rem;
   width: auto;
   height: auto;
+  text-align: center;
+}
+.message {
+  color: red;
 }
 /* Landing Page */
 #landing {
@@ -151,6 +154,16 @@ span {
   margin: 0 auto;
   display: grid;
   border-radius: 10%;
+}
+
+.your-potluck ul,
+.friends-potluck ul {
+  line-height: 4rem;
+}
+
+.your-potluck h5,
+.friends-potluck h5 {
+  text-decoration: underline;
 }
 
 .friends-potluck {
