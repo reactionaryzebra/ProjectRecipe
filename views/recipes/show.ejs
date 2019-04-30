@@ -3,6 +3,7 @@
 
 <head>
   <%- include('../partials/head') %>
+  <script type="text/javascript" src="/js/materializeCollapsible.js" defer> </script>
 </head>
 
 <body>
@@ -11,76 +12,81 @@
   </header>
   <main>
     <form action="/recipes/search" method="POST">
-      <div class='row center'>
-        <p class='col l2'>
-          <label>
+      <ul class="collapsible">
+      <li>
+      <div class="collapsible-header">Choose Diet Options</div>
+        <div class="collapsible-body">
+          <div class='row center'>
+          <p class='col l2'>
+            <label>
             <input type="checkbox" name="search" value="&diet=high-protein" />
             <span>High Protien</span>
-          </label>
-        </p>
+            </label>
+          </p>
 
-        <p class='col l2'>
-          <label>
+          <p class='col l2'>
+            <label>
             <input type="checkbox" name="search" value="&diet=balanced" />
             <span>Balanced</span>
           </label>
-        </p>
-        <p class='col l2'>
-          <label>
+          </p>
+          <p class='col l2'>
+            <label>
             <input type="checkbox" name="search" value="&diet=low-fat" />
             <span>Low-Fat</span>
-          </label>
-        </p>
-        <p class='col l2'>
-          <label>
+            </label>
+          </p>
+          <p class='col l2'>
+            <label>
             <input type="checkbox" name="search" value="&diet=low-carb" />
             <span>Low-Carb</span>
-          </label>
-        </p>
-        <p class='col l2'>
-          <label>
+            </label>
+          </p>
+          <p class='col l2'>
+            <label>
             <input type="checkbox" name="search" value="&health=sugar-conscious" />
             <span>Sugar Conscious</span>
-          </label>
-        </p>
+            </label>
+          </p>
 
-        <div>
-          <div class='row center'>
-            <p class='col l2'>
+          <div>
+            <div class='row center'>
+              <p class='col l2'>
               <label>
                 <input type="checkbox" name="search" value="&health=vegan" />
                 <span>Vegan</span>
               </label>
-            </p>
-
-
-            <p class='col l2'>
-              <label>
+              </p>
+              <p class='col l2'>
+                <label>
                 <input type="checkbox" name="search" value="&health=vegetarian" />
                 <span>Vegetarian</span>
-              </label>
-            </p>
+                </label>
+              </p>
 
-            <p class='col l2'>
-              <label>
+              <p class='col l2'>
+                <label>
                 <input type="checkbox" name="search" value="&health=peanut-free" />
                 <span>Peanut</span>
-              </label>
-            </p>
-            <p class='col l2'>
-              <label>
+                </label>
+              </p>
+              <p class='col l2'>
+                <label>
                 <input type="checkbox" name="search" value="&health=tree-nut-free" />
                 <span>Tree Nut Free</span>
-              </label>
-            </p>
-            <p class='col l2'>
-              <label>
+                </label>
+              </p>
+              <p class='col l2'>
+                <label>
                 <input type="checkbox" name="search" value="&health=alcohol-free" />
                 <span>Alcohol Free</span>
-              </label>
-            </p>
+                </label>
+              </p>
+              </div>
+            </div>
           </div>
-
+        </li>
+      </ul>
 
 
           <div class="wrapper">
