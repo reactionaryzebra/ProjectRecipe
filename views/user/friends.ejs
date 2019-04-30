@@ -19,6 +19,7 @@
         <ul>
           <% user.friends.forEach(friend => { %>
           <% if (friend.id.toString() !== user.id.toString()) { %>
+          <i class="material-icons center large">account_circle</i>
           <li><a href="/users/<%=friend.id%>/cookbook"><%=friend.username%></a></li>
           <% } %>
           <% }) %>
