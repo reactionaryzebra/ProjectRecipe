@@ -79,7 +79,9 @@ h6 {
 .carousel {
   height: 35rem !important;
 }
-
+.carousel .carousel-item {
+  left: 20rem !important;
+}
 .carousel .carousel-item img {
   border: 2px solid;
   width: 400px !important;
