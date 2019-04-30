@@ -14,7 +14,7 @@
         minDate: new Date()
       }
       const elems = document.querySelectorAll('.datepicker');
-      const instances = M.Datepicker.init(elems,options);
+      const instances = M.Datepicker.init(elems, options);
     });
   </script>
 </head>
@@ -43,8 +43,8 @@
       <div class="your-potluck center">
         <h5>Your potlucks</h5>
         <ul>
-          <% for(let i =0; i < user.potLuckOwned.length; i++) { %>
-          <li><a href="/potlucks/<%=user.potLuckOwned[i].id%>"><%=user.potLuckOwned[i].name%></a></li>
+          <% for(let i =0; i < potlucksOrganized.length; i++) { %>
+            <li><a href="/potlucks/<%=potlucksOrganized[i].id%>"><%=potlucksOrganized[i].name%></a></li>
           <% } %>
         </ul>
       </div>
@@ -53,8 +53,8 @@
       <div class="friends-potluck center">
         <h5>Friends Potlucks</h5>
         <ul>
-          <% for(let i =0; i < user.potLuckPart.length; i++) { %>
-            <li><a href="/potlucks/<%=user.potLuckPart[i].id%>"><%=user.potLuckPart[i].name%></a></li>
+          <% for(let i =0; i < potlucksAttending.length; i++) { %>
+            <li><a href="/potlucks/<%=potlucksAttending[i].id%>"><%=potlucksAttending[i].name%></a></li>
           <% } %>
         </ul>
       </div>
