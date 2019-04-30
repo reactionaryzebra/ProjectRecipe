@@ -1,14 +1,12 @@
 const mongoose = require("mongoose");
-const connectionString = "mongodb://localhost/recipeTest2";
+const connectionString =
+  process.env.CONNECTIONSTRING || "mongodb://localhost/recipeTest2";
 
-mongoose.connect(
-  connectionString,
-  {
-    useNewUrlParser: true,
-    useCreateIndex: true,
-    useFindAndModify: false
-  }
-);
+mongoose.connect(connectionString, {
+  useNewUrlParser: true,
+  useCreateIndex: true,
+  useFindAndModify: false
+});
 
 mongoose.connection.on("connected", () => {
   console.log("You are connected to the MongoDB at " + connectionString);
