@@ -23,14 +23,14 @@
   <header>
     <%- include('../partials/nav2') %>
   </header>
-
+  <main>
   <div class='potluck-create center'>
     <a href="#modal1" class="waves-effect waves-light btn #ff5252 red accent-2 modal-trigger">Create New Potluck</a>
   </div>
 
   <div id='modal1' class="modal pot-modal">
     <div class="modal-content">
-      <h3 class='center'>New Potluck</h3>
+      <h5 class='center'>New Potluck</h5>
       <form action="/potlucks" method="post">
         Name: <input type="text" name="name">
         Date: <input type="text" name='date' class="datepicker" autocomplete='off'>
@@ -61,6 +61,7 @@
     </div>
   </div>
   </div>
+  </main>
 <%- include('../partials/footer') %>
 </body>
 

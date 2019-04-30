@@ -40,16 +40,26 @@ h6 {
 .start-register {
   margin-bottom: 12rem;
 }
-
+span {
+  color: #b71c1c;
+}
 .parallax img {
   width: 100%;
 }
 .start-info {
-  border-radius: 5%;
-  margin: 2rem;
-  padding: 4rem;
+  margin: 1rem;
+  padding: 2rem;
+  width: auto;
+  height: auto;
 }
 /* Landing Page */
+#landing {
+  width: 100%;
+  height: 100%;
+  background-image: url("./img/landing-background1.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+}
 .landing-item {
   width: 10rem;
   height: 5rem;
@@ -58,11 +68,15 @@ h6 {
   display: grid;
   border-radius: 10%;
 }
+.carousel {
+  height: 35rem !important;
+}
 
 .carousel .carousel-item img {
-  border:2px solid;
-  width: 367px !important;
-  height: 270px !important;
+  border: 2px solid;
+  width: 400px !important;
+  height: 295px !important;
+  border-style: none;
 }
 
 .landing-content {
@@ -123,6 +137,9 @@ h6 {
 
   display: inline-block;
 }
+.cookbook-h6 {
+  margin-top: 5rem;
+}
 
 /* Potluck */
 .your-potluck {
@@ -146,9 +163,11 @@ h6 {
 }
 .pot-modal {
   overflow-y: visible !important;
-  margin-top: 4rem;
+  width: 55% !important;
 }
-
+.datepicker-modal {
+  min-width: none !important;
+}
 .datepicker {
   width: 40%;
   height: 40%;
@@ -183,4 +202,11 @@ h6 {
 .pot-btn {
   margin-bottom: 12rem;
 }
-
+/* Friends page */
+.friends-row {
+  margin-top: 5rem;
+}
+/* Users Page */
+.user-h6 {
+  margin-top: 5rem;
+}
