@@ -23,7 +23,8 @@ h6 {
   text-align: center;
 }
 h6 {
-  color: #ff5252;
+  color: black;
+  text-decoration: underline;
 }
 /* Nav */
 #dropdown a {
