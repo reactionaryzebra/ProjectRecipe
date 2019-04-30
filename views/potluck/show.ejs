@@ -80,7 +80,11 @@
         <% for(let i=0; i < user.cookbook.length; i++) { %>
         <p>
           <label>
-            <input type="checkbox" name="dishes" value="<%=user.cookbook[i].id%>" />
+            <input type="checkbox" name="dishes" value="<%=user.cookbook[i].id%>"
+            <% if(potluck.dishes.some(dish => dish.id.toString() === user.cookbook[i].id.toString())) { %>
+              checked
+            <% } %>
+            />
             <span><%=user.cookbook[i].label%></span>
           </label>
         </p>
@@ -96,7 +100,11 @@
         <% for(let i=0; i < user.friends.length; i++) { %>
         <p>
           <label>
-            <input type="checkbox" name="friends" value="<%=user.friends[i].id%>" />
+            <input type="checkbox" name="friends" value="<%=user.friends[i].id%>"
+              <% if(potluck.guests.some(guest => guest.id.toString() === user.friends[i].id.toString())) { %>
+                checked
+              <% } %>
+            />
             <span><%=user.friends[i].username%></span>
           </label>
         </p>

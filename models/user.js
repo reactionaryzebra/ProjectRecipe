@@ -6,9 +6,7 @@ const userSchema = new mongoose.Schema({
   password: { type: String, required: true },
   cookbook: [{ type: mongoose.Schema.Types.ObjectId, ref: "Recipe" }],
   friends: [{ type: mongoose.Schema.Types.ObjectId, ref: "User" }],
-  diets: [String],
-  potLuckOwned: [{ type: mongoose.Schema.Types.ObjectId, ref: "Potluck" }],
-  potLuckPart: [{ type: mongoose.Schema.Types.ObjectId, ref: "Potluck" }]
+  diets: [String]
 });
 
 userSchema.methods.hashPassword = function(password) {
