@@ -52,6 +52,9 @@ span {
   width: auto;
   height: auto;
 }
+.message {
+  color: red;
+}
 /* Landing Page */
 #landing {
   width: 100%;
