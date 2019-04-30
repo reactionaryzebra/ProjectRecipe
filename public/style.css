@@ -168,6 +168,10 @@ span {
   overflow-y: visible !important;
   width: 55% !important;
 }
+.potedit-modal {
+  overflow-y: visible !important;
+  width: 55% !important;
+}
 .datepicker-modal {
   min-width: none !important;
 }
