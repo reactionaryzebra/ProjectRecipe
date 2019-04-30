@@ -58,6 +58,14 @@ h6 {
   display: grid;
   border-radius: 10%;
 }
+.carousel {
+  height: 300px;
+  size:300px;
+}
+.carousel-item{
+  border:2px solid;
+  size:300px;
+}
 
 .landing-content {
   text-align: center;
@@ -174,3 +182,4 @@ h6 {
 .pot-btn {
   margin-bottom: 12rem;
 }
+
