@@ -13,3 +13,18 @@ Savory is a website which allows you to connect with your friends around food.  
   6. Organize a potluck by setting a date, adding your friends, and adding the dishes you want cooked
   
 ### Initial Sketches and Wireframes
+![Wireframed User Flow](https://xd.adobe.com/spec/b5b73def-f210-4d9a-6a9b-42133daeb084-c386/)
+
+### Technologies Used
+  -HTML5
+  -CSS3
+  -Javascript ES6
+  -NodeJS
+  -ExpressJS
+  -Materialize CSS
+  -Google Fonts
+  -Edamam API
+  -Git
+  -Github
+  -Trello
+  
