@@ -140,9 +140,11 @@ h6 {
 }
 .pot-modal {
   overflow-y: visible !important;
-  margin-top: 4rem;
+  width: 55% !important;
 }
-
+.datepicker-modal {
+  min-width: none !important;
+}
 .datepicker {
   width: 40%;
   height: 40%;

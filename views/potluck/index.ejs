@@ -14,13 +14,7 @@
         minDate: new Date()
       }
       const elems = document.querySelectorAll('.datepicker');
-<<<<<<< HEAD
-      const instances = M.Datepicker.init(elems);
-      instances.options.minDate(new Date());
-        
-=======
       const instances = M.Datepicker.init(elems,options);
->>>>>>> master
     });
   </script>
 </head>
@@ -36,7 +30,7 @@
 
   <div id='modal1' class="modal pot-modal">
     <div class="modal-content">
-      <h3 class='center'>New Potluck</h3>
+      <h5 class='center'>New Potluck</h5>
       <form action="/potlucks" method="post">
         Name: <input type="text" name="name">
         Date: <input type="text" name='date' class="datepicker" autocomplete='off'>
