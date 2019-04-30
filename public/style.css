@@ -40,21 +40,25 @@ h6 {
 .start-register {
   margin-bottom: 12rem;
 }
-
+span {
+  color: #b71c1c;
+}
 .parallax img {
   width: 100%;
 }
 .start-info {
-  border-radius: 5%;
-  margin: 2rem;
-  padding: 4rem;
+  margin: 1rem;
+  padding: 2rem;
+  width: auto;
+  height: auto;
 }
 /* Landing Page */
 #landing {
+  width: 100%;
   height: 100%;
   background-image: url("./img/landing-background1.jpg");
   background-repeat: no-repeat;
-  background-size: 100% 170%;
+  background-size: cover;
 }
 .landing-item {
   width: 10rem;
