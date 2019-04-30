@@ -58,13 +58,11 @@ h6 {
   display: grid;
   border-radius: 10%;
 }
-.carousel {
-  height: 300px;
-  size:300px;
-}
-.carousel-item{
+
+.carousel .carousel-item img {
   border:2px solid;
-  size:300px;
+  width: 367px !important;
+  height: 270px !important;
 }
 
 .landing-content {
