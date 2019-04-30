@@ -16,21 +16,21 @@ Savory is a website which allows you to connect with your friends around food.  
 [Wireframed User Flow](https://xd.adobe.com/spec/b5b73def-f210-4d9a-6a9b-42133daeb084-c386/)
 
 ### Technologies Used
-  -HTML5
-  -CSS3
-  -Javascript ES6
-  -NodeJS
-  -ExpressJS
-  -Materialize CSS
-  -Google Fonts
-  -Edamam API
-  -Git
-  -Github
-  -Trello
+  - HTML5
+  - CSS3
+  - Javascript ES6
+  - NodeJS
+  - ExpressJS
+  - Materialize CSS
+  - Google Fonts
+  - Edamam API
+  - Git
+  - Github
+  - Trello
   
   ### Getting Started
   Check out the site here
   
   ### Next Steps
-   -Expand social features, allowing users to accept friend and potluck requests
-   -Ensure that site is completely responsive for mobile
+   - Expand social features, allowing users to accept friend and potluck requests
+   - Ensure that site is completely responsive for mobile
