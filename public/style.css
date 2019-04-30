@@ -73,17 +73,10 @@ span {
 }
 
 .carousel .carousel-item img {
-<<<<<<< HEAD
-  border-radius: 10px 100px / 120px;
-  border: 1px solid black !important;
-  width: 367px !important;
-  height: 270px !important;
-=======
   border: 2px solid;
   width: 400px !important;
   height: 295px !important;
   border-style: none;
->>>>>>> master
 }
 
 .landing-content {
@@ -94,6 +87,9 @@ span {
 /* Recipe Page*/
 .collapsible-header {
   border-bottom: 2px solid #039be5 !important;
+}
+#hideButton {
+  display: none;
 }
 .res-index,
 .res-show {
