@@ -13,7 +13,7 @@
   </header>
   <main>
     <div class='potluck-create center'>
-      <a href="#modal1" class="waves-effect waves-light btn #ff5252 red accent-2 modal-trigger">Create New Potluck</a>
+      <a href="#modal1" class="waves-effect waves-light btn #ff5252 green accent-2 modal-trigger">Create New Potluck</a>
     </div>
 
     <div id='modal1' class="modal pot-modal">
@@ -32,7 +32,7 @@
           <h5>Your potlucks</h5>
           <ul>
             <% for(let i =0; i < potlucksOrganized.length; i++) { %>
-            <li><a href="/potlucks/<%=potlucksOrganized[i].id%>"><%=potlucksOrganized[i].name%></a></li>
+            <li><i class="material-icons">restaurant_menu</i><a href="/potlucks/<%=potlucksOrganized[i].id%>"><%=potlucksOrganized[i].name%></a></li>
             <% } %>
           </ul>
         </div>
@@ -42,7 +42,7 @@
           <h5>Friends Potlucks</h5>
           <ul>
             <% for(let i =0; i < potlucksAttending.length; i++) { %>
-            <li><a href="/potlucks/<%=potlucksAttending[i].id%>"><%=potlucksAttending[i].name%></a></li>
+            <li><i class="material-icons">restaurant_menu</i><a href="/potlucks/<%=potlucksAttending[i].id%>"><%=potlucksAttending[i].name%></a></li>
             <% } %>
           </ul>
         </div>
