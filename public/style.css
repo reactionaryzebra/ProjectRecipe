@@ -50,6 +50,12 @@ h6 {
   padding: 4rem;
 }
 /* Landing Page */
+#landing {
+  height: 100%;
+  background-image: url("./img/landing-background1.jpg");
+  background-repeat: no-repeat;
+  background-size: 100% 170%;
+}
 .landing-item {
   width: 10rem;
   height: 5rem;
@@ -58,11 +64,15 @@ h6 {
   display: grid;
   border-radius: 10%;
 }
+.carousel {
+  height: 35rem !important;
+}
 
 .carousel .carousel-item img {
-  border:2px solid;
-  width: 367px !important;
-  height: 270px !important;
+  border: 2px solid;
+  width: 400px !important;
+  height: 295px !important;
+  border-style: none;
 }
 
 .landing-content {
@@ -122,6 +132,9 @@ h6 {
   margin: 1rem;
 
   display: inline-block;
+}
+.cookbook-h6 {
+  margin-top: 5rem;
 }
 
 /* Potluck */
@@ -185,4 +198,11 @@ h6 {
 .pot-btn {
   margin-bottom: 12rem;
 }
-
+/* Friends page */
+.friends-row {
+  margin-top: 5rem;
+}
+/* Users Page */
+.user-h6 {
+  margin-top: 5rem;
+}

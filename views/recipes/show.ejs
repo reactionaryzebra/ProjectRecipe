@@ -9,6 +9,7 @@
   <header>
     <%- include('../partials/nav2') %>
   </header>
+  <main>
   <form action="/recipes/search" method="POST">
     <div class='row center'>
       <p class='col l2'>
@@ -92,14 +93,7 @@
       </form>
 
 
-<<<<<<< HEAD
-      </div>
-    </form>
-  </div>
-  <div class="row res-show">
-=======
   <div class="row">
->>>>>>> master
 
     <div  class='col s12 m12 l7'>
       <div class="ingredients-recipe"> 
@@ -116,18 +110,19 @@
       </ul>
       </div>
     </div>
-    <div class="col s12 m12 l5">
+    <div class="col s12 m12 l3">
       <div class="card">
         <div class="card-image">
           <img src="<%=recipe.data[0].image%>" />
           <% if(showButton) { %>
-            <form action="/recipes/" method="post">
-              <button type="submit" class="btn-floating halfway-fab waves-effect waves-light red pulse">
-                  <i class="material-icons">favorite</i>
+            <form action="/recipes/" id='save' method="post">
+              <button  type="submit" class="btn-floating halfway-fab waves-effect waves-light #ff5252 red accent-2" onclick="document.getElementById('save').submit()">
+                  <i class=" material-icons">favorite</i>
               </button>
             </form>
           <% } %>
         </div>
+        
         
         <div class="card-content">
           <a href='<%=recipe.data[0].url%>' target="_blank"><%=recipe.data[0].label%></a>
@@ -169,10 +164,10 @@
   </div>
   <div class='cookbook-save center'>
     <form action="/recipes/" method="post">
-      <button type="submit" class="waves-effect waves-light res-save #ff5252 red accent-2" <% if(!showButton) { %> disabled <% } %>>Save Recipe</button>
+      <button type="submit" class="waves-effect waves-light btn #ff5252 red accent-2"  <% if(!showButton) { %> disabled <% } %>>Save Recipe</button>
     </form>
   </div>
-
+</main>
 <%- include('../partials/footer') %>
 </body>
 

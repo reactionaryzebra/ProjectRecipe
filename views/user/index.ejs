@@ -10,17 +10,22 @@
     <%- include('../partials/nav2') %>
     </header>
   <main>
-  <ul>
-    <% for(let i =0; i < users.length; i++) { %>
-    <% if (currentUser !== users[i].id.toString()) { %>
-    <li><a href="/users/<%=users[i].id%>/cookbook"><%=users[i].username%></a></li>
+  <div class='row center'>
+    <div class='col s12'>
+    <h6 class='user-h6'>Savory Users</h6>
+    <ul>
+      <% for(let i =0; i < users.length; i++) { %>
+      <% if (currentUser !== users[i].id.toString()) { %>
+      <li><a href="/users/<%=users[i].id%>/cookbook"><%=users[i].username%></a></li>
     <form action="/users/<%=users[i].id%>/addfriend" method="post">
       <button type="submit" class="waves-effect waves-light btn #ff5252 red accent-2"
-      <% if (friends.some( f => f.toString() === users[i]._id.toString())) { %> disabled <% } %>>Add friend</button>
+      <% if (friends.some( f => f.toString() === users[i]._id.toString()))%> <% { %> disabled <% } %>>add user</button>
     </form>
     <% } %>
     <% } %>
-  </ul>
+    </ul>
+  </div>
+  </div>
   </main>
   
   <%- include('../partials/footer') %>
