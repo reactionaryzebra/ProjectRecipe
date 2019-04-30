@@ -60,7 +60,8 @@ h6 {
 }
 
 .carousel .carousel-item img {
-  border:2px solid;
+  border-radius: 10px 100px / 120px;
+  border: 1px solid black !important;
   width: 367px !important;
   height: 270px !important;
 }

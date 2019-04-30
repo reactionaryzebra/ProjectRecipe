@@ -9,7 +9,10 @@
     const elems = document.querySelectorAll('.collapsible');
     const instances = M.Collapsible.init(elems);
   });
-
+  document.addEventListener('DOMContentLoaded', function() {
+    const elems = document.querySelectorAll('select');
+    const instances = M.FormSelect.init(elems);
+  });
   </script>
   
 </head>
@@ -96,16 +99,26 @@
       </div>
     </div>
     </li>
-
+</ul>
 
       <div class="wrapper">
-  
           <div class='input-field'>
             <input id='search-input' type='text' placeholder='Search for recipies' name="searchQuery" autocomplete='off'>
             <label for="search-input"><i class="material-icons search-icon">search</i></label>
           </div>
       </div>
+
+      <div class="input-field col s12">
+          <select>
+            <option disabled selected>Search Limit</option>
+            <option name ='amount' value="25">25</option>
+            <option name ='amount' value="50">50</option>
+            <option name ='amount' value="100">100</option>
+          </select>
+          <label>Materialize Select</label>
+        </div>
     </form>
+    
       <div class='recipe-img center'>
         <%for(let i =0; i < recipes.data.hits.length ; i++){%>
 
