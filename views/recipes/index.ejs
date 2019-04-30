@@ -31,6 +31,16 @@
       <div class="collapsible-header">Choose Diet Options</div>
       <div class="collapsible-body">
         <div class='row center'>
+            <div class="input-field col s12">
+                <select name='amount'>
+                  <option disabled selected>Search Limit</option>
+                  <option  value="25">25</option>
+                  <option  value="50">50</option>
+                  <option  value="100">100</option>
+                </select>
+            </div>
+        </div>
+        <div class='row center'>
                         <p class='col l2'>
                           <label>
                             <input type="checkbox" name="search" value="&diet=high-protein" />
@@ -97,15 +107,7 @@
               </div>
             </li>
       </ul>
-      <div class="input-field col s12">
-          <select name='amount'>
-            <option disabled selected>Search Limit</option>
-            <option  value="25">25</option>
-            <option  value="50">50</option>
-            <option  value="100">100</option>
-          </select>
-          <label>Materialize Select</label>
-      </div>
+
       <div class="wrapper">
           <div class='input-field'>
             <input id='search-input' type='text' placeholder='Search for recipies' name="searchQuery" autocomplete='off'>
@@ -120,13 +122,14 @@
       <div class='recipe-img center'>
         <%for(let i =0; i < recipes.data.hits.length ; i++){%>
 
-        <% const encoded = encodeURIComponent(recipes.data.hits[i].recipe.uri)%>
-        <a href="/recipes/<%=encoded%>">
-          <img src="<%= recipes.data.hits[i].recipe.image %>" class='hoverable' />
-        </a>
+      <% const encoded = encodeURIComponent(recipes.data.hits[i].recipe.uri)%>
+      <a href="/recipes/<%=encoded%>">
+        <img src="<%= recipes.data.hits[i].recipe.image %>" class='hoverable' />
+      </a>
 
-        <%}%>
+      <%}%>
     </div>
     <%- include('../partials/footer') %>
 </body>
+
 </html>

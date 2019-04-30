@@ -3,65 +3,54 @@
 
 <head>
   <%- include('../partials/head') %>
-
-  <script type="text/javascript" defer>
-    document.addEventListener('DOMContentLoaded', function() {
-      const elems = document.querySelectorAll('.modal');
-      const instances = M.Modal.init(elems);
-    });
-    document.addEventListener('DOMContentLoaded', function() {
-      let options = {
-        minDate: new Date()
-      }
-      const elems = document.querySelectorAll('.datepicker');
-      const instances = M.Datepicker.init(elems,options);
-    });
-  </script>
+  <script type="text/javascript" src="/js/materializeModal.js" defer></script>
+  <script type="text/javascript" src="/js/materializeDatepicker.js" defer></script>
 </head>
 
 <body>
   <header>
     <%- include('../partials/nav2') %>
   </header>
-
-  <div class='potluck-create center'>
-    <a href="#modal1" class="waves-effect waves-light btn #ff5252 red accent-2 modal-trigger">Create New Potluck</a>
-  </div>
-
-  <div id='modal1' class="modal pot-modal">
-    <div class="modal-content">
-      <h3 class='center'>New Potluck</h3>
-      <form action="/potlucks" method="post">
-        Name: <input type="text" name="name">
-        Date: <input type="text" name='date' class="datepicker" autocomplete='off'>
-        <button type="submit" class="btn waves-effect waves-light">Submit</button>
-      </form>
+  <main>
+    <div class='potluck-create center'>
+      <a href="#modal1" class="waves-effect waves-light btn #ff5252 red accent-2 modal-trigger">Create New Potluck</a>
     </div>
-  </div>
-  <div class="row">
-    <div class='col s12 m6 l6'>
-      <div class="your-potluck center">
-        <h5>Your potlucks</h5>
-        <ul>
-          <% for(let i =0; i < potlucksOrganized.length; i++) { %>
+
+    <div id='modal1' class="modal pot-modal">
+      <div class="modal-content">
+        <h5 class='center'>New Potluck</h5>
+        <form action="/potlucks" method="post">
+          Name: <input type="text" name="name">
+          Date: <input type="text" name='date' class="datepicker" autocomplete='off'>
+          <button type="submit" class="btn waves-effect waves-light">Submit</button>
+        </form>
+      </div>
+    </div>
+    <div class="row">
+      <div class='col s12 m6 l6'>
+        <div class="your-potluck center">
+          <h5>Your potlucks</h5>
+          <ul>
+            <% for(let i =0; i < potlucksOrganized.length; i++) { %>
             <li><a href="/potlucks/<%=potlucksOrganized[i].id%>"><%=potlucksOrganized[i].name%></a></li>
-          <% } %>
-        </ul>
+            <% } %>
+          </ul>
+        </div>
       </div>
-    </div>
-    <div class="col s12 m6 l6">
-      <div class="friends-potluck center">
-        <h5>Friends Potlucks</h5>
-        <ul>
-          <% for(let i =0; i < potlucksAttending.length; i++) { %>
+      <div class="col s12 m6 l6">
+        <div class="friends-potluck center">
+          <h5>Friends Potlucks</h5>
+          <ul>
+            <% for(let i =0; i < potlucksAttending.length; i++) { %>
             <li><a href="/potlucks/<%=potlucksAttending[i].id%>"><%=potlucksAttending[i].name%></a></li>
-          <% } %>
-        </ul>
+            <% } %>
+          </ul>
+        </div>
       </div>
     </div>
-  </div>
-  </div>
-<%- include('../partials/footer') %>
+    </div>
+  </main>
+  <%- include('../partials/footer') %>
 </body>
 
 </html>

@@ -9,171 +9,166 @@
   <header>
     <%- include('../partials/nav2') %>
   </header>
-  <form action="/recipes/search" method="POST">
-    <div class='row center'>
-      <p class='col l2'>
-        <label>
-          <input type="checkbox" name="search" value="&diet=high-protein" />
-          <span>High Protien</span>
-        </label>
-      </p>
-  
-      <p class='col l2'>
-        <label>
-          <input type="checkbox" name="search" value="&diet=balanced" />
-          <span>Balanced</span>
-        </label>
-      </p>
-      <p class='col l2'>
-        <label>
-          <input type="checkbox" name="search" value="&diet=low-fat" />
-          <span>Low-Fat</span>
-        </label>
-      </p>
-      <p class='col l2'>
-        <label>
-          <input type="checkbox" name="search" value="&diet=low-carb" />
-          <span>Low-Carb</span>
-        </label>
-      </p>
-      <p class='col l2'>
-        <label>
-          <input type="checkbox" name="search" value="&health=sugar-conscious" />
-          <span>Sugar Conscious</span>
-        </label>
-      </p>
-  
-      <div>
-        <div class='row center'>
-          <p class='col l2'>
-            <label>
-              <input type="checkbox" name="search" value="&health=vegan" />
-              <span>Vegan</span>
-            </label>
-          </p>
-  
-  
-          <p class='col l2'>
-            <label>
-              <input type="checkbox" name="search" value="&health=vegetarian" />
-              <span>Vegetarian</span>
-            </label>
-          </p>
-  
-          <p class='col l2'>
-            <label>
-              <input type="checkbox" name="search" value="&health=peanut-free" />
-              <span>Peanut</span>
-            </label>
-          </p>
-          <p class='col l2'>
-            <label>
-              <input type="checkbox" name="search" value="&health=tree-nut-free" />
-              <span>Tree Nut Free</span>
-            </label>
-          </p>
-          <p class='col l2'>
-            <label>
-              <input type="checkbox" name="search" value="&health=alcohol-free" />
-              <span>Alcohol Free</span>
-            </label>
-          </p>
-        </div>
-      
-  
-  
-        <div class="wrapper">
-    
+  <main>
+    <form action="/recipes/search" method="POST">
+      <div class='row center'>
+        <p class='col l2'>
+          <label>
+            <input type="checkbox" name="search" value="&diet=high-protein" />
+            <span>High Protien</span>
+          </label>
+        </p>
+
+        <p class='col l2'>
+          <label>
+            <input type="checkbox" name="search" value="&diet=balanced" />
+            <span>Balanced</span>
+          </label>
+        </p>
+        <p class='col l2'>
+          <label>
+            <input type="checkbox" name="search" value="&diet=low-fat" />
+            <span>Low-Fat</span>
+          </label>
+        </p>
+        <p class='col l2'>
+          <label>
+            <input type="checkbox" name="search" value="&diet=low-carb" />
+            <span>Low-Carb</span>
+          </label>
+        </p>
+        <p class='col l2'>
+          <label>
+            <input type="checkbox" name="search" value="&health=sugar-conscious" />
+            <span>Sugar Conscious</span>
+          </label>
+        </p>
+
+        <div>
+          <div class='row center'>
+            <p class='col l2'>
+              <label>
+                <input type="checkbox" name="search" value="&health=vegan" />
+                <span>Vegan</span>
+              </label>
+            </p>
+
+
+            <p class='col l2'>
+              <label>
+                <input type="checkbox" name="search" value="&health=vegetarian" />
+                <span>Vegetarian</span>
+              </label>
+            </p>
+
+            <p class='col l2'>
+              <label>
+                <input type="checkbox" name="search" value="&health=peanut-free" />
+                <span>Peanut</span>
+              </label>
+            </p>
+            <p class='col l2'>
+              <label>
+                <input type="checkbox" name="search" value="&health=tree-nut-free" />
+                <span>Tree Nut Free</span>
+              </label>
+            </p>
+            <p class='col l2'>
+              <label>
+                <input type="checkbox" name="search" value="&health=alcohol-free" />
+                <span>Alcohol Free</span>
+              </label>
+            </p>
+          </div>
+
+
+
+          <div class="wrapper">
+
             <div class='input-field'>
               <input id='search-input' type='text' placeholder='Search for recipies' name="searchQuery" autocomplete='off'>
               <label for="search-input"><i class="material-icons search-icon">search</i></label>
             </div>
-        </div>
-      </form>
-
-
-<<<<<<< HEAD
-      </div>
+          </div>
     </form>
-  </div>
-  <div class="row res-show">
-=======
-  <div class="row">
->>>>>>> master
 
-    <div  class='col s12 m12 l7'>
-      <div class="ingredients-recipe"> 
-      <h3>Ingredients</h3>
-      <ul>
 
-        <% for(let i = 0; i < recipe.data[0].ingredientLines.length; i++){ %>
+    <div class="row">
 
-        <li>
-          <%=recipe.data[0].ingredientLines[i]%> <br />
-        </li>
+      <div class='col s12 m12 l7'>
+        <div class="ingredients-recipe">
+          <h3>Ingredients</h3>
+          <ul>
 
-        <% } %>
-      </ul>
+            <% for(let i = 0; i < recipe.data[0].ingredientLines.length; i++){ %>
+
+            <li>
+              <%=recipe.data[0].ingredientLines[i]%> <br />
+            </li>
+
+            <% } %>
+          </ul>
+        </div>
       </div>
-    </div>
-    <div class="col s12 m12 l5">
-      <div class="card">
-        <div class="card-image">
-          <img src="<%=recipe.data[0].image%>" />
-          <% if(showButton) { %>
-            <form action="/recipes/" method="post">
-              <button type="submit" class="btn-floating halfway-fab waves-effect waves-light red pulse">
-                  <i class="material-icons">favorite</i>
+      <div class="col s12 m12 l3">
+        <div class="card">
+          <div class="card-image">
+            <img src="<%=recipe.data[0].image%>" />
+            <% if(showButton) { %>
+            <form action="/recipes/" id='save' method="post">
+              <button type="submit" class="btn-floating halfway-fab waves-effect waves-light #ff5252 red accent-2" onclick="document.getElementById('save').submit()">
+                <i class=" material-icons">favorite</i>
               </button>
             </form>
-          <% } %>
-        </div>
-        
-        <div class="card-content">
-          <a href='<%=recipe.data[0].url%>' target="_blank"><%=recipe.data[0].label%></a>
+            <% } %>
+          </div>
+
+
+          <div class="card-content">
+            <a href='<%=recipe.data[0].url%>' target="_blank"><%=recipe.data[0].label%></a>
+          </div>
         </div>
       </div>
+
     </div>
 
-  </div>
+    <div class='row res-show'>
 
-  <div class='row res-show'>
+      <div class="diet-recipe col s12 m12 l12">
+        <h3>Diets</h3> <br />
+        <h6>Calories</h6>
+        <p><%=Math.round(recipe.data[0].calories)%> kcal</p>
+        <ul>
+          <h6>Diet Labels</h6>
+          <% for(let i = 0; i < recipe.data[0].dietLabels.length; i++){ %>
 
-    <div class="diet-recipe col s12 m12 l12">
-      <h3>Diets</h3> <br />
-      <h6>Calories</h6>
-      <p><%=Math.round(recipe.data[0].calories)%> kcal</p>
-      <ul>
-        <h6>Diet Labels</h6>
-        <% for(let i = 0; i < recipe.data[0].dietLabels.length; i++){ %>
+          <li>
+            <%=recipe.data[0].dietLabels[i]%>
+          </li>
 
-        <li>
-          <%=recipe.data[0].dietLabels[i]%>
-        </li>
+          <% } %>
+        </ul>
 
-        <% } %>
-      </ul>
+        <ul>
+          <h6>Health Labels</h6>
+          <% for(let i = 0; i < recipe.data[0].healthLabels.length; i++){ %>
 
-      <ul>
-        <h6>Health Labels</h6>
-        <% for(let i = 0; i < recipe.data[0].healthLabels.length; i++){ %>
+          <li>
+            <%=recipe.data[0].healthLabels[i]%>
+          </li>
 
-        <li>
-          <%=recipe.data[0].healthLabels[i]%>
-        </li>
+          <% } %>
 
-        <% } %>
-
-      </ul>
+        </ul>
+      </div>
     </div>
-  </div>
-  <div class='cookbook-save center'>
-    <form action="/recipes/" method="post">
-      <button type="submit" class="waves-effect waves-light res-save #ff5252 red accent-2" <% if(!showButton) { %> disabled <% } %>>Save Recipe</button>
-    </form>
-  </div>
-
-<%- include('../partials/footer') %>
+    <div class='cookbook-save center'>
+      <form action="/recipes/" method="post">
+        <button type="submit" class="waves-effect waves-light btn #ff5252 red accent-2" <% if(!showButton) { %> disabled <% } %>>Save Recipe</button>
+      </form>
+    </div>
+  </main>
+  <%- include('../partials/footer') %>
 </body>
 
 </html>

@@ -3,17 +3,8 @@
 
 <head>
   <%- include('./partials/head') %>
-  <script type="text/javascript" defer>
-    document.addEventListener('DOMContentLoaded', function() {
-      const elems = document.querySelectorAll('.modal');
-      const instances = M.Modal.init(elems);
-    });
-    document.addEventListener('DOMContentLoaded', function() {
-    var elem = document.querySelectorAll('.parallax');
-    var instances = M.Parallax.init(elem);
-  });
-
-  </script>
+  <script type="text/javascript" src="/js/materializeModal.js" defer> </script>
+  <script type="text/javascript" src="/js/materializeParallax.js" defer> </script>
   <script src="js/authEventHandlers.js" type="text/javascript" defer></script>
 </head>
 
@@ -27,52 +18,55 @@
     </div>
     <div class="section white">
       <div class="container">
+        <h4 class='start-h5 center'>Find Your Favorite Recipe and Organize Potlucks</h4>
         <div class="row start-page">
-          <div class="grid-example col s12 m6">
-            <div class='col-content start-info #ff5252 red accent-2'>
-              <span class="flow-text">This is left column</span>
+          <div class="grid-example col s12 m6 l6">
+            <div class='col-content start-info'>
+              <span>Getting tired of same old dishes? <br>You're in the right place. <br> Search from 1.7+ million nutritionally analyzed recipes.
+                Detailed macro and micronutrient data
+                Filter by calories, diets and allergens.</span>
             </div>
           </div>
-            <div class="grid-example col s12 m6">
-              <div class='col-content start-info #ff5252 red accent-2'>
-                <span class="flow-text">This is right column</span>
-              </div>
+          <div class="grid-example col s12 m6 l6 ">
+            <div class='col-content start-info'>
+              <span>Looking for potluck ideas? <br> Impress friends and family with these crowd-pleasing potluck recipes that range from appetizers and beverages to dinners, salads, sandwiches, side dishes, soups and chilis, desserts and more.</span>
             </div>
+          </div>
         </div>
       </div>
 
 
-        <div class='start-register center'>
-          <a href="#modal1" class="waves-effect waves-light btn #ff5252 red accent-2 modal-trigger">Get Started</a>
-        </div>
+      <div class='start-register center'>
+        <a href="#modal1" class="waves-effect waves-light btn #b71c1c red darken-4 modal-trigger">Get Started</a>
       </div>
-          <div class="parallax-container">
-            <div class="parallax"><img src="/img/start-background.jpg"></div>
-          </div>
-        <div id="modal1" class="modal start">
-          <div class="modal-content">
-            <h5>Registration</h5>
-            <form action="/auth/register" method="post">
-              Username: <input id='register-username' type="text" name="username">
-              Password: <input id='register-password' type="password" name="password">
-              Confirm Password: <input id='register-password-confirm' type="password" name="passwordConfirm">
-              <p class="register-message message"></p>
-              <button type="submit" id="register-btn" class="btn waves-effect waves-light">Submit</button>
-            </form>
-          </div>
-        </div>
-        <div id="modal2" class="modal start">
-          <div class="modal-content">
-            <h5>Login</h5>
-            <p class='center'>Welcome back.</p>
-            <form action="/auth/login" method="post">
-              Username: <input id='login-username' type="text" name="username">
-              Password: <input id='login-password' type="password" name="password">
-              <p class="login-message message"></p>
-              <button type="submit" id="login-btn" class="btn waves-effect waves-light">Submit</button>
-            </form>
-          </div>
-        </div>
+    </div>
+    <div class="parallax-container">
+      <div class="parallax"><img src="/img/start-background.jpg"></div>
+    </div>
+    <div id="modal1" class="modal start">
+      <div class="modal-content">
+        <h5>Registration</h5>
+        <form action="/auth/register" method="post">
+          Username: <input id='register-username' type="text" name="username">
+          Password: <input id='register-password' type="password" name="password">
+          Confirm Password: <input id='register-password-confirm' type="password" name="passwordConfirm">
+          <p class="register-message message"></p>
+          <button type="submit" id="register-btn" class="btn waves-effect waves-light">Submit</button>
+        </form>
+      </div>
+    </div>
+    <div id="modal2" class="modal start">
+      <div class="modal-content">
+        <h5>Login</h5>
+        <p class='center'>Welcome back.</p>
+        <form action="/auth/login" method="post">
+          Username: <input id='login-username' type="text" name="username">
+          Password: <input id='login-password' type="password" name="password">
+          <p class="login-message message"></p>
+          <button type="submit" id="login-btn" class="btn waves-effect waves-light">Submit</button>
+        </form>
+      </div>
+    </div>
   </main>
 
   <%- include('./partials/footer') %>
