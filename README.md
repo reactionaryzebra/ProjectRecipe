@@ -29,7 +29,7 @@ Savory is a website which allows you to connect with your friends around food.  
   - Trello
   
   ### Getting Started
-  Check out the site [here](https://savory-jdj.herokuapp.com)
+  Check out the site [here](https://savory-jdj.herokuapp.com/start)
   
   ### Next Steps
    - Expand social features, allowing users to accept friend and potluck requests
