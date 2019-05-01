@@ -9,7 +9,7 @@ mongoose.connect(connectionString, {
 });
 
 mongoose.connection.on("connected", () => {
-  console.log("You are connected to the MongoDB at " + connectionString);
+  console.log("You are connected to the MongoDB");
 });
 
 mongoose.connection.on("disconnected", () => {
