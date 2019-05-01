@@ -6,9 +6,8 @@ const axios = require("axios");
 let recipes;
 let recipe;
 let searchQuery = "food";
-let searchParams
-let stringed =""
-let searchAmount=25;
+let stringedParams = ""
+let searchAmount = 25;
 
 router.post("/", async (req, res) => {
   try {
@@ -40,13 +39,17 @@ router.post("/", async (req, res) => {
 });
 
 router.post("/search", (req, res) => {
- 
   searchQuery = req.body.searchQuery;
-  searchParams.push(req.body.search)
-  searchAmount=req.body.amount
- 
-  stringed=searchParams.flat().join("")
- 
+  searchAmount = req.body.amount;
+  const searchParams = [];
+  if (req.body.search) {
+    if (Array.isArray(req.body.search)) {
+      req.body.search.forEach(param => searchParams.push(param));
+      stringedParams = searchParams.join("")
+    } else {
+      stringedParams = req.body.search
+    }
+  }
   res.redirect("/recipes");
 });
 
@@ -56,14 +59,18 @@ router.get("/", async (req, res) => {
     recipes = await axios.get(
       `https://api.edamam.com/search?q=${searchQuery}&app_id=${
         process.env.APP_ID
-      }&app_key=${process.env.APP_KEY}&to=${searchAmount}${stringed}`
+      }&app_key=${process.env.APP_KEY}&to=${searchAmount}${stringedParams}`
     );
-    const user = await User.findOne({ username: req.session.username });
-    res.render("recipes/index", { user, recipes });
+    const user = await User.findOne({
+      username: req.session.username
+    });
+    res.render("recipes/index", {
+      user,
+      recipes
+    });
   } catch (err) {
     throw new Error(err);
   }
-  searchParams=[]
 });
 
 router.get("/:uri", async (req, res) => {
@@ -78,7 +85,9 @@ router.get("/:uri", async (req, res) => {
     const recipeFound = await Recipe.findOne({
       uri: decodeURIComponent(encode)
     });
-    const user = await User.findOne({ username: req.session.username });
+    const user = await User.findOne({
+      username: req.session.username
+    });
     if (recipeFound) {
       const foundUser = await User.findOne().in("_id", recipeFound.users);
       if (foundUser) {
@@ -97,8 +106,12 @@ router.get("/:uri", async (req, res) => {
 
 router.delete("/:id", async (req, res) => {
   try {
-    const user = await User.findOne({ username: req.session.username });
-    const recipe = await Recipe.findById({ _id: req.params.id });
+    const user = await User.findOne({
+      username: req.session.username
+    });
+    const recipe = await Recipe.findById({
+      _id: req.params.id
+    });
     recipe.users.remove(user.id);
     recipe.save();
     user.cookbook.remove(req.params.id);

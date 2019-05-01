@@ -1,2 +1,2 @@
-var parallaxes = document.querySelectorAll('.parallax');
-var parallaxInstances = M.Parallax.init(parallaxes);
+const parallaxes = document.querySelectorAll('.parallax');
+const parallaxInstances = M.Parallax.init(parallaxes);
