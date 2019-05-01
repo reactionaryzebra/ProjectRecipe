@@ -18,7 +18,11 @@
           <% if (currentUser !== users[i].id.toString()) { %>
           <li><a href="/users/<%=users[i].id%>/cookbook"><%=users[i].username%></a></li>
           <form action="/users/<%=users[i].id%>/addfriend" method="post">
-            <button type="submit" class="waves-effect waves-light btn #ff5252 red accent-2" <% if (friends.some( f => f.toString() === users[i]._id.toString()))%> <% { %> disabled <% } %>>add user</button>
+            <button type="submit" class="waves-effect waves-light btn #ff5252 red accent-2"
+              <% if (friends.some( f => f.toString() === users[i]._id.toString())) { %>
+                disabled
+                <% } %>
+            >Add Friend</button>
           </form>
           <% } %>
           <% } %>
